@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+*.pem
+credentials.json
+
+# Generated media & runtime
+temp/
+output/
+*.mp4
+*.mp3
+*.part
+state.json
+assets/bgm/*.mp3
+assets/epic_bgm.mp3
+
+# Logs
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

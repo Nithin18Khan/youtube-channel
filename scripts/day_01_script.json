@@ -1,0 +1,128 @@
+{
+  "day": 1,
+  "title_en": "THE PACT WITH ARES",
+  "title_ml": "ഏറീസുമായുള്ള രക്തക്കരാർ",
+  "hook_en": "BLOOD PACT!",
+  "hook_ml": "രക്തക്കരാർ!",
+  "bgm_volume": 0.22,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "hook",
+      "pace": "hook",
+      "motion": "zoom_in",
+      "title_overlay_en": "BLOOD PACT!",
+      "title_overlay_ml": "രക്തക്കരാർ!",
+      "voiceover_en": "[NARRATOR]: On a battlefield where hope had already died... one Spartan refused to kneel.",
+      "voiceover_ml": "[നറേറ്റർ]: പ്രതീക്ഷ അണഞ്ഞ പോരക്കളത്തിൽ... ഒരു സ്പാർട്ടൻ മുട്ടുകുത്താൻ തയ്യാറായില്ല.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, Kratos kneeling on muddy battlefield bleeding while enemy spears surround him, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 2,
+      "type": "action",
+      "pace": "action",
+      "motion": "tracking_shot",
+      "voiceover_en": "[KRATOS]: Ares! I am broken... but I am not finished! Destroy my enemies, and my soul is yours!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: ഏറീസ്! ഞാൻ ഒടുങ്ങിയ മനുഷ്യനെ... എന്നാലും ഇനി നിൽക്കില്ല! എന്റെ ശത്രുക്കളെ ഇല്ലാതാക്കൂ... ആത്മാവ് നിന്റെതാകട്ടെ!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, Kratos angry face shouting at the sky with rain and blood on skin, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 3,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "tracking_shot",
+      "voiceover_en": "[NARRATOR]: The sky tore open. Fire answered before mercy ever could.",
+      "voiceover_ml": "[നറേറ്റർ]: ആകാശം പൊട്ടി വിടർന്നു. കരുണ വരുന്നതിന് മുൻപ്... തീ ഉത്തരം പറഞ്ഞു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, giant fiery silhouette of Ares descending from burning red clouds above the battlefield, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 4,
+      "type": "action",
+      "pace": "action",
+      "motion": "pan_left",
+      "voiceover_en": "[ARES]: Your oath is accepted, Ghost of Sparta! Take my blades... and leave nothing standing!",
+      "voiceover_ml": "[ഏറീസ്]: നിന്റെ പ്രതിജ്ഞ ഞാൻ സ്വീകരിച്ചു, സ്പാർട്ടയുടെ പ്രേതമേ! എന്റെ വാളുകൾ എടുത്ത്... ഒന്നും നിൽക്കരുത്, എല്ലാം തകർക്ക്!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, close up of Blades of Chaos burning with fire wrapping around Kratos arms, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 5,
+      "type": "action",
+      "pace": "action",
+      "motion": "whip_pan",
+      "voiceover_en": "[NARRATOR]: Chains of chaos wrapped his arms like a crown of damnation.",
+      "voiceover_ml": "[നറേറ്റർ]: കോപത്തിന്റെ ചങ്ങലകൾ... ശാപം പോലെ അയാളുടെ കൈകൾ ചുറ്റിപ്പിടിച്ചു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, slow motion action shot of Kratos swinging flaming chain blades cutting through enemy soldiers, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 6,
+      "type": "action",
+      "pace": "action",
+      "motion": "whip_pan",
+      "voiceover_en": "[KRATOS]: Then let them burn! Let them all burn!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: അപ്പോൾ കത്തിക്കട്ടെ! എല്ലാം തീക്കുഴമ്പാക്കട്ടെ!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, barbarian king falling backwards as fiery blades strike his armor in explosive impact, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 7,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "zoom_in",
+      "voiceover_en": "[NARRATOR]: Villages fell. Screams became his lullaby. The man died that night... but the weapon was born.",
+      "voiceover_ml": "[നറേറ്റർ]: ഗ്രാമങ്ങൾ താഴേക്ക് വീണു. കരച്ചിൽ അയാളുടെ ഉറക്കഗാനമായി. ആ രാത്രി മനുഷ്യൻ മരിച്ചു... പക്ഷേ ആയുധം പിറന്നു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, low angle tracking shot of Kratos standing atop mountain of fallen warriors under red sky, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 8,
+      "type": "action",
+      "pace": "action",
+      "motion": "whip_pan",
+      "voiceover_en": "[ARES]: Again, my champion! Again!",
+      "voiceover_ml": "[ഏറീസ്]: വീണ്ടും, എന്റെ യോദ്ധാ! വീണ്ടും!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, close up of Kratos glowing red eyes in dark shadow with ash on face, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 9,
+      "type": "action",
+      "pace": "action",
+      "motion": "tracking_shot",
+      "voiceover_en": "[KRATOS]: I obey... for now.",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: ഞാൻ അനുസരിക്കും... ഇപ്പോഴേക്ക്.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, fiery chains glowing red hot pulling tight around Kratos forearms with smoke rising, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 10,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "tracking_shot",
+      "voiceover_en": "[NARRATOR]: He did not know it yet... but Greece had just created its own apocalypse.",
+      "voiceover_ml": "[നറേറ്റർ]: അയാൾക്ക് അറിയില്ലായിരുന്നു... ഗ്രീസ് തന്നെ തന്റെ വിനാശത്തിലേക്ക് കാൽവെച്ചു കൊണ്ടിരിക്കുകയായിരുന്നു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, cinematic camera tilt up towards towering God of War Ares standing in storm clouds holding burning sword, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 11,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "pan_right",
+      "voiceover_en": "[NARRATOR]: The Ghost of Sparta was forged in fire... and Greece would never forget his name.",
+      "voiceover_ml": "[നറേറ്റർ]: തീയിൽ കെട്ടിപ്പണിത്താണ് സ്പാർട്ടയുടെ പ്രേതം... ആ പേര് ഗ്രീസ് ഒരിക്കലും മറക്കില്ല.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, wide epic shot of burning Spartan battlefield at dusk with ash falling like snow, glowing fiery blades of chaos, volumetric smoke, dramatic cinematic lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 12,
+      "type": "hook",
+      "pace": "hook",
+      "motion": "zoom_in",
+      "title_overlay_en": "THE GHOST RISES",
+      "title_overlay_ml": "പ്രേതം ഉണരുന്നു",
+      "voiceover_en": "[NARRATOR]: This is only the beginning. The pact with Ares... has been sealed in blood.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇതൊരു തുടക്കം മാത്രം. ഏറീസുമായുള്ള കരാർ... രക്തത്തിൽ അടയാളപ്പെടുത്തി.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, heroic low angle Kratos walking away from camera through fire and smoke holding Blades of Chaos, glowing embers, epic movie poster composition, volumetric smoke, 8k resolution"
+    }
+  ]
+}
