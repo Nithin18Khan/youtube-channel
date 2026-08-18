@@ -25,5 +25,10 @@
     "default_timezone": "Asia/Kolkata",
     "cron_utc": "0 13 * * *",
     "cron_note": "13:00 UTC = 6:30 PM IST — peak India evening watch time for gaming"
+  },
+  "upload_mode": {
+    "single_channel": true,
+    "primary_channel": "malayalam",
+    "note": "Both EN + ML videos upload to Malayalam channel; re-upload EN to English channel manually in Studio"
   }
 }

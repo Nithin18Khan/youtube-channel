@@ -211,7 +211,7 @@ BGM_CUE_CONFIG: dict[str, dict[str, Any]] = {
 BGM_CUE_BY_SCENE_TYPE = {
     "hook": "epic_hook",
     "action": "combat",
-    "establishing": "atmospheric",
+    "establishing": "combat",
 }
 
 VOICE_EN = "en-US-ChristopherNeural"
@@ -230,6 +230,8 @@ BGM_CROSSFADE_SEC = 0.85
 VIDEO_WIDTH = 1080
 VIDEO_HEIGHT = 1920
 VIDEO_FPS = 24
+THUMBNAIL_WIDTH = 1280
+THUMBNAIL_HEIGHT = 720
 SCENE_COUNT_MIN = 10
 SCENE_COUNT_MAX = 12
 IMAGE_DOWNLOAD_RETRIES = 3
@@ -251,6 +253,7 @@ SUBTITLE_FONT_SIZE_ML = 44
 SUBTITLE_MAX_LINES = 3
 SUBTITLE_BOTTOM_PADDING = 36
 MALAYALAM_FONT_BUNDLED = BASE_DIR / "assets" / "fonts" / "NotoSansMalayalam-Regular.ttf"
+MALAYALAM_FONT_BOLD = BASE_DIR / "assets" / "fonts" / "NotoSansMalayalam-Bold.ttf"
 
 # Legacy flat-script episodes still use a fixed image count.
 IMAGE_COUNT = 10
@@ -477,9 +480,15 @@ def _clamp_bgm_volume(value: float | None) -> float:
 
 def resolve_bgm_cue(scene: dict[str, Any]) -> str:
     explicit = scene.get("bgm_cue")
-    if explicit and explicit in BGM_CUE_CONFIG:
-        return explicit
-    return BGM_CUE_BY_SCENE_TYPE.get(scene.get("type", ""), "default")
+    if explicit:
+        if explicit == "atmospheric":
+            return "combat"
+        if explicit in BGM_CUE_CONFIG:
+            return explicit
+    cue = BGM_CUE_BY_SCENE_TYPE.get(scene.get("type", ""), "default")
+    if cue == "atmospheric":
+        return "combat"
+    return cue
 
 
 def _normalize_scene(raw_scene: dict[str, Any], episode: dict[str, Any], index: int) -> dict[str, Any]:
@@ -704,24 +713,28 @@ def _parse_dialogue_lines(raw: str) -> list[tuple[str, str]]:
 
 
 def _build_gemini_malayalam_request(raw_text: str) -> tuple[str, list[dict[str, str]]]:
+    """Southern Kerala cinematic story-narration style (kathaprasangam meets trailer)."""
+    style = (
+        "You are a master Malayalam story narrator from South Kerala (Travancore-Kollam style). "
+        "Deliver like a gripping midnight kathaprasangam: warm emotional tone, clear native "
+        "Malayalam pronunciation, natural pauses at commas and ellipses, rising drama on hooks, "
+        "and soft landing on emotional lines. Avoid robotic reading. Sound human, cinematic, "
+        "and rooted in Kerala storytelling tradition."
+    )
     lines = _parse_dialogue_lines(raw_text)
     for bad, good in ML_PHRASE_FIXES.items():
         lines = [(name, text.replace(bad, good)) for name, text in lines]
 
     if len(lines) == 1:
         _, text = lines[0]
-        prompt = (
-            "Speak in natural cinematic Malayalam (India) with clear native pronunciation, "
-            "emotional movie-trailer delivery, and correct word stress:\n\n"
-            f"{text}"
-        )
+        prompt = f"{style}\n\nNarrate this Malayalam story passage:\n\n{text}"
         return prompt, [{"voice": GEMINI_ML_VOICE}]
 
     if len(lines) == 2:
         (n1, t1), (n2, t2) = lines
         prompt = (
-            "TTS the following Malayalam cinematic dialogue with dramatic God of War trailer energy. "
-            "Use clear native Malayalam pronunciation:\n\n"
+            f"{style}\n\n"
+            "Perform this Malayalam cinematic dialogue with dramatic story energy:\n\n"
             f"{n1}: {t1}\n{n2}: {t2}"
         )
         return prompt, [
@@ -730,11 +743,7 @@ def _build_gemini_malayalam_request(raw_text: str) -> tuple[str, list[dict[str, 
         ]
 
     merged = " ".join(text for _, text in lines)
-    prompt = (
-        "Speak in natural cinematic Malayalam (India) with clear native pronunciation, "
-        "emotional movie-trailer delivery:\n\n"
-        f"{merged}"
-    )
+    prompt = f"{style}\n\nNarrate this Malayalam story passage:\n\n{merged}"
     return prompt, [{"voice": GEMINI_ML_VOICE}]
 
 
@@ -1342,6 +1351,117 @@ def write_thumbnail_txt_files(episode: dict[str, Any], day: int) -> tuple[Path, 
     return en_path, ml_path
 
 
+def _thumbnail_overlay_texts(episode: dict[str, Any], lang: str) -> tuple[str, str]:
+    is_ml = lang == "ml"
+    title = episode.get("title_ml" if is_ml else "title", episode.get("title", ""))
+    hook = episode.get("hook_ml" if is_ml else "hook_en", "")
+    scenes = episode.get("scenes", [])
+    hook_scene = _first_hook_scene(scenes) if scenes else None
+    primary = hook
+    if hook_scene:
+        overlay = hook_scene.get(f"title_overlay_{lang}", "")
+        if overlay:
+            primary = overlay
+    if not primary:
+        primary = title
+    secondary = title if primary != title else ""
+    return primary, secondary
+
+
+def _find_hook_image(day: int, scenes: list[dict[str, Any]] | None = None) -> Path | None:
+    candidates: list[Path] = []
+    if scenes:
+        hook = _first_hook_scene(scenes)
+        if hook:
+            candidates.append(
+                TEMP_IMAGES_DIR / f"day{day:02d}_scene{int(hook['id']):02d}_shot01.jpg"
+            )
+    candidates.extend(
+        (
+            TEMP_IMAGES_DIR / f"day{day:02d}_scene01_shot01.jpg",
+            TEMP_IMAGES_DIR / f"day{day:02d}_img00.jpg",
+        )
+    )
+    for path in candidates:
+        if path.is_file():
+            return path
+    matches = sorted(TEMP_IMAGES_DIR.glob(f"day{day:02d}_*.jpg"))
+    return matches[0] if matches else None
+
+
+def generate_thumbnail_jpg(
+    day: int,
+    lang: str,
+    image_path: Path,
+    primary: str,
+    secondary: str = "",
+) -> Path:
+    """Build 1280x720 YouTube thumbnail JPG from hook frame + CTR text."""
+    suffix = "Malayalam" if lang == "ml" else "English"
+    out_path = OUTPUT_DIR / f"Day_{day}_{suffix}_thumbnail.jpg"
+    img = Image.open(image_path).convert("RGB")
+    tw, th = THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT
+    iw, ih = img.size
+    scale = max(tw / iw, th / ih)
+    nw, nh = int(iw * scale), int(ih * scale)
+    img = img.resize((nw, nh), Image.Resampling.LANCZOS)
+    left = max((nw - tw) // 2, 0)
+    top = max((nh - th) // 2, 0)
+    img = img.crop((left, top, left + tw, top + th))
+
+    shade = Image.new("RGBA", (tw, th), (0, 0, 0, 0))
+    shade_draw = ImageDraw.Draw(shade)
+    for y in range(th // 2, th):
+        alpha = int(200 * (y - th // 2) / max(th // 2, 1))
+        shade_draw.line([(0, y), (tw, y)], fill=(0, 0, 0, alpha))
+    canvas = Image.alpha_composite(img.convert("RGBA"), shade)
+    draw = ImageDraw.Draw(canvas)
+
+    primary_text = primary if lang == "ml" else primary.upper()
+    font_primary = _load_title_font(78 if lang == "ml" else 88, lang)
+    font_secondary = _load_subtitle_font(lang, 36 if lang == "ml" else 40)
+    x = 52
+    y_primary = th - 170
+    stroke = 5
+    draw.text(
+        (x + 3, y_primary + 3),
+        primary_text,
+        font=font_primary,
+        fill=(0, 0, 0, 210),
+    )
+    draw.text(
+        (x, y_primary),
+        primary_text,
+        font=font_primary,
+        fill=(255, 255, 255, 255),
+        stroke_width=stroke,
+        stroke_fill=(180, 20, 20, 255),
+    )
+    if secondary:
+        draw.text(
+            (x, y_primary + (78 if lang == "ml" else 88) + 10),
+            secondary,
+            font=font_secondary,
+            fill=(230, 230, 230, 255),
+        )
+    canvas.convert("RGB").save(out_path, "JPEG", quality=92)
+    log.info("Thumbnail JPG saved: %s", out_path.name)
+    return out_path
+
+
+def write_thumbnail_jpg_files(
+    episode: dict[str, Any], day: int, hook_image: Path | None
+) -> tuple[Path | None, Path | None]:
+    if hook_image is None or not hook_image.is_file():
+        log.warning("No hook image for Day %s thumbnails — JPG skipped", day)
+        return None, None
+    en_primary, en_secondary = _thumbnail_overlay_texts(episode, "en")
+    ml_primary, ml_secondary = _thumbnail_overlay_texts(episode, "ml")
+    en_jpg = generate_thumbnail_jpg(day, "en", hook_image, en_primary, en_secondary)
+    ml_jpg = generate_thumbnail_jpg(day, "ml", hook_image, ml_primary, ml_secondary)
+    return en_jpg, ml_jpg
+
+
 def _system_font_dirs() -> list[Path]:
     dirs: list[Path] = []
     windir = os.environ.get("WINDIR")
@@ -1358,14 +1478,18 @@ def _system_font_dirs() -> list[Path]:
     return dirs
 
 
-def _malayalam_font_paths() -> list[Path]:
+def _malayalam_font_paths(*, bold: bool = False) -> list[Path]:
     """Paths that actually include Malayalam glyphs (never DejaVu/Arial)."""
-    paths: list[Path] = [MALAYALAM_FONT_BUNDLED]
+    paths: list[Path] = []
+    if bold and MALAYALAM_FONT_BOLD.is_file():
+        paths.append(MALAYALAM_FONT_BOLD)
+    paths.append(MALAYALAM_FONT_BUNDLED)
     names = (
+        "NotoSansMalayalam-Bold.ttf" if bold else "NotoSansMalayalam-Regular.ttf",
         "NotoSansMalayalam-Regular.ttf",
         "NotoSansMalayalam-Bold.ttf",
-        "Nirmala.ttf",
         "NirmalaB.ttf",
+        "Nirmala.ttf",
         "Kartika.ttf",
     )
     for font_dir in _system_font_dirs():
@@ -1374,31 +1498,28 @@ def _malayalam_font_paths() -> list[Path]:
     return paths
 
 
+def _load_malayalam_font(size: int, *, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    for font_path in _malayalam_font_paths(bold=bold):
+        if not font_path.is_file():
+            continue
+        try:
+            font = ImageFont.truetype(str(font_path), size)
+            log.info("Malayalam font loaded: %s", font_path.name)
+            return font
+        except OSError:
+            continue
+    raise RuntimeError(f"No Malayalam font found — install {MALAYALAM_FONT_BUNDLED}")
+
+
 def _load_subtitle_font(lang: str, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     if lang == "ml":
-        for font_path in _malayalam_font_paths():
-            if not font_path.is_file():
-                continue
-            try:
-                font = ImageFont.truetype(str(font_path), size)
-                log.debug("Malayalam subtitle font: %s", font_path)
-                return font
-            except OSError:
-                continue
-        log.warning(
-            "No Malayalam font found — subtitles may show square blocks. "
-            "Expected bundled font at %s",
-            MALAYALAM_FONT_BUNDLED,
-        )
-        candidates = ("Nirmala UI", "Kartika")
-    else:
-        candidates = ("arial.ttf", "Arial.ttf", "DejaVuSans-Bold.ttf", "DejaVuSans.ttf")
-    for font_name in candidates:
+        return _load_malayalam_font(size, bold=False)
+    for font_name in ("arial.ttf", "Arial.ttf", "DejaVuSans-Bold.ttf", "DejaVuSans.ttf"):
         try:
             return ImageFont.truetype(font_name, size)
         except OSError:
             continue
-    return _load_title_font(size)
+    return _load_title_font(size, "en")
 
 
 def _wrap_subtitle_lines(
@@ -1472,7 +1593,12 @@ def _blend_rgba_overlay(frame: np.ndarray, overlay: np.ndarray) -> np.ndarray:
     return (frame * (1.0 - alpha) + rgb * alpha).astype(np.uint8)
 
 
-def _load_title_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+def _load_title_font(size: int, lang: str = "en") -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    if lang == "ml":
+        try:
+            return _load_malayalam_font(size, bold=True)
+        except RuntimeError:
+            return _load_malayalam_font(size, bold=False)
     for font_name in ("arialbd.ttf", "Arial Bold.ttf", "DejaVuSans-Bold.ttf"):
         try:
             return ImageFont.truetype(font_name, size)
@@ -1481,33 +1607,41 @@ def _load_title_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     return ImageFont.load_default()
 
 
-def _make_title_overlay(text: str, width: int, height: int) -> np.ndarray | None:
+def _make_title_overlay(text: str, width: int, height: int, lang: str = "en") -> np.ndarray | None:
     if not text:
         return None
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
-    font = _load_title_font(82)
+    font_size = 68 if lang == "ml" else 82
+    font = _load_title_font(font_size, lang)
     stroke = 6
     shadow = 4
-    bbox = draw.textbbox((0, 0), text, font=font, stroke_width=stroke)
-    text_w = bbox[2] - bbox[0]
-    text_h = bbox[3] - bbox[1]
-    x = (width - text_w) // 2
-    y = (height - text_h) // 2
-    draw.text(
-        (x + shadow, y + shadow),
-        text,
-        font=font,
-        fill=(0, 0, 0, 170),
-    )
-    draw.text(
-        (x, y),
-        text,
-        font=font,
-        fill=(255, 255, 255, 255),
-        stroke_width=stroke,
-        stroke_fill=(180, 20, 20, 255),
-    )
+    max_width = int(width * 0.9)
+    lines = _wrap_subtitle_lines(text, font, max_width) if lang == "ml" else [text]
+    if not lines:
+        lines = [text]
+    line_height = font_size + 8
+    block_height = len(lines) * line_height
+    y_start = (height - block_height) // 2
+    for line_idx, line in enumerate(lines):
+        bbox = draw.textbbox((0, 0), line, font=font, stroke_width=stroke)
+        text_w = bbox[2] - bbox[0]
+        x = (width - text_w) // 2
+        y = y_start + line_idx * line_height
+        draw.text(
+            (x + shadow, y + shadow),
+            line,
+            font=font,
+            fill=(0, 0, 0, 170),
+        )
+        draw.text(
+            (x, y),
+            line,
+            font=font,
+            fill=(255, 255, 255, 255),
+            stroke_width=stroke,
+            stroke_fill=(180, 20, 20, 255),
+        )
     return np.array(overlay)
 
 
@@ -1528,7 +1662,7 @@ def create_cinematic_clip(
     th = content_h
     scale_cover = max(tw / iw, th / ih)
     zoom_delta = KEN_BURNS_ZOOM_END - 1.0
-    title_overlay = _make_title_overlay(overlay_text, tw, th) if overlay_text else None
+    title_overlay = _make_title_overlay(overlay_text, tw, th, subtitle_lang) if overlay_text else None
     subtitle_overlay = (
         _make_subtitle_overlay(subtitle_text, tw, th, subtitle_lang) if subtitle_text else None
     )
@@ -1986,6 +2120,7 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
         concatenate_audio_files(ml_scene_paths, ml_narration)
 
         scene_shot_plans = plan_and_download_scene_shots(day, scenes, en_scene_paths)
+        write_thumbnail_jpg_files(episode, day, _find_hook_image(day, scenes))
 
         _, staged_en, staged_ml, staged_en_scenes, staged_ml_scenes = stage_episode_assets(
             day,
@@ -2031,6 +2166,8 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
             )
     else:
         image_paths = download_episode_images(episode)
+        write_thumbnail_jpg_files(episode, day, _find_hook_image(day, episode.get("scenes")))
+
         en_audio = TEMP_AUDIO_DIR / f"day{day:02d}_en.mp3"
         ml_audio = TEMP_AUDIO_DIR / f"day{day:02d}_ml.mp3"
         await generate_audio(

@@ -52,7 +52,7 @@ jobs:
         if: github.event.inputs.skip_render != 'true'
         run: python main.py
 
-      - name: Upload to YouTube (EN + ML channels)
+      - name: Upload to YouTube (EN + ML videos)
         run: python upload_day.py --privacy public
 
       - name: Commit pipeline state

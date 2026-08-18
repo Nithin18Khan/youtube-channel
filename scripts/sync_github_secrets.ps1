@@ -11,20 +11,31 @@ function Set-GhSecret($Name, $Value) {
     Write-Host "Set secret: $Name"
 }
 
-$ClientPath = Join-Path $Root "credentials\youtube_client.json"
-if (-not (Test-Path $ClientPath)) { throw "Missing $ClientPath" }
+$ClientCandidates = @(
+    (Join-Path $Root "credentials\youtube_client_web.json"),
+    (Join-Path $Root "credentials\youtube_client_v2.json"),
+    (Join-Path $Root "credentials\youtube_client.json")
+)
+$ClientPath = $ClientCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+if (-not $ClientPath) { throw "Missing OAuth client JSON in credentials/" }
 $Client = Get-Content $ClientPath -Raw | ConvertFrom-Json
 $Block = if ($Client.installed) { $Client.installed } elseif ($Client.web) { $Client.web } else { $Client }
 Set-GhSecret "YOUTUBE_CLIENT_ID" $Block.client_id
 Set-GhSecret "YOUTUBE_CLIENT_SECRET" $Block.client_secret
 
-foreach ($ch in @("english", "malayalam")) {
-    $TokenPath = Join-Path $Root "credentials\token_$ch.json"
-    if (-not (Test-Path $TokenPath)) { throw "Missing $TokenPath — run setup_youtube_oauth.py --channel $ch" }
-    $Token = (Get-Content $TokenPath -Raw | ConvertFrom-Json).refresh_token
-    $SecretName = if ($ch -eq "english") { "YOUTUBE_REFRESH_TOKEN_ENGLISH" } else { "YOUTUBE_REFRESH_TOKEN_MALAYALAM" }
-    Set-GhSecret $SecretName $Token
+$MalayalamPath = Join-Path $Root "credentials\token_malayalam.json"
+if (-not (Test-Path $MalayalamPath)) { throw "Missing $MalayalamPath - run OAuth Playground + import_youtube_refresh_token.py" }
+$MalayalamToken = (Get-Content $MalayalamPath -Raw | ConvertFrom-Json).refresh_token
+Set-GhSecret "YOUTUBE_REFRESH_TOKEN_MALAYALAM" $MalayalamToken
+
+$EnglishPath = Join-Path $Root "credentials\token_english.json"
+if (Test-Path $EnglishPath) {
+    $EnglishToken = (Get-Content $EnglishPath -Raw | ConvertFrom-Json).refresh_token
+} else {
+    Write-Host "No token_english.json - using Malayalam token for both (single-channel mode)"
+    $EnglishToken = $MalayalamToken
 }
+Set-GhSecret "YOUTUBE_REFRESH_TOKEN_ENGLISH" $EnglishToken
 
 $EnvPath = Join-Path $Root ".env"
 if (Test-Path $EnvPath) {

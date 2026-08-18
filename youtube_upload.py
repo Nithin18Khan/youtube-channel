@@ -56,6 +56,14 @@ def load_config() -> dict[str, Any]:
         return json.load(fh)
 
 
+def is_single_channel_mode() -> bool:
+    return bool(load_config().get("upload_mode", {}).get("single_channel"))
+
+
+def primary_channel_key() -> str:
+    return load_config().get("upload_mode", {}).get("primary_channel", "malayalam")
+
+
 def _load_client_oauth() -> tuple[str, str]:
     client_id = os.environ.get("YOUTUBE_CLIENT_ID", "").strip()
     client_secret = os.environ.get("YOUTUBE_CLIENT_SECRET", "").strip()
@@ -63,6 +71,11 @@ def _load_client_oauth() -> tuple[str, str]:
         return client_id, client_secret
 
     client_path = BASE_DIR / "credentials" / "youtube_client.json"
+    for name in ("youtube_client_web.json", "youtube_client_v2.json", "youtube_client.json"):
+        candidate = BASE_DIR / "credentials" / name
+        if candidate.exists():
+            client_path = candidate
+            break
     if client_path.exists():
         with client_path.open(encoding="utf-8") as fh:
             data = json.load(fh)
@@ -74,7 +87,12 @@ def _load_client_oauth() -> tuple[str, str]:
     )
 
 
-def _load_refresh_token(channel_key: str) -> str:
+def _token_path(channel_key: str) -> Path:
+    return BASE_DIR / "credentials" / f"token_{channel_key}.json"
+
+
+def _load_token_meta(channel_key: str) -> tuple[str, str | None, str | None]:
+    """Return refresh_token and optional channel_id/title saved at OAuth time."""
     env_map = {
         "english": ("YOUTUBE_REFRESH_TOKEN_ENGLISH", "YOUTUBE_REFRESH_TOKEN_EN"),
         "malayalam": ("YOUTUBE_REFRESH_TOKEN_MALAYALAM", "YOUTUBE_REFRESH_TOKEN_ML"),
@@ -82,19 +100,26 @@ def _load_refresh_token(channel_key: str) -> str:
     for env_name in env_map.get(channel_key, ()):
         token = os.environ.get(env_name, "").strip()
         if token:
-            return token
+            return token, None, None
 
-    token_path = BASE_DIR / "credentials" / f"token_{channel_key}.json"
+    token_path = _token_path(channel_key)
     if token_path.exists():
         with token_path.open(encoding="utf-8") as fh:
             data = json.load(fh)
         token = data.get("refresh_token", "").strip()
         if token:
-            return token
+            return token, data.get("channel_id"), data.get("channel_title")
 
     raise RuntimeError(
         f"Missing refresh token for {channel_key} — run scripts/setup_youtube_oauth.py --channel {channel_key}"
     )
+
+
+def _load_refresh_token(channel_key: str) -> str:
+    if is_single_channel_mode():
+        channel_key = primary_channel_key()
+    token, _, _ = _load_token_meta(channel_key)
+    return token
 
 
 def load_upload_state() -> dict[str, Any]:
@@ -240,10 +265,69 @@ def _build_youtube_service(refresh_token: str):
     return build(YOUTUBE_API_SERVICE, YOUTUBE_API_VERSION, credentials=creds)
 
 
+def get_authenticated_channel(youtube) -> dict[str, str]:
+    """Return {id, title} for the channel tied to this OAuth token."""
+    resp = (
+        youtube.channels()
+        .list(part="snippet", mine=True, maxResults=1)
+        .execute()
+    )
+    items = resp.get("items", [])
+    if not items:
+        raise RuntimeError("OAuth token has no YouTube channel — pick a channel during sign-in")
+    ch = items[0]
+    return {
+        "id": ch["id"],
+        "title": ch["snippet"]["title"],
+    }
+
+
+def verify_token_channel(youtube, channel_key: str) -> dict[str, str]:
+    """Ensure OAuth token matches config channel ID (uploads always go to token channel)."""
+    config = load_config()
+    expected = config["channels"][channel_key]
+    expected_id = expected["id"]
+    _, saved_id, saved_title = _load_token_meta(channel_key)
+
+    if saved_id:
+        actual = {"id": saved_id, "title": saved_title or saved_id}
+    else:
+        actual = get_authenticated_channel(youtube)
+
+    if actual["id"] != expected_id:
+        raise RuntimeError(
+            f"Wrong channel for {channel_key}! "
+            f"Token is authorized for '{actual['title']}' ({actual['id']}), "
+            f"but config expects {expected_id}. "
+            f"Re-run: python scripts/setup_youtube_oauth.py --channel {channel_key} "
+            f"and select the correct channel in the browser."
+        )
+    log.info("Channel verified %s: %s (%s)", channel_key, actual["title"], actual["id"])
+    return actual
+
+
+def upload_thumbnail(youtube, video_id: str, thumb_path: Path) -> None:
+    if not thumb_path.is_file():
+        log.warning("No thumbnail JPG: %s", thumb_path)
+        return
+    from googleapiclient.http import MediaFileUpload
+
+    media = MediaFileUpload(str(thumb_path), mimetype="image/jpeg", resumable=False)
+    youtube.thumbnails().set(videoId=video_id, media_body=media).execute()
+    log.info("Thumbnail uploaded: %s → %s", thumb_path.name, video_id)
+
+
+def _thumbnail_jpg_path(day: int, lang: str) -> Path:
+    suffix = "Malayalam" if lang == "ml" else "English"
+    return OUTPUT_DIR / f"Day_{day}_{suffix}_thumbnail.jpg"
+
+
 def upload_captions(youtube, video_id: str, srt_path: Path, language: str) -> None:
     if not srt_path.exists():
         log.warning("No subtitle file: %s", srt_path)
         return
+    from googleapiclient.http import MediaFileUpload
+
     body = {
         "snippet": {
             "videoId": video_id,
@@ -252,12 +336,12 @@ def upload_captions(youtube, video_id: str, srt_path: Path, language: str) -> No
             "isDraft": False,
         }
     }
-    with srt_path.open("rb") as fh:
-        youtube.captions().insert(
-            part="snippet",
-            body=body,
-            media_body=fh,
-        ).execute()
+    media = MediaFileUpload(str(srt_path), mimetype="application/octet-stream", resumable=False)
+    youtube.captions().insert(
+        part="snippet",
+        body=body,
+        media_body=media,
+    ).execute()
     log.info("Captions uploaded (%s): %s", language, srt_path.name)
 
 
@@ -279,6 +363,8 @@ def upload_video(
     upload_cfg = config["upload"]
 
     youtube = _build_youtube_service(refresh_token)
+    verify_key = primary_channel_key() if is_single_channel_mode() else channel_key
+    verify_token_channel(youtube, verify_key)
     title = build_title(day, lang)
     description = build_description(day, lang)
     tags = build_tags(lang)
@@ -300,7 +386,13 @@ def upload_video(
         },
     }
 
-    log.info("Uploading Day %s %s → channel %s", day, lang, channel["id"])
+    log.info(
+        "Uploading Day %s %s → channel %s%s",
+        day,
+        lang,
+        config["channels"][verify_key]["id"],
+        " (single-channel mode)" if is_single_channel_mode() else "",
+    )
     log.info("Title: %s", title)
 
     from googleapiclient.http import MediaFileUpload
@@ -327,6 +419,12 @@ def upload_video(
     except Exception as exc:
         log.warning("Caption upload failed (video still live): %s", exc)
 
+    thumb_path = _thumbnail_jpg_path(day, lang)
+    try:
+        upload_thumbnail(youtube, video_id, thumb_path)
+    except Exception as exc:
+        log.warning("Thumbnail upload failed (video still live): %s", exc)
+
     return video_id
 
 
@@ -348,19 +446,49 @@ def is_uploaded(day: int, lang: str) -> bool:
     return lang in state.get("uploads", {}).get(str(day), {})
 
 
-def upload_day_both_channels(day: int, privacy_status: str = "public") -> dict[str, str]:
-    """Upload English + Malayalam for one day to separate channels."""
-    en_token = _load_refresh_token("english")
-    ml_token = _load_refresh_token("malayalam")
+def upload_day_thumbnails_only(day: int) -> dict[str, str]:
+    """Upload thumbnail JPGs to already-live videos for one day."""
+    token = _load_refresh_token(primary_channel_key())
     _load_client_oauth()
+    state = load_upload_state()
+    day_uploads = state.get("uploads", {}).get(str(day), {})
+    if not day_uploads:
+        raise RuntimeError(f"Day {day} not in upload_state — upload videos first")
+
+    results: dict[str, str] = {}
+    youtube = _build_youtube_service(token)
+    for lang in ("en", "ml"):
+        video_id = day_uploads.get(lang, {}).get("video_id")
+        if not video_id:
+            raise RuntimeError(f"No video_id for Day {day} {lang}")
+        thumb = _thumbnail_jpg_path(day, lang)
+        upload_thumbnail(youtube, video_id, thumb)
+        results[lang] = video_id
+    return results
+
+
+def upload_day_both_channels(
+    day: int, privacy_status: str = "public", *, force: bool = False, langs: tuple[str, ...] | None = None
+) -> dict[str, str]:
+    """Upload English + Malayalam for one day (separate channels or single-channel mode)."""
+    token = _load_refresh_token(primary_channel_key())
+    _load_client_oauth()
+    if is_single_channel_mode():
+        log.info(
+            "Single-channel mode: EN + ML → %s (%s)",
+            primary_channel_key(),
+            load_config()["channels"][primary_channel_key()]["id"],
+        )
 
     results: dict[str, str] = {}
     pairs = (
-        ("en", "english", OUTPUT_DIR / f"Day_{day}_English.mp4", en_token),
-        ("ml", "malayalam", OUTPUT_DIR / f"Day_{day}_Malayalam.mp4", ml_token),
+        ("en", "english", OUTPUT_DIR / f"Day_{day}_English.mp4", token),
+        ("ml", "malayalam", OUTPUT_DIR / f"Day_{day}_Malayalam.mp4", token),
     )
     for lang, channel_key, video_path, token in pairs:
-        if is_uploaded(day, lang):
+        if langs and lang not in langs:
+            continue
+        if not force and is_uploaded(day, lang):
             vid = load_upload_state()["uploads"][str(day)][lang]["video_id"]
             log.info("Day %s %s already uploaded (%s), skipping", day, lang, vid)
             results[lang] = vid
