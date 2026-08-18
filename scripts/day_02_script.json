@@ -1,0 +1,127 @@
+{
+  "day": 2,
+  "title_en": "CHAINS OF THE WAR GOD",
+  "title_ml": "യുദ്ധദേവന്റെ ചങ്ങലകൾ",
+  "hook_en": "WAR GOD'S CHAINS!",
+  "hook_ml": "യുദ്ധദേവന്റെ ചങ്ങല!",
+  "bgm_volume": 0.22,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "hook",
+      "pace": "hook",
+      "motion": "zoom_in",
+      "title_overlay_en": "WAR GOD'S CHAINS!",
+      "title_overlay_ml": "യുദ്ധദേവന്റെ ചങ്ങല!",
+      "voiceover_en": "[NARRATOR]: Before dawn, Kratos marched toward a shrine where blood and obedience were carved into stone.",
+      "voiceover_ml": "[നറേറ്റർ]: പ്രഭാതത്തിന് മുമ്പ്, രക്തവും കീഴ്പ്പാടും കല്ലിൽ കൊത്തപ്പെട്ട ഒരു ക്ഷേത്രത്തിലേക്ക് ക്രാറ്റോസ് നടന്നു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, Kratos walking through fog toward ancient Greek war shrine at dawn, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 2,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "tracking_shot",
+      "voiceover_en": "[NARRATOR]: Ares did not ask for prayer. He demanded tribute written in bone and ash.",
+      "voiceover_ml": "[നറേറ്റർ]: ഏറീസ് പ്രാർത്ഥന ചോദിച്ചില്ല. അസ്ഥിയിലും ചാരத்தിലും എഴുതിയ നേർപ്പ് അവൻ ആവശ്യപ്പെട്ടു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, towering statue of Ares inside ruined shrine lit by fire braziers, glowing fiery blades of chaos, dynamic embers flying, dark storm background, volumetric smoke, dramatic cinematic lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 3,
+      "type": "action",
+      "pace": "action",
+      "motion": "pan_left",
+      "voiceover_en": "[ARES]: Ghost of Sparta! Kneel, or be broken by the chains I forged for you!",
+      "voiceover_ml": "[ഏറീസ്]: സ്പാർട്ടയുടെ പ്രേതമേ! മുട്ടുകുത്ത്, അല്ലെങ്കിൽ നിനക്കായി ഞാൻ നിർമ്മിച്ച ചങ്ങലകൾ നിന്നെ തകർക്കും!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, fiery vision of Ares speaking from burning altar, Kratos standing defiant below, glowing fiery blades of chaos, dynamic embers flying, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 4,
+      "type": "action",
+      "pace": "action",
+      "motion": "whip_pan",
+      "voiceover_en": "[KRATOS]: I kneel to no god who feeds on the dead!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: മരിച്ചവരുടെ മാംസം തിന്നുന്ന യാതൊരു ദേവനോടും ഞാൻ മുട്ടുകുത്തില്ല!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, Kratos raising Blades of Chaos against burning shrine altar, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 5,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "zoom_out",
+      "voiceover_en": "[NARRATOR]: Chains of chaos snapped from the dark and wrapped his arms like a crown of war.",
+      "voiceover_ml": "[നറേറ്റർ]: കോപത്തിന്റെ ചങ്ങലകൾ ഇരുട്ടിൽ നിന്ന് പൊട്ടിമുളച്ച്, യുദ്ധത്തിന്റെ കിരീടം പോലെ അയാളുടെ കൈകൾ ചുറ്റിപ്പിടിച്ചു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, chains of chaos wrapping around Kratos forearms in slow motion with sparks, glowing fiery blades of chaos, dynamic embers flying, volumetric smoke, dramatic cinematic lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 6,
+      "type": "action",
+      "pace": "action",
+      "motion": "whip_pan",
+      "voiceover_en": "[ARES]: Then bleed for me again! Prove you are still my weapon!",
+      "voiceover_ml": "[ഏറീസ്]: എന്നാൽ വീണ്ടും എന്റെ പക്ഷത്ത് രക്തം ഒഴുക്കൂ! നീ ഇപ്പോഴും എന്റെ ആയുധമാണെന്ന് തെളിയിക്ക്!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, Kratos battling spectral warriors in shrine courtyard, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 7,
+      "type": "action",
+      "pace": "action",
+      "motion": "tracking_shot",
+      "voiceover_en": "[KRATOS]: I am no weapon. I am the hand that will cut your throne apart!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: ഞാൻ ആയുധമല്ല. നിന്റെ സിംഹാസനം തകർക്കാൻ പോകുന്ന കൈയാണ് ഞാൻ!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, close up Kratos roaring while swinging flaming chain blades, glowing fiery blades of chaos, dynamic embers flying, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 8,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "pan_right",
+      "voiceover_en": "[NARRATOR]: Zeus watched from Olympus. Ares watched from blood. Both believed fear could chain him forever.",
+      "voiceover_ml": "[നറേറ്റർ]: സ്യൂസ് ഓളിമ്പസിൽ നിന്ന് നോക്കി. ഏറീസ് രക്തത്തിൽ നിന്ന് നോക്കി. ഭയം അയാളെ എന്നേക്കും ചങ്ങലയിടുമെന്ന് ഇരുവരും വിശ്വസിച്ചു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, split sky showing Olympus lightning and Ares fire above battlefield shrine, glowing fiery blades of chaos, volumetric smoke, dramatic cinematic lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 9,
+      "type": "action",
+      "pace": "action",
+      "motion": "zoom_in",
+      "voiceover_en": "[NARRATOR]: Lydia and Calliope lived only in memory, yet their voices returned whenever steel grew heavy.",
+      "voiceover_ml": "[നറേറ്റർ]: ലിഡിയയും കാലിയോപ്പിയും ഓർമ്മയിൽ മാത്രം ജീവിച്ചു, എന്നാലും വാൾ കനത്താൽ അവരുടെ ശബ്ദം തിരിച്ചുവന്നു.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, ghostly memory vision of Lydia and Calliope over Kratos shoulder in shrine, glowing fiery blades of chaos, volumetric smoke, dramatic cinematic lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 10,
+      "type": "action",
+      "pace": "action",
+      "motion": "whip_pan",
+      "voiceover_en": "[KRATOS]: Their names are not chains. Your war is!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: അവരുടെ പേരുകൾ ചങ്ങലയല്ല. നിന്റെ യുദ്ധമാണ് ചങ്ങല!",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, Kratos shattering stone chains on shrine floor with blazing blades, glowing fiery blades of chaos, dynamic embers flying, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
+      "complex_action": true
+    },
+    {
+      "id": 11,
+      "type": "establishing",
+      "pace": "establishing",
+      "motion": "tracking_shot",
+      "voiceover_en": "[NARRATOR]: Sparta did not raise a saint. It raised a man who learned to break gods.",
+      "voiceover_ml": "[നറേറ്റർ]: സ്പാർട്ട ഒരു പുണ്യവാനെ ഉയർത്തിയില്ല. ദേവന്മാരെ തകർക്കാൻ പഠിച്ച ഒരു മനുഷ്യനെ ഉയർത്തി.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, wide shot Kratos standing amid broken shrine chains under red dawn sky, glowing fiery blades of chaos, volumetric smoke, dramatic cinematic lighting, depth of field, 8k resolution"
+    },
+    {
+      "id": 12,
+      "type": "hook",
+      "pace": "hook",
+      "motion": "zoom_in",
+      "title_overlay_en": "THE CHAINS BREAK",
+      "title_overlay_ml": "ചങ്ങലകൾ പൊട്ടുന്നു",
+      "voiceover_en": "[NARRATOR]: The war god's chains tighten... but the Ghost of Sparta is only beginning to rise.",
+      "voiceover_ml": "[നറേറ്റർ]: യുദ്ധദേവന്റെ ചങ്ങലകൾ കടുപ്പിക്കുന്നു... പക്ഷേ സ്പാർട്ടയുടെ പ്രേതം ഉയർത്താൻ തുടങ്ങുകയാണ്.",
+      "prompt": "God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, heroic low angle Kratos walking away from burning shrine holding Blades of Chaos, glowing embers, epic movie poster composition, volumetric smoke, 8k resolution"
+    }
+  ]
+}

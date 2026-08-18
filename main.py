@@ -428,6 +428,17 @@ def get_audio_duration(audio_path: Path) -> float:
         clip.close()
 
 
+ML_NAME_FIXES: dict[str, str] = {
+    "ജോടുന്ഹൈം": "ജോടൺഹൈം",
+    "ജോടുന്ഹൈമിലെ": "ജോടൺഹൈമിലെ",
+    "ഏറസ്": "ഏറീസ്",
+    "കരാതോസ്": "ക്രാറ്റോസ്",
+    "ക്രatosസ്": "ക്രാറ്റോസ്",
+    "ലെവിയാതൻ": "ലെവിയാഥാൻ",
+    "യോടൻ": "യോടൻ",
+    "ഗ്രീക്ക്": "ഗ്രീക്ക്",
+}
+
 ML_PHRASE_FIXES: dict[str, str] = {
     "നിർമ്മിക്കപ്പെട്ടു": "കെട്ടിപ്പണിത്തു",
     "സൃഷ്ടിച്ചു കൊണ്ടിരിക്കുകയാണെന്ന്": "സൃഷ്ടിച്ചുകൊണ്ടിരിക്കുകയായിരുന്നു",
@@ -443,6 +454,33 @@ ML_PHRASE_FIXES: dict[str, str] = {
 }
 
 
+def _apply_malayalam_text_fixes(text: str) -> str:
+    for bad, good in ML_NAME_FIXES.items():
+        text = text.replace(bad, good)
+    for bad, good in ML_PHRASE_FIXES.items():
+        text = text.replace(bad, good)
+    return text
+
+
+def _dedupe_repeated_sentences(text: str) -> str:
+    """Remove accidental copy-paste loops in legacy embedded scripts."""
+    parts = re.split(r"(?<=[.!?])\s+", text.strip())
+    if len(parts) < 4:
+        return text.strip()
+    seen_tail: set[str] = set()
+    trimmed: list[str] = []
+    for part in parts:
+        key = part.strip()
+        if not key:
+            continue
+        if len(trimmed) >= 2 and key in seen_tail:
+            continue
+        trimmed.append(key)
+        if len(trimmed) >= 2:
+            seen_tail.add(key)
+    return " ".join(trimmed)
+
+
 def prepare_english_tts(text: str) -> str:
     """Strip speaker tags for English narration."""
     cleaned = SPEAKER_TAG_PATTERN.sub("", text)
@@ -452,11 +490,10 @@ def prepare_english_tts(text: str) -> str:
 
 
 def prepare_malayalam_tts(text: str) -> str:
-    """Clean Malayalam for natural Edge-TTS — preserve pauses, fix literal phrasing."""
+    """Clean Malayalam for TTS/subtitles — preserve pauses, fix names and phrasing."""
     cleaned = SPEAKER_TAG_PATTERN.sub("", text)
     cleaned = DEVANAGARI_PATTERN.sub("", cleaned)
-    for bad, good in ML_PHRASE_FIXES.items():
-        cleaned = cleaned.replace(bad, good)
+    cleaned = _apply_malayalam_text_fixes(cleaned)
     cleaned = cleaned.replace("...", " ... ")
     cleaned = cleaned.replace("!", "! ")
     cleaned = cleaned.replace("?", "? ")
@@ -552,6 +589,8 @@ def normalize_episode(raw: dict[str, Any], source: str) -> dict[str, Any]:
             script_en = f"{raw['hook_en']} ... {script_en}"
         if raw.get("hook_ml"):
             script_ml = f"{raw['hook_ml']} ... {script_ml}"
+        script_en = _dedupe_repeated_sentences(script_en)
+        script_ml = _dedupe_repeated_sentences(script_ml)
         return {
             "day": day,
             "title": raw["title_en"],
@@ -568,8 +607,8 @@ def normalize_episode(raw: dict[str, Any], source: str) -> dict[str, Any]:
         "day": day,
         "title": raw.get("title", f"Day {day}"),
         "title_ml": raw.get("title_ml", raw.get("title", f"Day {day}")),
-        "script_en": prepare_english_tts(raw["script_en"]),
-        "script_ml": prepare_malayalam_tts(raw["script_ml"]),
+        "script_en": prepare_english_tts(_dedupe_repeated_sentences(raw["script_en"])),
+        "script_ml": prepare_malayalam_tts(_dedupe_repeated_sentences(raw["script_ml"])),
         "prompts": prompts,
         "bgm_volume": bgm_volume,
         "source": source,
@@ -705,7 +744,7 @@ def _gemini_voice_for_speaker(name: str) -> str:
 
 def _parse_dialogue_lines(raw: str) -> list[tuple[str, str]]:
     matches = re.findall(r"\[([^\]]+)\]:\s*([^[]*)", raw)
-    lines = [(name.strip(), line.strip()) for name, line in matches if line.strip()]
+    lines = [(name.strip(), _apply_malayalam_text_fixes(line.strip())) for name, line in matches if line.strip()]
     if lines:
         return lines
     cleaned = prepare_malayalam_tts(raw)
@@ -716,14 +755,13 @@ def _build_gemini_malayalam_request(raw_text: str) -> tuple[str, list[dict[str, 
     """Southern Kerala cinematic story-narration style (kathaprasangam meets trailer)."""
     style = (
         "You are a master Malayalam story narrator from South Kerala (Travancore-Kollam style). "
-        "Deliver like a gripping midnight kathaprasangam: warm emotional tone, clear native "
-        "Malayalam pronunciation, natural pauses at commas and ellipses, rising drama on hooks, "
-        "and soft landing on emotional lines. Avoid robotic reading. Sound human, cinematic, "
-        "and rooted in Kerala storytelling tradition."
+        "CRITICAL: Read the Malayalam text EXACTLY as written. Do not paraphrase, shorten, "
+        "translate, or replace any words. Preserve every Malayalam character and name exactly. "
+        "Deliver with warm emotional tone, clear native Malayalam pronunciation, natural pauses "
+        "at commas and ellipses, rising drama on hooks, and soft landing on emotional lines."
     )
     lines = _parse_dialogue_lines(raw_text)
-    for bad, good in ML_PHRASE_FIXES.items():
-        lines = [(name, text.replace(bad, good)) for name, text in lines]
+    lines = [(name, _apply_malayalam_text_fixes(text)) for name, text in lines]
 
     if len(lines) == 1:
         _, text = lines[0]
