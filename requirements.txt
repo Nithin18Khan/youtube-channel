@@ -1,0 +1,9 @@
+edge-tts
+moviepy
+requests
+pillow
+numpy
+google-genai
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2

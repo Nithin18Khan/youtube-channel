@@ -1,0 +1,29 @@
+{
+  "channels": {
+    "english": {
+      "id": "UCJnH0aiSQRq2hODcMUwDJOg",
+      "studio_url": "https://studio.youtube.com/channel/UCJnH0aiSQRq2hODcMUwDJOg",
+      "language": "en",
+      "default_audio_language": "en",
+      "video_suffix": "English",
+      "subtitle_suffix": "en.srt"
+    },
+    "malayalam": {
+      "id": "UCSvL2qB1WVJZi_7iOW8M3MA",
+      "studio_url": "https://studio.youtube.com/channel/UCSvL2qB1WVJZi_7iOW8M3MA",
+      "language": "ml",
+      "default_audio_language": "ml",
+      "video_suffix": "Malayalam",
+      "subtitle_suffix": "ml.srt"
+    }
+  },
+  "upload": {
+    "privacy_status": "public",
+    "category_id": "20",
+    "category_name": "Gaming",
+    "made_for_kids": false,
+    "default_timezone": "Asia/Kolkata",
+    "cron_utc": "0 13 * * *",
+    "cron_note": "13:00 UTC = 6:30 PM IST — peak India evening watch time for gaming"
+  }
+}

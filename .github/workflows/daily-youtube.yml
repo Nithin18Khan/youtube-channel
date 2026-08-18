@@ -1,0 +1,64 @@
+name: Daily YouTube Pipeline
+
+on:
+  schedule:
+    # 13:00 UTC = 6:30 PM IST — peak India evening gaming watch time
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+    inputs:
+      skip_render:
+        description: "Skip video render (upload only)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: write
+
+env:
+  PIPELINE_STATE_FILE: data/state.json
+  UPLOAD_STATE_FILE: data/upload_state.json
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+  YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+  YOUTUBE_REFRESH_TOKEN_ENGLISH: ${{ secrets.YOUTUBE_REFRESH_TOKEN_ENGLISH }}
+  YOUTUBE_REFRESH_TOKEN_MALAYALAM: ${{ secrets.YOUTUBE_REFRESH_TOKEN_MALAYALAM }}
+
+jobs:
+  generate-and-upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-core
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Render next episode
+        if: github.event.inputs.skip_render != 'true'
+        run: python main.py
+
+      - name: Upload to YouTube (EN + ML channels)
+        run: python upload_day.py --privacy public
+
+      - name: Commit pipeline state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/state.json data/upload_state.json
+          git diff --staged --quiet || git commit -m "chore: update pipeline state after daily run [skip ci]"
+          git push

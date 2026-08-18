@@ -127,7 +127,19 @@ def _load_local_env() -> None:
 
 
 _load_local_env()
-STATE_FILE = BASE_DIR / "state.json"
+
+
+def _resolve_state_file() -> Path:
+    env_path = os.environ.get("PIPELINE_STATE_FILE")
+    if env_path:
+        return Path(env_path)
+    data_state = BASE_DIR / "data" / "state.json"
+    if data_state.exists():
+        return data_state
+    return BASE_DIR / "state.json"
+
+
+STATE_FILE = _resolve_state_file()
 OUTPUT_DIR = BASE_DIR / "output"
 STAGING_DIR = OUTPUT_DIR / ".staging"
 TEMP_DIR = BASE_DIR / "temp"
@@ -238,6 +250,7 @@ SUBTITLE_FONT_SIZE_EN = 40
 SUBTITLE_FONT_SIZE_ML = 44
 SUBTITLE_MAX_LINES = 3
 SUBTITLE_BOTTOM_PADDING = 36
+MALAYALAM_FONT_BUNDLED = BASE_DIR / "assets" / "fonts" / "NotoSansMalayalam-Regular.ttf"
 
 # Legacy flat-script episodes still use a fixed image count.
 IMAGE_COUNT = 10
@@ -995,17 +1008,17 @@ def _concat_with_crossfade(clips: list[Any], fade: float):
         raise ValueError("No clips to concatenate")
     if len(clips) == 1 or fade <= 0:
         return concatenate_videoclips(clips, method="compose")
-    if vfx is not None:
-        try:
-            return concatenate_videoclips(
-                clips,
-                method="compose",
-                padding=-fade,
-                transition=vfx.CrossFadeIn(fade),
-            )
-        except TypeError:
-            pass
-    return concatenate_videoclips(clips, method="compose")
+    if vfx is None:
+        return concatenate_videoclips(clips, method="compose")
+    prepared: list[Any] = []
+    for index, clip in enumerate(clips):
+        effects = []
+        if index > 0:
+            effects.append(vfx.CrossFadeIn(fade))
+        if index < len(clips) - 1:
+            effects.append(vfx.CrossFadeOut(fade))
+        prepared.append(clip.with_effects(effects) if effects else clip)
+    return concatenate_videoclips(prepared, method="compose", padding=-fade)
 
 
 def _loop_audio_to_duration(clip, target_duration: float):
@@ -1329,15 +1342,55 @@ def write_thumbnail_txt_files(episode: dict[str, Any], day: int) -> tuple[Path, 
     return en_path, ml_path
 
 
+def _system_font_dirs() -> list[Path]:
+    dirs: list[Path] = []
+    windir = os.environ.get("WINDIR")
+    if windir:
+        dirs.append(Path(windir) / "Fonts")
+    dirs.extend(
+        (
+            Path("/usr/share/fonts/truetype/noto"),
+            Path("/usr/share/fonts/opentype/noto"),
+            Path("/usr/share/fonts/truetype/malayalam"),
+            Path("/usr/local/share/fonts"),
+        )
+    )
+    return dirs
+
+
+def _malayalam_font_paths() -> list[Path]:
+    """Paths that actually include Malayalam glyphs (never DejaVu/Arial)."""
+    paths: list[Path] = [MALAYALAM_FONT_BUNDLED]
+    names = (
+        "NotoSansMalayalam-Regular.ttf",
+        "NotoSansMalayalam-Bold.ttf",
+        "Nirmala.ttf",
+        "NirmalaB.ttf",
+        "Kartika.ttf",
+    )
+    for font_dir in _system_font_dirs():
+        for name in names:
+            paths.append(font_dir / name)
+    return paths
+
+
 def _load_subtitle_font(lang: str, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     if lang == "ml":
-        candidates = (
-            "Nirmala UI",
-            "Nirmala.ttf",
-            "Kartika.ttf",
-            "NotoSansMalayalam-Regular.ttf",
-            "DejaVuSans.ttf",
+        for font_path in _malayalam_font_paths():
+            if not font_path.is_file():
+                continue
+            try:
+                font = ImageFont.truetype(str(font_path), size)
+                log.debug("Malayalam subtitle font: %s", font_path)
+                return font
+            except OSError:
+                continue
+        log.warning(
+            "No Malayalam font found — subtitles may show square blocks. "
+            "Expected bundled font at %s",
+            MALAYALAM_FONT_BUNDLED,
         )
+        candidates = ("Nirmala UI", "Kartika")
     else:
         candidates = ("arial.ttf", "Arial.ttf", "DejaVuSans-Bold.ttf", "DejaVuSans.ttf")
     for font_name in candidates:
