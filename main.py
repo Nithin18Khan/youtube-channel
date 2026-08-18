@@ -18,6 +18,8 @@ USAGE
 
 Each run processes ONE episode (tracked in state.json), then increments the day.
 Outputs: output/Day_{N}_English.mp4 and output/Day_{N}_Malayalam.mp4
+Burned-in subtitles match each video language; sidecar .en.srt / .ml.srt files are also exported.
+Thumbnail copy: output/Day_{N}_English_thumbnail.txt and output/Day_{N}_Malayalam_thumbnail.txt
 
 CINEMATIC SCRIPTS (recommended — 10–12 scenes, ~2 min):
     scripts/day_01_script.json ... scripts/day_30_script.json
@@ -172,6 +174,10 @@ SUB_SHOT_MAX = 4
 SUB_SHOT_MIN = 2
 WHIP_PAN_ZOOM = 1.26
 TRACKING_ZOOM = 1.10
+SUBTITLE_FONT_SIZE_EN = 40
+SUBTITLE_FONT_SIZE_ML = 44
+SUBTITLE_MAX_LINES = 3
+SUBTITLE_BOTTOM_PADDING = 36
 
 # Legacy flat-script episodes still use a fixed image count.
 IMAGE_COUNT = 10
@@ -912,6 +918,242 @@ def _clip_resize(clip, size: tuple[int, int]):
     return clip.resize(size)
 
 
+def get_scene_subtitle(scene: dict[str, Any], lang: str) -> str:
+    raw = scene.get(f"voiceover_{lang}", "")
+    return prepare_tts_text(raw, lang=lang)
+
+
+def _format_srt_timestamp(seconds: float) -> str:
+    ms = int(round(max(seconds, 0.0) * 1000))
+    hours, rem = divmod(ms, 3_600_000)
+    minutes, rem = divmod(rem, 60_000)
+    secs, millis = divmod(rem, 1000)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d},{millis:03d}"
+
+
+def write_scene_srt(
+    scene_shot_plans: list[dict[str, Any]],
+    scene_audio_paths: list[Path],
+    output_path: Path,
+    lang: str,
+) -> Path:
+    """Export sidecar SRT subtitles synced to scene narration."""
+    srt_path = output_path.with_suffix(f".{lang}.srt")
+    lines: list[str] = []
+    cursor = 0.0
+    for index, (plan, audio_path) in enumerate(zip(scene_shot_plans, scene_audio_paths), start=1):
+        duration = get_audio_duration(audio_path)
+        text = get_scene_subtitle(plan["scene"], lang)
+        if not text:
+            cursor += duration
+            continue
+        start = cursor
+        end = cursor + duration
+        lines.append(str(index))
+        lines.append(f"{_format_srt_timestamp(start)} --> {_format_srt_timestamp(end)}")
+        lines.append(text)
+        lines.append("")
+        cursor = end
+    srt_path.write_text("\n".join(lines), encoding="utf-8")
+    log.info("Subtitles saved: %s", srt_path.name)
+    return srt_path
+
+
+def _first_hook_scene(scenes: list[dict[str, Any]]) -> dict[str, Any] | None:
+    for scene in scenes:
+        if scene.get("type") == "hook":
+            return scene
+    return scenes[0] if scenes else None
+
+
+def _last_hook_scene(scenes: list[dict[str, Any]]) -> dict[str, Any] | None:
+    hooks = [s for s in scenes if s.get("type") == "hook"]
+    return hooks[-1] if hooks else None
+
+
+def _build_thumbnail_txt(
+    episode: dict[str, Any],
+    lang: str,
+    day: int,
+) -> str:
+    is_ml = lang == "ml"
+    title = episode.get("title_ml" if is_ml else "title", episode.get("title", f"Day {day}"))
+    hook = episode.get("hook_ml" if is_ml else "hook_en", "")
+    scenes = episode.get("scenes", [])
+    hook_scene = _first_hook_scene(scenes) if scenes else None
+    outro_hook = _last_hook_scene(scenes) if scenes else None
+
+    primary = hook
+    if hook_scene:
+        overlay = hook_scene.get(f"title_overlay_{lang}", "")
+        if overlay:
+            primary = overlay
+    if not primary:
+        primary = title
+
+    secondary = title
+    alt_hook = ""
+    if outro_hook and outro_hook is not hook_scene:
+        alt_hook = outro_hook.get(f"title_overlay_{lang}", "") or ""
+
+    visual_prompt = ""
+    if hook_scene and hook_scene.get("prompt"):
+        visual_prompt = hook_scene["prompt"]
+    elif episode.get("prompts"):
+        visual_prompt = episode["prompts"][0]
+
+    lang_label = "MALAYALAM" if is_ml else "ENGLISH"
+    lines = [
+        f"YOUTUBE THUMBNAIL COPY — {lang_label} (Day {day})",
+        "=" * 44,
+        "",
+        "PRIMARY TEXT (large — 2 to 4 words max on thumbnail):",
+        primary.upper() if not is_ml else primary,
+        "",
+        "SECONDARY TEXT (smaller line under/beside primary):",
+        secondary,
+        "",
+        "EPISODE TITLE (description / upload title reference):",
+        title,
+        "",
+    ]
+    if hook and hook != primary:
+        lines.extend(["HOOK TAGLINE:", hook, ""])
+    if alt_hook:
+        lines.extend(["ALT HOOK (outro card option):", alt_hook, ""])
+    if visual_prompt:
+        lines.extend(
+            [
+                "VISUAL REFERENCE (use scene 1 / hook frame image):",
+                visual_prompt,
+                "",
+            ]
+        )
+    upload_title = f"{primary} | {title}" if primary.upper() != title.upper() else title
+    lines.extend(
+        [
+            "WHY THIS MATTERS (VIEWS & REVENUE):",
+            "- Thumbnail + title drive click-through rate (CTR) before anyone watches",
+            "- Higher CTR → YouTube pushes more impressions → more views → more revenue",
+            "- A weak thumbnail can cut views in half even with great video content",
+            "- Test primary vs alt hook after 48h; swap thumbnail if CTR stays below ~5%",
+            "",
+            "SUGGESTED YOUTUBE UPLOAD TITLE:",
+            upload_title,
+            "",
+            "CTR DESIGN NOTES:",
+            "- Bold high-contrast text on dark cinematic background",
+            "- Face close-up or action moment from hook scene",
+            "- Max 3 words on primary text — readability on mobile",
+            "- Red/orange accent glow for action; blue/white for ice/Norse scenes",
+            "",
+            f"Output video: Day_{day}_{'Malayalam' if is_ml else 'English'}.mp4",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def write_thumbnail_txt_files(episode: dict[str, Any], day: int) -> tuple[Path, Path]:
+    """Export separate English and Malayalam YouTube thumbnail copy files."""
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    en_path = OUTPUT_DIR / f"Day_{day}_English_thumbnail.txt"
+    ml_path = OUTPUT_DIR / f"Day_{day}_Malayalam_thumbnail.txt"
+    en_path.write_text(_build_thumbnail_txt(episode, "en", day), encoding="utf-8")
+    ml_path.write_text(_build_thumbnail_txt(episode, "ml", day), encoding="utf-8")
+    log.info("Thumbnail copy saved: %s, %s", en_path.name, ml_path.name)
+    return en_path, ml_path
+
+
+def _load_subtitle_font(lang: str, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    if lang == "ml":
+        candidates = (
+            "Nirmala UI",
+            "Nirmala.ttf",
+            "Kartika.ttf",
+            "NotoSansMalayalam-Regular.ttf",
+            "DejaVuSans.ttf",
+        )
+    else:
+        candidates = ("arial.ttf", "Arial.ttf", "DejaVuSans-Bold.ttf", "DejaVuSans.ttf")
+    for font_name in candidates:
+        try:
+            return ImageFont.truetype(font_name, size)
+        except OSError:
+            continue
+    return _load_title_font(size)
+
+
+def _wrap_subtitle_lines(
+    text: str, font: ImageFont.FreeTypeFont | ImageFont.ImageFont, max_width: int
+) -> list[str]:
+    overlay = Image.new("RGBA", (max_width, 200), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    words = text.split()
+    if not words:
+        return []
+
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        trial = f"{current} {word}".strip()
+        bbox = draw.textbbox((0, 0), trial, font=font, stroke_width=2)
+        if (bbox[2] - bbox[0]) <= max_width:
+            current = trial
+        else:
+            if current:
+                lines.append(current)
+            current = word
+        if len(lines) >= SUBTITLE_MAX_LINES:
+            break
+    if current and len(lines) < SUBTITLE_MAX_LINES:
+        lines.append(current)
+    return lines[:SUBTITLE_MAX_LINES]
+
+
+def _make_subtitle_overlay(text: str, width: int, height: int, lang: str) -> np.ndarray | None:
+    if not text:
+        return None
+    font_size = SUBTITLE_FONT_SIZE_ML if lang == "ml" else SUBTITLE_FONT_SIZE_EN
+    font = _load_subtitle_font(lang, font_size)
+    max_width = int(width * 0.92)
+    lines = _wrap_subtitle_lines(text, font, max_width)
+    if not lines:
+        return None
+
+    overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    line_height = font_size + 10
+    block_height = len(lines) * line_height + 24
+    y_start = height - SUBTITLE_BOTTOM_PADDING - block_height
+
+    for line_idx, line in enumerate(lines):
+        bbox = draw.textbbox((0, 0), line, font=font, stroke_width=2)
+        text_w = bbox[2] - bbox[0]
+        x = (width - text_w) // 2
+        y = y_start + 12 + line_idx * line_height
+        pad = 8
+        draw.rectangle(
+            (x - pad, y - 4, x + text_w + pad, y + line_height - 6),
+            fill=(0, 0, 0, 170),
+        )
+        draw.text((x + 2, y + 2), line, font=font, fill=(0, 0, 0, 200))
+        draw.text(
+            (x, y),
+            line,
+            font=font,
+            fill=(255, 255, 255, 255),
+            stroke_width=2,
+            stroke_fill=(0, 0, 0, 255),
+        )
+    return np.array(overlay)
+
+
+def _blend_rgba_overlay(frame: np.ndarray, overlay: np.ndarray) -> np.ndarray:
+    alpha = overlay[:, :, 3:4] / 255.0
+    rgb = overlay[:, :, :3]
+    return (frame * (1.0 - alpha) + rgb * alpha).astype(np.uint8)
+
+
 def _load_title_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     for font_name in ("arialbd.ttf", "Arial Bold.ttf", "DejaVuSans-Bold.ttf"):
         try:
@@ -956,8 +1198,10 @@ def create_cinematic_clip(
     duration: float,
     motion: str = "zoom_in",
     overlay_text: str | None = None,
+    subtitle_text: str | None = None,
+    subtitle_lang: str = "en",
 ) -> VideoClip:
-    """Ken Burns / pan / whip-pan / tracking move with letterboxing and hook title cards."""
+    """Ken Burns / pan move with letterboxing, hook titles, and burned-in subtitles."""
     motion = normalize_motion(motion)
     pil_img = Image.open(img_path).convert("RGB")
     iw, ih = pil_img.size
@@ -967,6 +1211,9 @@ def create_cinematic_clip(
     scale_cover = max(tw / iw, th / ih)
     zoom_delta = KEN_BURNS_ZOOM_END - 1.0
     title_overlay = _make_title_overlay(overlay_text, tw, th) if overlay_text else None
+    subtitle_overlay = (
+        _make_subtitle_overlay(subtitle_text, tw, th, subtitle_lang) if subtitle_text else None
+    )
 
     def crop_rect(progress: float) -> tuple[int, int, int, int]:
         if motion == "zoom_in":
@@ -1005,9 +1252,10 @@ def create_cinematic_clip(
         frame = np.array(resized.crop((left, top, left + tw, top + th)))
 
         if title_overlay is not None:
-            alpha = title_overlay[:, :, 3:4] / 255.0
-            rgb = title_overlay[:, :, :3]
-            frame = (frame * (1.0 - alpha) + rgb * alpha).astype(np.uint8)
+            frame = _blend_rgba_overlay(frame, title_overlay)
+
+        if subtitle_overlay is not None:
+            frame = _blend_rgba_overlay(frame, subtitle_overlay)
 
         full = np.zeros((VIDEO_HEIGHT, tw, 3), dtype=np.uint8)
         full[LETTERBOX_BAR_HEIGHT : LETTERBOX_BAR_HEIGHT + th, :] = frame
@@ -1101,6 +1349,7 @@ def build_cinematic_video(
             overlay = scene.get(f"title_overlay_{overlay_lang}", "") or None
             if scene.get("type") != "hook":
                 overlay = scene.get(f"title_overlay_{overlay_lang}") or None
+            subtitle = get_scene_subtitle(scene, overlay_lang)
 
             sub_clips: list[VideoClip] = []
             for shot_idx, shot in enumerate(plan["shots"]):
@@ -1110,6 +1359,8 @@ def build_cinematic_video(
                     shot["duration"],
                     motion=shot["motion"],
                     overlay_text=shot_overlay,
+                    subtitle_text=subtitle,
+                    subtitle_lang=overlay_lang,
                 )
                 sub = _clip_set_duration(sub, shot["duration"])
                 sub_clips.append(sub)
@@ -1188,7 +1439,29 @@ def build_cinematic_video(
     return output_path
 
 
-def build_video(image_paths: list[Path], audio_path: Path, output_path: Path) -> Path:
+def _chunk_subtitle_text(text: str, parts: int) -> list[str]:
+    words = text.split()
+    if not words or parts <= 0:
+        return [""] * max(parts, 0)
+    if parts == 1:
+        return [text]
+    chunks: list[str] = []
+    words_per = max(1, math.ceil(len(words) / parts))
+    for i in range(parts):
+        segment = words[i * words_per : (i + 1) * words_per]
+        chunks.append(" ".join(segment) if segment else "")
+    while len(chunks) < parts:
+        chunks.append("")
+    return chunks[:parts]
+
+
+def build_video(
+    image_paths: list[Path],
+    audio_path: Path,
+    output_path: Path,
+    subtitle_text: str = "",
+    subtitle_lang: str = "en",
+) -> Path:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     MOVIEPY_TEMP_DIR.mkdir(parents=True, exist_ok=True)
     if not audio_path.exists():
@@ -1201,9 +1474,16 @@ def build_video(image_paths: list[Path], audio_path: Path, output_path: Path) ->
     audio = AudioFileClip(str(audio_path))
     try:
         duration_each = audio.duration / len(image_paths)
+        subtitle_chunks = _chunk_subtitle_text(subtitle_text, len(image_paths))
         clips = []
-        for img_path in image_paths:
-            clip = _ken_burns_clip(img_path, duration_each)
+        for img_path, chunk in zip(image_paths, subtitle_chunks):
+            clip = create_cinematic_clip(
+                img_path,
+                duration_each,
+                motion="zoom_in",
+                subtitle_text=chunk or None,
+                subtitle_lang=subtitle_lang,
+            )
             clips.append(clip)
 
         video = concatenate_videoclips(clips, method="compose")
@@ -1328,6 +1608,8 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
     log.info("=== Processing Day %s: %s (%s) ===", day, episode["title"], source)
     log.info("Malayalam title: %s", title_ml)
 
+    write_thumbnail_txt_files(episode, day)
+
     image_paths = None
     en_out = OUTPUT_DIR / f"Day_{day}_English.mp4"
     ml_out = OUTPUT_DIR / f"Day_{day}_Malayalam.mp4"
@@ -1359,6 +1641,9 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
             scene_shot_plans=scene_shot_plans,
         )
         assert staged_en_scenes and staged_ml_scenes
+
+        write_scene_srt(scene_shot_plans, staged_en_scenes, en_out, "en")
+        write_scene_srt(scene_shot_plans, staged_ml_scenes, ml_out, "ml")
 
         if _video_is_valid(en_out):
             log.info("Skipping English render (already exists): %s", en_out)
@@ -1416,7 +1701,13 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
             if en_out.exists():
                 log.warning("Replacing invalid English video: %s", en_out)
                 _safe_unlink(en_out)
-            build_video(staged_images or [], staged_en, en_out)
+            build_video(
+                staged_images or [],
+                staged_en,
+                en_out,
+                subtitle_text=episode["script_en"],
+                subtitle_lang="en",
+            )
 
         if _video_is_valid(ml_out):
             log.info("Skipping Malayalam render (already exists): %s", ml_out)
@@ -1424,7 +1715,13 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
             if ml_out.exists():
                 log.warning("Replacing invalid Malayalam video: %s", ml_out)
                 _safe_unlink(ml_out)
-            build_video(staged_images or [], staged_ml, ml_out)
+            build_video(
+                staged_images or [],
+                staged_ml,
+                ml_out,
+                subtitle_text=episode["script_ml"],
+                subtitle_lang="ml",
+            )
 
     cleanup_staging(day)
     return en_out, ml_out
