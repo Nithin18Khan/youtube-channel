@@ -5,7 +5,13 @@ Ghost of Sparta: Greek Vengeance to the Norse Realm
 
 INSTALLATION
 ------------
-    pip install edge-tts moviepy requests pillow
+    pip install edge-tts moviepy requests pillow google-genai
+
+OPTIONAL Malayalam voice (Gemini — better pronunciation):
+    Create a file named .env in the project folder with:
+        GEMINI_API_KEY=your_key_here
+    Get a free key: https://aistudio.google.com/apikey
+    Uses Gemini TTS when key is set; falls back to Edge-TTS if missing.
 
 OPTIONAL (ffmpeg must be on PATH for MoviePy):
     Windows: winget install ffmpeg
@@ -27,11 +33,15 @@ CINEMATIC SCRIPTS (recommended — 10–12 scenes, ~2 min):
     exceeds 4s or complex_action is set. Per-scene BGM cues: atmospheric, combat,
     epic_hook. Camera motion: zoom_in, zoom_out, pan_left, pan_right, whip_pan,
     tracking_shot.
+
+IMAGE PROMPTS (game-engine style — close-up vs wide templates):
+    scripts/IMAGE_PROMPT_GUIDE.md
 """
 
 from __future__ import annotations
 
 import asyncio
+import base64
 import json
 import logging
 import math
@@ -79,11 +89,44 @@ except ImportError:
         concatenate_videoclips,
     )
 
+try:
+    from moviepy import afx, vfx
+except ImportError:
+    afx = None  # type: ignore
+    vfx = None  # type: ignore
+
+try:
+    from google import genai as google_genai
+except ImportError:
+    google_genai = None  # type: ignore
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent
+ENV_FILE = BASE_DIR / ".env"
+
+
+def _load_local_env() -> None:
+    """Load GEMINI_API_KEY from project .env (never commit this file)."""
+    if not ENV_FILE.exists():
+        return
+    try:
+        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and value:
+                os.environ.setdefault(key, value)
+    except OSError:
+        pass
+
+
+_load_local_env()
 STATE_FILE = BASE_DIR / "state.json"
 OUTPUT_DIR = BASE_DIR / "output"
 STAGING_DIR = OUTPUT_DIR / ".staging"
@@ -119,7 +162,18 @@ BGM_CUE_CONFIG: dict[str, dict[str, Any]] = {
         ],
         "volume": 0.24,
         "beat_offset": 1.15,
-        "restart_per_shot": True,
+        "restart_per_shot": False,
+        "crescendo": False,
+    },
+    "emotional": {
+        "file": "emotional.mp3",
+        "urls": [
+            "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Almost%20in%20F.mp3",
+            "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Despair%20and%20Triumph.mp3",
+        ],
+        "volume": 0.16,
+        "beat_offset": 0.0,
+        "restart_per_shot": False,
         "crescendo": False,
     },
     "epic_hook": {
@@ -152,8 +206,14 @@ VOICE_EN = "en-US-ChristopherNeural"
 VOICE_ML = "ml-IN-SobhanaNeural"
 VOICE_EN_RATE = "+2%"
 VOICE_EN_PITCH = "+0Hz"
-VOICE_ML_RATE = "+4%"
-VOICE_ML_PITCH = "+2Hz"
+VOICE_ML_RATE = "+2%"
+VOICE_ML_PITCH = "+0Hz"
+GEMINI_TTS_MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
+GEMINI_ML_VOICE = os.environ.get("GEMINI_ML_VOICE", "Kore")
+GEMINI_ML_VOICE_ALT = os.environ.get("GEMINI_ML_VOICE_ALT", "Puck")
+SUB_SHOT_CROSSFADE_SEC = 0.22
+SCENE_CROSSFADE_SEC = 0.35
+BGM_CROSSFADE_SEC = 0.85
 
 VIDEO_WIDTH = 1080
 VIDEO_HEIGHT = 1920
@@ -236,11 +296,22 @@ ACTION_PROMPT_KEYWORDS = (
     "fight",
     "combat",
 )
+PROMPT_STYLE_CLOSEUP = (
+    "Cinematic close-up of a weathered, battle-scarred warrior speaking intensely, "
+    "intricate steel and leather armor, dramatic rim lighting, volumetric fog, "
+    "Unreal Engine 5 render style, hyper-detailed, 8k resolution, "
+    "photorealistic game cutscene aesthetic"
+)
+PROMPT_STYLE_WIDE = (
+    "Wide-angle cinematic shot, epic composition, God of War style game graphics, "
+    "dramatic stormy sky, volumetric smoke and snow particles, "
+    "photorealistic 3D render, 8k resolution"
+)
 SUB_SHOT_PROMPT_SUFFIXES = (
-    "extreme close-up cinematic shot, shallow depth of field, ",
-    "wide-angle dynamic cinematic shot, epic scale, ",
-    "over-the-shoulder action reaction shot, motion blur, ",
-    "low angle heroic impact shot, dramatic perspective, ",
+    f"{PROMPT_STYLE_CLOSEUP}, ",
+    f"{PROMPT_STYLE_WIDE}, ",
+    "Over-the-shoulder action reaction shot, motion blur, dramatic rim lighting, Unreal Engine 5 render, ",
+    "Low angle heroic impact shot, dramatic perspective, volumetric fog, 8k resolution, ",
 )
 
 
@@ -556,6 +627,144 @@ async def generate_audio(
     return output_path
 
 
+def _gemini_tts_enabled() -> bool:
+    return bool(os.environ.get("GEMINI_API_KEY")) and google_genai is not None
+
+
+def _write_pcm_wav(path: Path, pcm: bytes, rate: int = 24000) -> None:
+    import wave
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(path), "wb") as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(rate)
+        wf.writeframes(pcm)
+
+
+def _wav_to_mp3(wav_path: Path, mp3_path: Path) -> None:
+    mp3_path.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        [
+            "ffmpeg",
+            "-y",
+            "-i",
+            str(wav_path),
+            "-codec:a",
+            "libmp3lame",
+            "-qscale:a",
+            "2",
+            str(mp3_path),
+        ],
+        capture_output=True,
+        check=True,
+        timeout=120,
+    )
+
+
+ML_GEMINI_VOICE_MAP: dict[str, str] = {
+    "narrator": GEMINI_ML_VOICE,
+    "നറേറ്റർ": GEMINI_ML_VOICE,
+    "kratos": "Charon",
+    "ക്രാറ്റോസ്": "Charon",
+    "atreus": GEMINI_ML_VOICE_ALT,
+    "അട്രിയസ്": GEMINI_ML_VOICE_ALT,
+    "ares": "Charon",
+    "ഏറീസ്": "Charon",
+    "giant": "Charon",
+    "യോടൻ": "Charon",
+}
+
+
+def _gemini_voice_for_speaker(name: str) -> str:
+    key = name.strip().lower()
+    return ML_GEMINI_VOICE_MAP.get(key, ML_GEMINI_VOICE_MAP.get(name.strip(), GEMINI_ML_VOICE))
+
+
+def _parse_dialogue_lines(raw: str) -> list[tuple[str, str]]:
+    matches = re.findall(r"\[([^\]]+)\]:\s*([^[]*)", raw)
+    lines = [(name.strip(), line.strip()) for name, line in matches if line.strip()]
+    if lines:
+        return lines
+    cleaned = prepare_malayalam_tts(raw)
+    return [("Narrator", cleaned)] if cleaned else []
+
+
+def _build_gemini_malayalam_request(raw_text: str) -> tuple[str, list[dict[str, str]]]:
+    lines = _parse_dialogue_lines(raw_text)
+    for bad, good in ML_PHRASE_FIXES.items():
+        lines = [(name, text.replace(bad, good)) for name, text in lines]
+
+    if len(lines) == 1:
+        _, text = lines[0]
+        prompt = (
+            "Speak in natural cinematic Malayalam (India) with clear native pronunciation, "
+            "emotional movie-trailer delivery, and correct word stress:\n\n"
+            f"{text}"
+        )
+        return prompt, [{"voice": GEMINI_ML_VOICE}]
+
+    if len(lines) == 2:
+        (n1, t1), (n2, t2) = lines
+        prompt = (
+            "TTS the following Malayalam cinematic dialogue with dramatic God of War trailer energy. "
+            "Use clear native Malayalam pronunciation:\n\n"
+            f"{n1}: {t1}\n{n2}: {t2}"
+        )
+        return prompt, [
+            {"speaker": n1, "voice": _gemini_voice_for_speaker(n1)},
+            {"speaker": n2, "voice": _gemini_voice_for_speaker(n2)},
+        ]
+
+    merged = " ".join(text for _, text in lines)
+    prompt = (
+        "Speak in natural cinematic Malayalam (India) with clear native pronunciation, "
+        "emotional movie-trailer delivery:\n\n"
+        f"{merged}"
+    )
+    return prompt, [{"voice": GEMINI_ML_VOICE}]
+
+
+def _generate_gemini_malayalam_audio_sync(raw_text: str, output_path: Path) -> Path:
+    if not _gemini_tts_enabled():
+        raise RuntimeError("Gemini TTS not configured (set GEMINI_API_KEY and pip install google-genai)")
+
+    prompt, speech_config = _build_gemini_malayalam_request(raw_text)
+    client = google_genai.Client()
+    interaction = client.interactions.create(
+        model=GEMINI_TTS_MODEL,
+        input=prompt,
+        response_format={"type": "audio"},
+        generation_config={"speech_config": speech_config},
+    )
+    pcm = base64.b64decode(interaction.output_audio.data)
+    wav_path = output_path.with_suffix(".wav")
+    _write_pcm_wav(wav_path, pcm)
+    try:
+        _wav_to_mp3(wav_path, output_path)
+    finally:
+        _safe_unlink(wav_path)
+
+    if not output_path.exists() or output_path.stat().st_size == 0:
+        raise RuntimeError(f"Gemini audio generation failed: {output_path}")
+    log.info("Gemini Malayalam audio saved: %s", output_path.name)
+    return output_path
+
+
+async def generate_malayalam_audio(raw_text: str, output_path: Path) -> Path:
+    """Prefer Gemini TTS for Malayalam; fall back to Edge-TTS."""
+    if _gemini_tts_enabled():
+        try:
+            return await asyncio.to_thread(
+                _generate_gemini_malayalam_audio_sync, raw_text, output_path
+            )
+        except Exception as exc:
+            log.warning("Gemini Malayalam TTS failed (%s); using Edge-TTS fallback.", exc)
+
+    text = prepare_malayalam_tts(raw_text)
+    return await generate_audio(text, VOICE_ML, output_path, rate=VOICE_ML_RATE, pitch=VOICE_ML_PITCH)
+
+
 def _tts_profile(lang: str) -> tuple[str | None, str | None]:
     if lang == "ml":
         return VOICE_ML_RATE, VOICE_ML_PITCH
@@ -567,16 +776,19 @@ def _tts_profile(lang: str) -> tuple[str | None, str | None]:
 async def generate_scene_audios(
     scenes: list[dict[str, Any]], voice: str, lang: str, day: int
 ) -> list[Path]:
-    """Generate one Edge-TTS clip per scene; duration drives the matching visual cut."""
+    """Generate one TTS clip per scene; duration drives the matching visual cut."""
     paths: list[Path] = []
     rate, pitch = _tts_profile(lang)
     for scene in scenes:
         raw_text = scene[f"voiceover_{lang}"]
-        text = prepare_tts_text(raw_text, lang=lang)
-        if not text:
+        if not raw_text.strip():
             raise ValueError(f"Day {day} scene {scene['id']} missing voiceover_{lang}")
         dest = TEMP_AUDIO_DIR / f"day{day:02d}_{lang}_scene{scene['id']:02d}.mp3"
-        await generate_audio(text, voice, dest, rate=rate, pitch=pitch)
+        if lang == "ml":
+            await generate_malayalam_audio(raw_text, dest)
+        else:
+            text = prepare_tts_text(raw_text, lang=lang)
+            await generate_audio(text, voice, dest, rate=rate, pitch=pitch)
         paths.append(dest)
     return paths
 
@@ -642,89 +854,103 @@ def ensure_bgm() -> Path | None:
     return library.get("default") or library.get("epic_hook") or next(iter(library.values()), None)
 
 
-def _loop_segment_from_offset(source, duration: float, start_offset: float):
-    if start_offset > 0 and source.duration > start_offset:
-        base = _clip_subclip(source, start_offset, source.duration)
-    else:
-        base = source
-    if base.duration >= duration:
-        trimmed = _clip_subclip(base, 0, duration)
-        if base is not source:
-            base.close()
-        return trimmed
-    looped = _loop_audio_to_duration(base, duration)
-    if base is not source:
-        base.close()
-    return looped
+def _extract_bgm_from_cursor(source, start: float, duration: float):
+    """Read forward through a BGM file without restarting from the intro each scene."""
+    if duration <= 0:
+        raise ValueError("BGM segment duration must be positive")
+    src_dur = float(source.duration)
+    if src_dur <= 0:
+        raise ValueError("BGM source has zero duration")
+    start = start % src_dur
+    if start + duration <= src_dur + 0.01:
+        return _clip_subclip(source, start, min(start + duration, src_dur))
+    tail = _clip_subclip(source, start, src_dur)
+    remaining = duration - tail.duration
+    if remaining <= 0.01:
+        return tail
+    head = _clip_subclip(source, 0, min(remaining, src_dur))
+    if remaining <= src_dur + 0.01:
+        return concatenate_audioclips([tail, head])
+    return _loop_audio_to_duration(concatenate_audioclips([tail, head]), duration)
 
 
-def _extract_bgm_shot_segment(
-    bgm_path: Path,
-    duration: float,
-    cue: str,
-    shot_index: int,
-    volume_scale: float = 1.0,
-):
-    """Slice BGM so beat-drop offsets align with sub-shot / scene cuts."""
-    config = BGM_CUE_CONFIG[cue]
-    source = AudioFileClip(str(bgm_path))
-    restart = config.get("restart_per_shot", False) or shot_index == 0
-    start_offset = config["beat_offset"] if restart else 0.0
-    segment = _loop_segment_from_offset(source, duration, start_offset)
-    volume = _clamp_bgm_volume(config["volume"] * volume_scale)
-    quiet = _audio_volumex(segment, volume)
-    if segment is not source:
-        segment.close()
-    source.close()
-    return quiet
-
-
-def build_shot_aligned_bgm_track(
-    shots: list[dict[str, Any]],
-    cue: str,
-    bgm_path: Path,
-    volume_scale: float = 1.0,
-):
-    """Concatenate per-shot BGM slices so musical hits land on each visual cut."""
-    if not shots:
-        raise ValueError("Cannot build BGM track without shots")
-    if len(shots) == 1:
-        return _extract_bgm_shot_segment(bgm_path, shots[0]["duration"], cue, 0, volume_scale)
-
-    segments = [
-        _extract_bgm_shot_segment(bgm_path, shot["duration"], cue, idx, volume_scale)
-        for idx, shot in enumerate(shots)
-    ]
-    combined = concatenate_audioclips(segments)
-    for seg in segments:
-        seg.close()
-    return combined
-
-
-def mix_scene_voice_with_cue_bgm(
-    voice_clip,
-    shots: list[dict[str, Any]],
-    scene: dict[str, Any],
+def build_episode_bgm_timeline(
+    scene_plans: list[dict[str, Any]],
+    scene_durations: list[float],
     bgm_library: dict[str, Path],
     volume_scale: float = 1.0,
 ):
-    """Mix narration with scene-specific BGM aligned to sub-shot cuts."""
-    cue = resolve_bgm_cue(scene)
-    bgm_path = bgm_library.get(cue) or bgm_library.get("default")
-    if bgm_path is None or not bgm_path.exists():
-        return voice_clip, None
+    """One continuous BGM bed — advances through each track, crossfades on mood changes."""
+    if not scene_plans or not bgm_library:
+        raise ValueError("Cannot build BGM timeline without scenes and BGM library")
 
-    intensity = float(scene.get("bgm_intensity", 1.0)) * volume_scale
-    bgm_track = build_shot_aligned_bgm_track(shots, cue, bgm_path, intensity)
-    mixed = CompositeAudioClip([bgm_track, voice_clip])
-    log.info(
-        "Scene %s BGM cue '%s' (%s shot slice(s), intensity %.2f)",
-        scene["id"],
-        cue,
-        len(shots),
-        intensity,
+    segments: list[Any] = []
+    sources: list[Any] = []
+    cursors: dict[str, float] = {}
+    prev_cue: str | None = None
+
+    for index, (plan, duration) in enumerate(zip(scene_plans, scene_durations)):
+        scene = plan["scene"]
+        cue = resolve_bgm_cue(scene)
+        bgm_path = bgm_library.get(cue) or bgm_library.get("default")
+        if bgm_path is None or not bgm_path.exists():
+            continue
+
+        config = BGM_CUE_CONFIG.get(cue, BGM_CUE_CONFIG["default"])
+        if cue not in cursors:
+            cursors[cue] = float(config.get("beat_offset", 0.0))
+
+        source = AudioFileClip(str(bgm_path))
+        raw = _extract_bgm_from_cursor(source, cursors[cue], duration)
+        volume = _clamp_bgm_volume(config["volume"] * volume_scale)
+        segment = _audio_volumex(raw, volume)
+        cursors[cue] = (cursors[cue] + duration) % max(float(source.duration), 0.001)
+
+        if index == 0:
+            segment = _audio_fade_in(segment, min(1.0, duration * 0.12))
+        if index == len(scene_plans) - 1:
+            segment = _audio_fade_out(segment, min(1.5, duration * 0.18))
+        elif prev_cue and prev_cue != cue:
+            segment = _audio_fade_in(segment, BGM_CROSSFADE_SEC)
+            if segments:
+                segments[-1] = _audio_fade_out(segments[-1], BGM_CROSSFADE_SEC)
+
+        segments.append(segment)
+        sources.append(source)
+        prev_cue = cue
+        log.info(
+            "Episode BGM scene %s cue '%s' (%.1fs, cursor %.1fs)",
+            scene["id"],
+            cue,
+            duration,
+            cursors[cue],
+        )
+
+    if not segments:
+        raise RuntimeError("Episode BGM timeline is empty")
+    return concatenate_audioclips(segments), sources
+
+
+def mix_voice_with_episode_bgm(
+    voice_paths: list[Path],
+    scene_plans: list[dict[str, Any]],
+    bgm_library: dict[str, Path],
+    volume_scale: float = 1.0,
+):
+    """Mix full narration with one continuous mood-matched BGM track."""
+    voice_clips = [AudioFileClip(str(path)) for path in voice_paths]
+    voice_full = concatenate_audioclips(voice_clips)
+    scene_durations = [clip.duration for clip in voice_clips]
+    bgm_full, bgm_sources = build_episode_bgm_timeline(
+        scene_plans, scene_durations, bgm_library, volume_scale
     )
-    return mixed, bgm_track
+    target = voice_full.duration
+    if bgm_full.duration > target + 0.05:
+        bgm_full = _clip_subclip(bgm_full, 0, target)
+    elif bgm_full.duration + 0.05 < target:
+        bgm_full = _loop_audio_to_duration(bgm_full, target)
+    mixed = CompositeAudioClip([bgm_full, voice_full])
+    return mixed, voice_clips, bgm_full, bgm_sources
 
 
 def _clip_subclip(clip, start: float, end: float):
@@ -741,6 +967,47 @@ def _audio_volumex(clip, factor: float):
     return clip
 
 
+def _audio_fade_in(clip, duration: float):
+    if duration <= 0 or afx is None:
+        return clip
+    return clip.with_effects([afx.AudioFadeIn(duration)])
+
+
+def _audio_fade_out(clip, duration: float):
+    if duration <= 0 or afx is None:
+        return clip
+    return clip.with_effects([afx.AudioFadeOut(duration)])
+
+
+def _allocate_durations(total: float, count: int) -> list[float]:
+    if count <= 0:
+        return []
+    if count == 1:
+        return [total]
+    base = total / count
+    durations = [base] * count
+    durations[-1] = max(total - sum(durations[:-1]), 0.05)
+    return durations
+
+
+def _concat_with_crossfade(clips: list[Any], fade: float):
+    if not clips:
+        raise ValueError("No clips to concatenate")
+    if len(clips) == 1 or fade <= 0:
+        return concatenate_videoclips(clips, method="compose")
+    if vfx is not None:
+        try:
+            return concatenate_videoclips(
+                clips,
+                method="compose",
+                padding=-fade,
+                transition=vfx.CrossFadeIn(fade),
+            )
+        except TypeError:
+            pass
+    return concatenate_videoclips(clips, method="compose")
+
+
 def _loop_audio_to_duration(clip, target_duration: float):
     if clip.duration >= target_duration:
         return _clip_subclip(clip, 0, target_duration)
@@ -750,9 +1017,7 @@ def _loop_audio_to_duration(clip, target_duration: float):
         parts.append(clip)
         total += clip.duration
     looped = concatenate_audioclips(parts)
-    trimmed = _clip_subclip(looped, 0, target_duration)
-    looped.close()
-    return trimmed
+    return _clip_subclip(looped, 0, target_duration)
 
 
 def mix_voice_with_bgm(voice_path: Path, bgm_path: Path | None, bgm_volume: float) -> Path:
@@ -848,7 +1113,7 @@ def plan_and_download_scene_shots(
         duration = get_audio_duration(audio_path)
         count = _sub_shot_count(scene, duration)
         specs = _build_sub_shot_specs(scene, count)
-        shot_duration = duration / count
+        shot_durations = _allocate_durations(duration, count)
         shots: list[dict[str, Any]] = []
 
         log.info(
@@ -856,10 +1121,10 @@ def plan_and_download_scene_shots(
             scene["id"],
             duration,
             count,
-            shot_duration,
+            shot_durations[0] if shot_durations else 0,
         )
 
-        for shot_idx, spec in enumerate(specs, start=1):
+        for shot_idx, (spec, shot_duration) in enumerate(zip(specs, shot_durations), start=1):
             image_index += 1
             dest = TEMP_IMAGES_DIR / f"day{day:02d}_scene{scene['id']:02d}_shot{shot_idx:02d}.jpg"
             download_image(spec["prompt"], dest, image_index, day, total=total_images)
@@ -1309,9 +1574,52 @@ def _safe_unlink(path: Path, retries: int = 8) -> None:
             time.sleep(0.25 * (attempt + 1))
 
 
+def _publish_local_video(local_out: Path, output_path: Path) -> None:
+    """Copy rendered temp video to output; retry on Windows/OneDrive file locks."""
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    if output_path.exists():
+        _safe_unlink(output_path)
+    last_error: Exception | None = None
+    for attempt in range(12):
+        try:
+            shutil.copy2(local_out, output_path)
+            _safe_unlink(local_out)
+            return
+        except OSError as exc:
+            last_error = exc
+            time.sleep(0.5 * (attempt + 1))
+    raise RuntimeError(f"Could not publish video to {output_path}") from last_error
+
+
 def _cleanup_moviepy_temp(stem: str) -> None:
     for temp in MOVIEPY_TEMP_DIR.glob(f"{stem}*TEMP_MPY*"):
         _safe_unlink(temp)
+
+
+def _bake_audio_clip(clip, dest: Path) -> AudioFileClip:
+    """Flatten nested MoviePy audio graphs to a temp MP3 (avoids dead reader refs on export)."""
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    _safe_unlink(dest)
+    write_kwargs: dict[str, Any] = {"fps": 44100, "logger": None}
+    try:
+        clip.write_audiofile(str(dest), **write_kwargs)
+    except TypeError:
+        write_kwargs.pop("logger", None)
+        try:
+            clip.write_audiofile(str(dest), **write_kwargs)
+        except TypeError:
+            clip.write_audiofile(str(dest))
+    if not dest.exists() or dest.stat().st_size == 0:
+        raise RuntimeError(f"Audio bake failed: {dest}")
+    return AudioFileClip(str(dest))
+
+
+def _close_clip(clip) -> None:
+    if clip is not None:
+        try:
+            clip.close()
+        except Exception:
+            pass
 
 
 def build_cinematic_video(
@@ -1322,7 +1630,7 @@ def build_cinematic_video(
     bgm_library: dict[str, Path] | None = None,
     bgm_volume: float = DEFAULT_BGM_VOLUME,
 ) -> Path:
-    """Build scene-synced trailer with sub-shots, camera motion, and per-scene BGM cues."""
+    """Build scene-synced trailer with sub-shots, crossfades, and continuous episode BGM."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     MOVIEPY_TEMP_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -1330,12 +1638,10 @@ def build_cinematic_video(
     _safe_unlink(local_out)
     _cleanup_moviepy_temp(output_path.stem)
 
-    clips: list[VideoClip] = []
-    scene_audios: list[Any] = []
-    bgm_tracks: list[Any] = []
-    mixed_audios: list[Any] = []
-    mixed_voice_ids: set[int] = set()
+    scene_videos: list[VideoClip] = []
     nested_clips: list[VideoClip] = []
+    disposable_audio: list[Any] = []
+    final_audio = None
     video = None
     try:
         for plan, audio_path in zip(scene_shot_plans, scene_audio_paths):
@@ -1343,57 +1649,54 @@ def build_cinematic_video(
             if not audio_path.exists():
                 raise FileNotFoundError(f"Scene audio not found: {audio_path}")
 
-            scene_audio = AudioFileClip(str(audio_path))
-            scene_audios.append(scene_audio)
-            duration = scene_audio.duration
+            duration = get_audio_duration(audio_path)
             overlay = scene.get(f"title_overlay_{overlay_lang}", "") or None
             if scene.get("type") != "hook":
                 overlay = scene.get(f"title_overlay_{overlay_lang}") or None
             subtitle = get_scene_subtitle(scene, overlay_lang)
 
+            shot_durations = _allocate_durations(duration, len(plan["shots"]))
             sub_clips: list[VideoClip] = []
-            for shot_idx, shot in enumerate(plan["shots"]):
+            for shot_idx, (shot, shot_duration) in enumerate(zip(plan["shots"], shot_durations)):
                 shot_overlay = overlay if shot_idx == 0 else None
                 sub = create_cinematic_clip(
                     shot["img_path"],
-                    shot["duration"],
+                    shot_duration,
                     motion=shot["motion"],
                     overlay_text=shot_overlay,
                     subtitle_text=subtitle,
                     subtitle_lang=overlay_lang,
                 )
-                sub = _clip_set_duration(sub, shot["duration"])
+                sub = _clip_set_duration(sub, shot_duration)
                 sub_clips.append(sub)
 
             if len(sub_clips) == 1:
                 scene_video = sub_clips[0]
             else:
-                scene_video = concatenate_videoclips(sub_clips, method="compose")
+                scene_video = _concat_with_crossfade(sub_clips, SUB_SHOT_CROSSFADE_SEC)
                 nested_clips.extend(sub_clips)
 
             scene_video = _clip_set_duration(scene_video, duration)
+            scene_videos.append(scene_video)
 
-            if bgm_library:
-                scene_audio_mix, bgm_track = mix_scene_voice_with_cue_bgm(
-                    scene_audio,
-                    plan["shots"],
-                    scene,
-                    bgm_library,
-                    bgm_volume,
-                )
-                if bgm_track is not None:
-                    bgm_tracks.append(bgm_track)
-                    mixed_audios.append(scene_audio_mix)
-                    mixed_voice_ids.add(id(scene_audio))
-                    scene_video = _clip_set_audio(scene_video, scene_audio_mix)
-                else:
-                    scene_video = _clip_set_audio(scene_video, scene_audio)
-            else:
-                scene_video = _clip_set_audio(scene_video, scene_audio)
+        video = concatenate_videoclips(scene_videos, method="compose")
 
-            clips.append(scene_video)
+        if bgm_library:
+            mixed, voice_clips, bgm_full, bgm_sources = mix_voice_with_episode_bgm(
+                scene_audio_paths,
+                scene_shot_plans,
+                bgm_library,
+                bgm_volume,
+            )
+            disposable_audio.extend([mixed, bgm_full, *voice_clips, *bgm_sources])
+            baked_path = MOVIEPY_TEMP_DIR / f"{output_path.stem}_mix.mp3"
+            final_audio = _bake_audio_clip(mixed, baked_path)
+        else:
+            voice_clips = [AudioFileClip(str(path)) for path in scene_audio_paths]
+            final_audio = concatenate_audioclips(voice_clips)
+            disposable_audio.extend(voice_clips)
 
-        video = concatenate_videoclips(clips, method="compose")
+        video = _clip_set_audio(video, final_audio)
 
         write_kwargs: dict[str, Any] = {
             "fps": VIDEO_FPS,
@@ -1408,29 +1711,23 @@ def build_cinematic_video(
                 video.write_videofile(str(local_out), **write_kwargs)
             except TypeError:
                 write_kwargs.pop("logger", None)
+                write_kwargs.pop("temp_audiofile_path", None)
                 video.write_videofile(str(local_out), **write_kwargs)
     finally:
-        if video is not None:
-            video.close()
-        for track in mixed_audios:
-            track.close()
-        for track in bgm_tracks:
-            track.close()
-        for audio in scene_audios:
-            if id(audio) not in mixed_voice_ids:
-                audio.close()
-        for clip in clips:
-            clip.close()
+        _close_clip(video)
+        _close_clip(final_audio)
+        for audio in disposable_audio:
+            _close_clip(audio)
+        for clip in scene_videos:
+            _close_clip(clip)
         for clip in nested_clips:
-            clip.close()
+            _close_clip(clip)
         _cleanup_moviepy_temp(output_path.stem)
 
     if not local_out.exists() or local_out.stat().st_size == 0:
         raise RuntimeError(f"Video export failed: {local_out}")
 
-    if output_path.exists():
-        _safe_unlink(output_path)
-    shutil.move(str(local_out), str(output_path))
+    _publish_local_video(local_out, output_path)
 
     if not output_path.exists() or output_path.stat().st_size == 0:
         raise RuntimeError(f"Video export failed: {output_path}")
@@ -1514,9 +1811,7 @@ def build_video(
     if not local_out.exists() or local_out.stat().st_size == 0:
         raise RuntimeError(f"Video export failed: {local_out}")
 
-    if output_path.exists():
-        _safe_unlink(output_path)
-    shutil.move(str(local_out), str(output_path))
+    _publish_local_video(local_out, output_path)
 
     if not output_path.exists() or output_path.stat().st_size == 0:
         raise RuntimeError(f"Video export failed: {output_path}")
@@ -1607,6 +1902,13 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
     bgm_volume = episode.get("bgm_volume", DEFAULT_BGM_VOLUME)
     log.info("=== Processing Day %s: %s (%s) ===", day, episode["title"], source)
     log.info("Malayalam title: %s", title_ml)
+    if _gemini_tts_enabled():
+        log.info("Malayalam TTS: Gemini (%s)", GEMINI_TTS_MODEL)
+    else:
+        log.info(
+            "Malayalam TTS: Edge-TTS (%s) — set GEMINI_API_KEY for better pronunciation",
+            VOICE_ML,
+        )
 
     write_thumbnail_txt_files(episode, day)
 
@@ -1681,9 +1983,7 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
         await generate_audio(
             episode["script_en"], VOICE_EN, en_audio, rate=VOICE_EN_RATE, pitch=VOICE_EN_PITCH
         )
-        await generate_audio(
-            episode["script_ml"], VOICE_ML, ml_audio, rate=VOICE_ML_RATE, pitch=VOICE_ML_PITCH
-        )
+        await generate_malayalam_audio(episode["script_ml"], ml_audio)
 
         en_mixed = mix_voice_with_bgm(en_audio, bgm_path, bgm_volume)
         ml_mixed = mix_voice_with_bgm(ml_audio, bgm_path, bgm_volume)
