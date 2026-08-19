@@ -21,6 +21,7 @@ permissions:
 env:
   PIPELINE_STATE_FILE: data/state.json
   UPLOAD_STATE_FILE: data/upload_state.json
+  PIPELINE_RENDER_LANGS: ml
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
   YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
   YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -48,15 +49,22 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Disk space (before)
+        run: df -h
+
       - name: Prefetch BGM library
-        run: python -c "from main import ensure_bgm_library; ensure_bgm_library()"
+        run: python -c "from main import ensure_bgm_library; lib=ensure_bgm_library(); print('BGM:', sorted(lib)); assert lib, 'No BGM files found'"
 
       - name: Render next episode
         if: github.event.inputs.skip_render != 'true'
         run: python main.py
 
-      - name: Upload to YouTube (EN + ML videos)
-        run: python upload_day.py --privacy public
+      - name: Disk space (after render)
+        if: github.event.inputs.skip_render != 'true'
+        run: df -h && ls -lh output/ || true
+
+      - name: Upload Malayalam video to YouTube
+        run: python upload_day.py --lang ml --privacy public
 
       - name: Commit pipeline state
         run: |

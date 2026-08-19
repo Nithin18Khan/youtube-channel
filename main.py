@@ -145,7 +145,16 @@ STAGING_DIR = OUTPUT_DIR / ".staging"
 TEMP_DIR = BASE_DIR / "temp"
 TEMP_IMAGES_DIR = TEMP_DIR / "images"
 TEMP_AUDIO_DIR = TEMP_DIR / "audio"
-MOVIEPY_TEMP_DIR = Path(os.environ.get("LOCALAPPDATA", tempfile.gettempdir())) / "ghost_video_mpy"
+
+
+def _resolve_moviepy_temp_dir() -> Path:
+    if os.environ.get("GITHUB_ACTIONS", "").lower() == "true":
+        return Path("/tmp/ghost_video_mpy")
+    base = os.environ.get("LOCALAPPDATA") or tempfile.gettempdir()
+    return Path(base) / "ghost_video_mpy"
+
+
+MOVIEPY_TEMP_DIR = _resolve_moviepy_temp_dir()
 SCRIPTS_DIR = BASE_DIR / "scripts"
 ASSETS_DIR = BASE_DIR / "assets"
 BGM_DIR = ASSETS_DIR / "bgm"
@@ -502,6 +511,32 @@ def _clamp_bgm_volume(value: float | None) -> float:
     if value is None:
         return DEFAULT_BGM_VOLUME
     return max(BGM_VOLUME_MIN, min(BGM_VOLUME_MAX, float(value)))
+
+
+def _is_ci_runner() -> bool:
+    return os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
+
+
+def _render_langs() -> set[str]:
+    raw = os.environ.get("PIPELINE_RENDER_LANGS", "en,ml")
+    langs = {part.strip().lower() for part in raw.split(",") if part.strip()}
+    return langs or {"en", "ml"}
+
+
+def _video_write_kwargs() -> dict[str, Any]:
+    kwargs: dict[str, Any] = {
+        "fps": VIDEO_FPS,
+        "codec": "libx264",
+        "audio_codec": "aac",
+        "logger": None,
+        "temp_audiofile_path": str(MOVIEPY_TEMP_DIR),
+        "remove_temp": False,
+    }
+    if _is_ci_runner():
+        kwargs["preset"] = "ultrafast"
+        kwargs["threads"] = 2
+        kwargs["ffmpeg_params"] = ["-crf", "28"]
+    return kwargs
 
 
 def resolve_bgm_cue(scene: dict[str, Any]) -> str:
@@ -1923,20 +1958,16 @@ def build_cinematic_video(
 
         video = _clip_set_audio(video, final_audio)
 
-        write_kwargs: dict[str, Any] = {
-            "fps": VIDEO_FPS,
-            "codec": "libx264",
-            "audio_codec": "aac",
-            "logger": None,
-            "temp_audiofile_path": str(MOVIEPY_TEMP_DIR),
-            "remove_temp": False,
-        }
+        write_kwargs = _video_write_kwargs()
         if hasattr(video, "write_videofile"):
             try:
                 video.write_videofile(str(local_out), **write_kwargs)
             except TypeError:
                 write_kwargs.pop("logger", None)
                 write_kwargs.pop("temp_audiofile_path", None)
+                write_kwargs.pop("preset", None)
+                write_kwargs.pop("threads", None)
+                write_kwargs.pop("ffmpeg_params", None)
                 video.write_videofile(str(local_out), **write_kwargs)
     finally:
         _close_clip(video)
@@ -2011,19 +2042,16 @@ def build_video(
         video = concatenate_videoclips(clips, method="compose")
         video = _clip_set_audio(video, audio)
 
-        write_kwargs: dict[str, Any] = {
-            "fps": VIDEO_FPS,
-            "codec": "libx264",
-            "audio_codec": "aac",
-            "logger": None,
-            "temp_audiofile_path": str(MOVIEPY_TEMP_DIR),
-            "remove_temp": False,
-        }
+        write_kwargs = _video_write_kwargs()
         if hasattr(video, "write_videofile"):
             try:
                 video.write_videofile(str(local_out), **write_kwargs)
             except TypeError:
                 write_kwargs.pop("logger", None)
+                write_kwargs.pop("temp_audiofile_path", None)
+                write_kwargs.pop("preset", None)
+                write_kwargs.pop("threads", None)
+                write_kwargs.pop("ffmpeg_params", None)
                 video.write_videofile(str(local_out), **write_kwargs)
 
         for clip in clips:
@@ -2127,6 +2155,11 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
     bgm_volume = episode.get("bgm_volume", DEFAULT_BGM_VOLUME)
     log.info("=== Processing Day %s: %s (%s) ===", day, episode["title"], source)
     log.info("Malayalam title: %s", title_ml)
+    render_langs = _render_langs()
+    log.info("Video render languages: %s", ", ".join(sorted(render_langs)))
+    if _is_ci_runner():
+        MOVIEPY_TEMP_DIR.mkdir(parents=True, exist_ok=True)
+        log.info("CI runner temp dir: %s", MOVIEPY_TEMP_DIR)
     if _gemini_tts_enabled():
         log.info("Malayalam TTS: Gemini (%s)", GEMINI_TTS_MODEL)
     else:
@@ -2173,35 +2206,41 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
         write_scene_srt(scene_shot_plans, staged_en_scenes, en_out, "en")
         write_scene_srt(scene_shot_plans, staged_ml_scenes, ml_out, "ml")
 
-        if _video_is_valid(en_out):
-            log.info("Skipping English render (already exists): %s", en_out)
+        if "en" in render_langs:
+            if _video_is_valid(en_out):
+                log.info("Skipping English render (already exists): %s", en_out)
+            else:
+                if en_out.exists():
+                    log.warning("Replacing invalid English video: %s", en_out)
+                    _safe_unlink(en_out)
+                build_cinematic_video(
+                    scene_shot_plans,
+                    staged_en_scenes,
+                    en_out,
+                    overlay_lang="en",
+                    bgm_library=bgm_library,
+                    bgm_volume=bgm_volume,
+                )
         else:
-            if en_out.exists():
-                log.warning("Replacing invalid English video: %s", en_out)
-                _safe_unlink(en_out)
-            build_cinematic_video(
-                scene_shot_plans,
-                staged_en_scenes,
-                en_out,
-                overlay_lang="en",
-                bgm_library=bgm_library,
-                bgm_volume=bgm_volume,
-            )
+            log.info("Skipping English video render (PIPELINE_RENDER_LANGS)")
 
-        if _video_is_valid(ml_out):
-            log.info("Skipping Malayalam render (already exists): %s", ml_out)
+        if "ml" in render_langs:
+            if _video_is_valid(ml_out):
+                log.info("Skipping Malayalam render (already exists): %s", ml_out)
+            else:
+                if ml_out.exists():
+                    log.warning("Replacing invalid Malayalam video: %s", ml_out)
+                    _safe_unlink(ml_out)
+                build_cinematic_video(
+                    scene_shot_plans,
+                    staged_ml_scenes,
+                    ml_out,
+                    overlay_lang="ml",
+                    bgm_library=bgm_library,
+                    bgm_volume=bgm_volume,
+                )
         else:
-            if ml_out.exists():
-                log.warning("Replacing invalid Malayalam video: %s", ml_out)
-                _safe_unlink(ml_out)
-            build_cinematic_video(
-                scene_shot_plans,
-                staged_ml_scenes,
-                ml_out,
-                overlay_lang="ml",
-                bgm_library=bgm_library,
-                bgm_volume=bgm_volume,
-            )
+            log.info("Skipping Malayalam video render (PIPELINE_RENDER_LANGS)")
     else:
         image_paths = download_episode_images(episode)
         write_thumbnail_jpg_files(episode, day, _find_hook_image(day, episode.get("scenes")))
@@ -2223,33 +2262,39 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
             image_paths=image_paths,
         )
 
-        if _video_is_valid(en_out):
-            log.info("Skipping English render (already exists): %s", en_out)
+        if "en" in render_langs:
+            if _video_is_valid(en_out):
+                log.info("Skipping English render (already exists): %s", en_out)
+            else:
+                if en_out.exists():
+                    log.warning("Replacing invalid English video: %s", en_out)
+                    _safe_unlink(en_out)
+                build_video(
+                    staged_images or [],
+                    staged_en,
+                    en_out,
+                    subtitle_text=episode["script_en"],
+                    subtitle_lang="en",
+                )
         else:
-            if en_out.exists():
-                log.warning("Replacing invalid English video: %s", en_out)
-                _safe_unlink(en_out)
-            build_video(
-                staged_images or [],
-                staged_en,
-                en_out,
-                subtitle_text=episode["script_en"],
-                subtitle_lang="en",
-            )
+            log.info("Skipping English video render (PIPELINE_RENDER_LANGS)")
 
-        if _video_is_valid(ml_out):
-            log.info("Skipping Malayalam render (already exists): %s", ml_out)
+        if "ml" in render_langs:
+            if _video_is_valid(ml_out):
+                log.info("Skipping Malayalam render (already exists): %s", ml_out)
+            else:
+                if ml_out.exists():
+                    log.warning("Replacing invalid Malayalam video: %s", ml_out)
+                    _safe_unlink(ml_out)
+                build_video(
+                    staged_images or [],
+                    staged_ml,
+                    ml_out,
+                    subtitle_text=episode["script_ml"],
+                    subtitle_lang="ml",
+                )
         else:
-            if ml_out.exists():
-                log.warning("Replacing invalid Malayalam video: %s", ml_out)
-                _safe_unlink(ml_out)
-            build_video(
-                staged_images or [],
-                staged_ml,
-                ml_out,
-                subtitle_text=episode["script_ml"],
-                subtitle_lang="ml",
-            )
+            log.info("Skipping Malayalam video render (PIPELINE_RENDER_LANGS)")
 
     cleanup_staging(day)
     return en_out, ml_out
@@ -2267,6 +2312,11 @@ async def async_main() -> None:
     episode = get_episode(day)
     try:
         en_path, ml_path = await process_episode(episode)
+        render_langs = _render_langs()
+        if "ml" in render_langs and not _video_is_valid(ml_path):
+            raise RuntimeError(f"Malayalam video missing or invalid: {ml_path}")
+        if "en" in render_langs and not _video_is_valid(en_path):
+            raise RuntimeError(f"English video missing or invalid: {en_path}")
         state["current_day"] = day + 1
         save_state(state)
         log.info("Success! Day %s complete.", day)
