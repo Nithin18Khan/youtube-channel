@@ -30,7 +30,7 @@ Thumbnail copy: output/Day_{N}_English_thumbnail.txt and output/Day_{N}_Malayala
 CINEMATIC SCRIPTS (recommended — 10–12 scenes, ~2 min):
     scripts/day_01_script.json ... scripts/day_30_script.json
     Scene array is sorted by id. Scenes auto-split into sub-shots when narration
-    exceeds 4s or complex_action is set. Per-scene BGM cues: atmospheric, combat,
+    exceeds 4s or complex_action is set. Per-scene BGM cues: combat, emotional,
     epic_hook. Camera motion: zoom_in, zoom_out, pan_left, pan_right, whip_pan,
     tracking_shot.
 
@@ -155,17 +155,6 @@ BGM_DOWNLOAD_URLS = [
     "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Volatile%20Reaction.mp3",
 ]
 BGM_CUE_CONFIG: dict[str, dict[str, Any]] = {
-    "atmospheric": {
-        "file": "atmospheric.mp3",
-        "urls": [
-            "https://incompetech.com/music/royalty-free/mp3-royaltyfree/District%20Four.mp3",
-            "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Drone%20in%20D.mp3",
-        ],
-        "volume": 0.17,
-        "beat_offset": 0.0,
-        "restart_per_shot": False,
-        "crescendo": False,
-    },
     "combat": {
         "file": "combat.mp3",
         "urls": [
@@ -211,7 +200,7 @@ BGM_CUE_CONFIG: dict[str, dict[str, Any]] = {
 BGM_CUE_BY_SCENE_TYPE = {
     "hook": "epic_hook",
     "action": "combat",
-    "establishing": "combat",
+    "establishing": "epic_hook",
 }
 
 VOICE_EN = "en-US-ChristopherNeural"
@@ -519,12 +508,12 @@ def resolve_bgm_cue(scene: dict[str, Any]) -> str:
     explicit = scene.get("bgm_cue")
     if explicit:
         if explicit == "atmospheric":
-            return "combat"
+            return "epic_hook"
         if explicit in BGM_CUE_CONFIG:
             return explicit
     cue = BGM_CUE_BY_SCENE_TYPE.get(scene.get("type", ""), "default")
     if cue == "atmospheric":
-        return "combat"
+        return "epic_hook"
     return cue
 
 
@@ -875,7 +864,7 @@ def concatenate_audio_files(audio_paths: list[Path], output_path: Path) -> Path:
 
 
 def ensure_bgm_library() -> dict[str, Path]:
-    """Download/load distinct BGM cues for atmospheric, combat, and hook scenes."""
+    """Download/load BGM cues for combat, emotional, epic hook, and default scenes."""
     BGM_DIR.mkdir(parents=True, exist_ok=True)
     library: dict[str, Path] = {}
 
