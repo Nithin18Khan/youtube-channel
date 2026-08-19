@@ -673,7 +673,7 @@ def load_script_json(day: int, season: int | None = None) -> dict[str, Any] | No
 def load_season_state() -> dict[str, Any]:
     if SEASON_STATE_FILE.exists():
         try:
-            with SEASON_STATE_FILE.open(encoding="utf-8") as fh:
+            with SEASON_STATE_FILE.open(encoding="utf-8-sig") as fh:
                 data = json.load(fh)
             season = max(1, int(data.get("season", 1)))
             day = max(1, min(int(data.get("current_day", 1)), MAX_DAYS_PER_SEASON))
@@ -698,7 +698,7 @@ def load_state() -> dict[str, Any]:
     season_state = load_season_state()
     if STATE_FILE.exists() and STATE_FILE != SEASON_STATE_FILE:
         try:
-            with STATE_FILE.open(encoding="utf-8") as fh:
+            with STATE_FILE.open(encoding="utf-8-sig") as fh:
                 data = json.load(fh)
             day = int(data.get("current_day", season_state["current_day"]))
             season_state["current_day"] = max(1, min(day, MAX_DAYS_PER_SEASON))
