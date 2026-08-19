@@ -22,6 +22,7 @@ env:
   PIPELINE_STATE_FILE: data/state.json
   UPLOAD_STATE_FILE: data/upload_state.json
   PIPELINE_RENDER_LANGS: en,ml
+  MALAYALAM_TTS: edge
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
   YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
   YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}

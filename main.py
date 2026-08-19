@@ -224,6 +224,8 @@ VOICE_ML_PITCH = "+0Hz"
 GEMINI_TTS_MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
 GEMINI_ML_VOICE = os.environ.get("GEMINI_ML_VOICE", "Kore")
 GEMINI_ML_VOICE_ALT = os.environ.get("GEMINI_ML_VOICE_ALT", "Puck")
+# Default edge = one stable Sobhana storyteller voice every scene (no Gemini/Edge mix).
+MALAYALAM_TTS_ENGINE = os.environ.get("MALAYALAM_TTS", "edge").strip().lower()
 SUB_SHOT_CROSSFADE_SEC = 0.22
 SCENE_CROSSFADE_SEC = 0.35
 BGM_CROSSFADE_SEC = 0.85
@@ -752,6 +754,11 @@ def _gemini_tts_enabled() -> bool:
     return bool(os.environ.get("GEMINI_API_KEY")) and google_genai is not None
 
 
+def _use_gemini_malayalam_tts() -> bool:
+    """Gemini only when explicitly requested — edge keeps one narrator tone per video."""
+    return MALAYALAM_TTS_ENGINE == "gemini" and _gemini_tts_enabled()
+
+
 def _write_pcm_wav(path: Path, pcm: bytes, rate: int = 24000) -> None:
     import wave
 
@@ -938,8 +945,8 @@ def _generate_gemini_malayalam_audio_sync(
 async def generate_malayalam_audio(
     raw_text: str, output_path: Path, scene: dict[str, Any] | None = None
 ) -> Path:
-    """Prefer Gemini TTS for Malayalam; fall back to Edge-TTS with fixed narrator pitch."""
-    if _gemini_tts_enabled():
+    """Prefer Gemini TTS when MALAYALAM_TTS=gemini; else Edge-TTS storyteller (stable tone)."""
+    if _use_gemini_malayalam_tts():
         try:
             return await asyncio.to_thread(
                 _generate_gemini_malayalam_audio_sync, raw_text, output_path, scene
@@ -989,7 +996,7 @@ async def generate_scene_audios(
             await generate_malayalam_audio(raw_text, dest, ml_scene)
         else:
             rate, pitch = _tts_profile(lang)
-            text = prepare_tts_text(raw_text, lang=lang)
+            text = _narrator_plain_text(raw_text, lang=lang)
             await generate_audio(text, voice, dest, rate=rate, pitch=pitch)
         paths.append(dest)
     return paths
@@ -2312,11 +2319,11 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
     if _is_ci_runner():
         MOVIEPY_TEMP_DIR.mkdir(parents=True, exist_ok=True)
         log.info("CI runner temp dir: %s", MOVIEPY_TEMP_DIR)
-    if _gemini_tts_enabled():
+    if _use_gemini_malayalam_tts():
         log.info("Malayalam TTS: Gemini (%s)", GEMINI_TTS_MODEL)
     else:
         log.info(
-            "Malayalam TTS: Edge-TTS (%s) — set GEMINI_API_KEY for better pronunciation",
+            "Malayalam TTS: Edge-TTS (%s) — single kathaprasangam storyteller voice",
             VOICE_ML,
         )
 
