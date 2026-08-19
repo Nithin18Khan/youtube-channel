@@ -987,7 +987,8 @@ def build_episode_bgm_timeline(
         )
 
     if not segments:
-        raise RuntimeError("Episode BGM timeline is empty")
+        log.warning("Episode BGM timeline is empty — BGM files missing or download failed")
+        return None, sources
     return concatenate_audioclips(segments), sources
 
 
@@ -1004,6 +1005,10 @@ def mix_voice_with_episode_bgm(
     bgm_full, bgm_sources = build_episode_bgm_timeline(
         scene_plans, scene_durations, bgm_library, volume_scale
     )
+    if bgm_full is None:
+        for src in bgm_sources:
+            _close_clip(src)
+        return voice_full, voice_clips, None, []
     target = voice_full.duration
     if bgm_full.duration > target + 0.05:
         bgm_full = _clip_subclip(bgm_full, 0, target)
@@ -1913,9 +1918,15 @@ def build_cinematic_video(
                 bgm_library,
                 bgm_volume,
             )
-            disposable_audio.extend([mixed, bgm_full, *voice_clips, *bgm_sources])
-            baked_path = MOVIEPY_TEMP_DIR / f"{output_path.stem}_mix.mp3"
-            final_audio = _bake_audio_clip(mixed, baked_path)
+            disposable_audio.extend([mixed, *voice_clips, *bgm_sources])
+            if bgm_full is not None:
+                disposable_audio.append(bgm_full)
+                baked_path = MOVIEPY_TEMP_DIR / f"{output_path.stem}_mix.mp3"
+                final_audio = _bake_audio_clip(mixed, baked_path)
+            else:
+                log.warning("Exporting voice-only audio (BGM unavailable)")
+                baked_path = MOVIEPY_TEMP_DIR / f"{output_path.stem}_voice.mp3"
+                final_audio = _bake_audio_clip(mixed, baked_path)
         else:
             voice_clips = [AudioFileClip(str(path)) for path in scene_audio_paths]
             final_audio = concatenate_audioclips(voice_clips)

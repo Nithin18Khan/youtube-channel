@@ -42,11 +42,14 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Install ffmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-core
+      - name: Install ffmpeg and fonts
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-core fonts-noto-extra
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Prefetch BGM library
+        run: python -c "from main import ensure_bgm_library; ensure_bgm_library()"
 
       - name: Render next episode
         if: github.event.inputs.skip_render != 'true'
