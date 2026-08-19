@@ -97,7 +97,8 @@ python upload_day.py --day 1 --thumbnails-only
 
 | Secret | Purpose |
 |--------|---------|
-| `GEMINI_API_KEY` | Malayalam Gemini voice |
+| `GEMINI_API_KEY` | Malayalam Gemini voice + script refine |
+| `GEMINI_REFINE_MAX_PER_RUN` | Optional. Episodes per refine run (`18` free, `100` paid API) |
 | `YOUTUBE_CLIENT_ID` | OAuth |
 | `YOUTUBE_CLIENT_SECRET` | OAuth |
 | `YOUTUBE_REFRESH_TOKEN_ENGLISH` | English channel |
@@ -108,5 +109,7 @@ python upload_day.py --day 1 --thumbnails-only
 ## Notes
 
 - GitHub free tier: ~2000 min/month — each render ~60–120 min. Monitor usage.
+- **Malayalam script refine** runs automatically after each daily upload (`refine-malayalam-scripts.yml`). Progress: `data/gemini_refine_progress.json`.
+- Free Gemini API: ~18 script refinements/day. Enable billing + set `GEMINI_REFINE_MAX_PER_RUN=100` to finish all 360 scripts in one night.
 - Videos are **not** stored in git — cloud runner generates fresh each day.
 - For heavy renders, use a **self-hosted runner** on your PC.

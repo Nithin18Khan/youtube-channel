@@ -140,6 +140,9 @@ def _resolve_state_file() -> Path:
 
 
 STATE_FILE = _resolve_state_file()
+SEASON_STATE_FILE = BASE_DIR / "data" / "season_state.json"
+BGM_MANIFEST_FILE = BASE_DIR / "data" / "bgm_manifest.json"
+MAX_DAYS_PER_SEASON = 30
 OUTPUT_DIR = BASE_DIR / "output"
 STAGING_DIR = OUTPUT_DIR / ".staging"
 TEMP_DIR = BASE_DIR / "temp"
@@ -640,12 +643,18 @@ def normalize_episode(raw: dict[str, Any], source: str) -> dict[str, Any]:
     }
 
 
-def script_json_path(day: int) -> Path:
-    return SCRIPTS_DIR / f"day_{day:02d}_script.json"
+def script_json_path(day: int, season: int | None = None) -> Path:
+    if season is None:
+        season = load_season_state().get("season", 1)
+    season_path = SCRIPTS_DIR / f"season_{season:02d}" / f"day_{day:02d}_script.json"
+    if season_path.exists():
+        return season_path
+    legacy = SCRIPTS_DIR / f"day_{day:02d}_script.json"
+    return legacy
 
 
-def load_script_json(day: int) -> dict[str, Any] | None:
-    path = script_json_path(day)
+def load_script_json(day: int, season: int | None = None) -> dict[str, Any] | None:
+    path = script_json_path(day, season=season)
     if not path.exists():
         return None
     with path.open(encoding="utf-8") as fh:
@@ -659,25 +668,52 @@ def load_script_json(day: int) -> dict[str, Any] | None:
 # ---------------------------------------------------------------------------
 
 
-def load_state() -> dict[str, Any]:
-    if STATE_FILE.exists():
+def load_season_state() -> dict[str, Any]:
+    if SEASON_STATE_FILE.exists():
         try:
-            with STATE_FILE.open(encoding="utf-8") as fh:
+            with SEASON_STATE_FILE.open(encoding="utf-8") as fh:
                 data = json.load(fh)
-            day = int(data.get("current_day", 1))
-            return {"current_day": max(1, min(day, 30))}
+            season = max(1, int(data.get("season", 1)))
+            day = max(1, min(int(data.get("current_day", 1)), MAX_DAYS_PER_SEASON))
+            return {
+                "season": season,
+                "current_day": day,
+                "season_title_en": data.get("season_title_en", ""),
+                "season_title_ml": data.get("season_title_ml", ""),
+            }
         except (json.JSONDecodeError, OSError, TypeError, ValueError) as exc:
-            log.warning("Invalid state.json (%s); resetting to day 1.", exc)
-    return {"current_day": 1}
+            log.warning("Invalid season_state.json (%s); using defaults.", exc)
+    return {"season": 1, "current_day": 1, "season_title_en": "", "season_title_ml": ""}
 
 
-def save_state(state: dict[str, Any]) -> None:
-    with STATE_FILE.open("w", encoding="utf-8") as fh:
+def save_season_state(state: dict[str, Any]) -> None:
+    SEASON_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with SEASON_STATE_FILE.open("w", encoding="utf-8") as fh:
         json.dump(state, fh, indent=2)
 
 
+def load_state() -> dict[str, Any]:
+    season_state = load_season_state()
+    if STATE_FILE.exists() and STATE_FILE != SEASON_STATE_FILE:
+        try:
+            with STATE_FILE.open(encoding="utf-8") as fh:
+                data = json.load(fh)
+            day = int(data.get("current_day", season_state["current_day"]))
+            season_state["current_day"] = max(1, min(day, MAX_DAYS_PER_SEASON))
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            pass
+    return season_state
+
+
+def save_state(state: dict[str, Any]) -> None:
+    save_season_state(state)
+    with STATE_FILE.open("w", encoding="utf-8") as fh:
+        json.dump({"current_day": state["current_day"]}, fh, indent=2)
+
+
 def get_episode(day: int) -> dict[str, Any]:
-    raw = load_script_json(day)
+    season = load_season_state().get("season", 1)
+    raw = load_script_json(day, season=season)
     if raw is not None:
         return normalize_episode(raw, "trailer_json")
     for ep in EPISODE_DATA:
@@ -753,12 +789,89 @@ ML_GEMINI_VOICE_MAP: dict[str, str] = {
     "kratos": "Charon",
     "ക്രാറ്റോസ്": "Charon",
     "atreus": GEMINI_ML_VOICE_ALT,
+    "അത്രേയസ്": GEMINI_ML_VOICE_ALT,
     "അട്രിയസ്": GEMINI_ML_VOICE_ALT,
     "ares": "Charon",
     "ഏറീസ്": "Charon",
+    "odin": "Charon",
+    "ഓഡിൻ": "Charon",
+    "freya": GEMINI_ML_VOICE,
+    "ഫ്രെയ": GEMINI_ML_VOICE,
     "giant": "Charon",
     "യോടൻ": "Charon",
+    "zeus": "Charon",
+    "സ്യൂസ്": "Charon",
 }
+
+ML_SPEAKER_DELIVERY: dict[str, str] = {
+    "നറേറ്റർ": "Warm South Kerala kathaprasangam storyteller — vary pitch with emotion, never flat.",
+    "ക്രാറ്റോസ്": "Deep gravelly father-warrior voice — lower pitch, controlled rage, short punchy phrases.",
+    "അത്രേയസ്": "Younger earnest son — slightly higher pitch, hopeful but fierce when needed.",
+    "അട്രിയസ്": "Younger earnest son — slightly higher pitch, hopeful but fierce when needed.",
+    "ഏറീസ്": "God of war — booming, commanding, low pitch, volcanic energy.",
+    "ഓഡിൻ": "Cold ancient villain — slow, menacing, lower pitch, icy precision.",
+    "ഫ്രെയ": "Emotional goddess tone — soft pain shifting to fierce warning.",
+    "സ്യൂസ്": "Thunder king — arrogant, deep, commanding boom.",
+}
+
+ML_SCENE_DELIVERY: dict[str, dict[str, str]] = {
+    "hook": {
+        "instructions": (
+            "Epic trailer hook energy. Start steady, then rise sharply on the key hook phrase. "
+            "Higher pitch on question words. Dramatic pause at commas and ellipses (...)."
+        ),
+        "rate": "+4%",
+        "pitch": "+6Hz",
+    },
+    "action": {
+        "instructions": (
+            "Battle/action intensity — faster pace, punchy delivery. "
+            "Lower pitch for warriors, sharp attacks on verbs. Brief pause after exclamation marks."
+        ),
+        "rate": "+6%",
+        "pitch": "-2Hz",
+    },
+    "establishing": {
+        "instructions": (
+            "Slow cinematic mood — breathe between phrases. Medium-warm pitch. "
+            "Let the listener feel place and fate before the next beat."
+        ),
+        "rate": "-2%",
+        "pitch": "+0Hz",
+    },
+}
+
+
+def _ml_scene_delivery(scene: dict[str, Any] | None) -> dict[str, str]:
+    """Pitch/rate + Gemini delivery notes from scene story beat."""
+    if not scene:
+        base = ML_SCENE_DELIVERY["establishing"]
+        return {**base, "story": ""}
+    scene_type = str(scene.get("type") or scene.get("pace") or "establishing").lower()
+    profile = ML_SCENE_DELIVERY.get(scene_type, ML_SCENE_DELIVERY["establishing"])
+    out = dict(profile)
+    if scene.get("complex_action"):
+        out["instructions"] += " Extra fight-scene urgency — tighten pace, grit in the voice."
+        out["rate"] = "+8%"
+        out["pitch"] = "-4Hz"
+    title_bits = []
+    if scene.get("episode_title_ml"):
+        title_bits.append(str(scene["episode_title_ml"]))
+    if scene.get("episode_title_en"):
+        title_bits.append(str(scene["episode_title_en"]))
+    if scene.get("season"):
+        title_bits.insert(0, f"Season {scene['season']}")
+    if scene.get("day"):
+        title_bits.insert(1 if scene.get("season") else 0, f"Day {scene['day']}")
+    out["story"] = " — ".join(title_bits)
+    return out
+
+
+def _primary_speaker_delivery(lines: list[tuple[str, str]]) -> str:
+    if not lines:
+        return ML_SPEAKER_DELIVERY["നറേറ്റർ"]
+    name = lines[0][0]
+    return ML_SPEAKER_DELIVERY.get(name, ML_SPEAKER_DELIVERY.get(name.lower(), ML_SPEAKER_DELIVERY["നറേറ്റർ"]))
 
 
 def _gemini_voice_for_speaker(name: str) -> str:
@@ -775,28 +888,40 @@ def _parse_dialogue_lines(raw: str) -> list[tuple[str, str]]:
     return [("Narrator", cleaned)] if cleaned else []
 
 
-def _build_gemini_malayalam_request(raw_text: str) -> tuple[str, list[dict[str, str]]]:
-    """Southern Kerala cinematic story-narration style (kathaprasangam meets trailer)."""
+def _build_gemini_malayalam_request(
+    raw_text: str, scene: dict[str, Any] | None = None
+) -> tuple[str, list[dict[str, str]]]:
+    """Southern Kerala cinematic story-narration — scene-aware pitch and delivery."""
+    delivery = _ml_scene_delivery(scene)
     style = (
         "You are a master Malayalam story narrator from South Kerala (Travancore-Kollam style). "
         "CRITICAL: Read the Malayalam text EXACTLY as written. Do not paraphrase, shorten, "
         "translate, or replace any words. Preserve every Malayalam character and name exactly. "
-        "Deliver with warm emotional tone, clear native Malayalam pronunciation, natural pauses "
-        "at commas and ellipses, rising drama on hooks, and soft landing on emotional lines."
+        "Understand the STORY BEAT and match VOICE PITCH + EMOTION to the scene:\n"
+        f"- Scene delivery: {delivery['instructions']}\n"
+        "Use natural pauses at commas and ellipses (...). Rise on hooks and questions. "
+        "Soft landing on emotional lines. Never sound robotic or monotone."
     )
+    if delivery.get("story"):
+        style += f"\nStory context: {delivery['story']}."
     lines = _parse_dialogue_lines(raw_text)
     lines = [(name, _apply_malayalam_text_fixes(text)) for name, text in lines]
+    speaker_note = _primary_speaker_delivery(lines)
+    style += f"\nPrimary speaker tone: {speaker_note}"
 
     if len(lines) == 1:
-        _, text = lines[0]
-        prompt = f"{style}\n\nNarrate this Malayalam story passage:\n\n{text}"
-        return prompt, [{"voice": GEMINI_ML_VOICE}]
+        name, text = lines[0]
+        prompt = (
+            f"{style}\n\n"
+            f"Perform as [{name}] with the pitch and emotion described above:\n\n{text}"
+        )
+        return prompt, [{"voice": _gemini_voice_for_speaker(name)}]
 
     if len(lines) == 2:
         (n1, t1), (n2, t2) = lines
         prompt = (
             f"{style}\n\n"
-            "Perform this Malayalam cinematic dialogue with dramatic story energy:\n\n"
+            "Perform this Malayalam cinematic dialogue — each speaker with distinct pitch/energy:\n\n"
             f"{n1}: {t1}\n{n2}: {t2}"
         )
         return prompt, [
@@ -804,16 +929,21 @@ def _build_gemini_malayalam_request(raw_text: str) -> tuple[str, list[dict[str, 
             {"speaker": n2, "voice": _gemini_voice_for_speaker(n2)},
         ]
 
-    merged = " ".join(text for _, text in lines)
-    prompt = f"{style}\n\nNarrate this Malayalam story passage:\n\n{merged}"
-    return prompt, [{"voice": GEMINI_ML_VOICE}]
+    prompt_parts = [f"{style}\n\nPerform this Malayalam story sequence scene by scene:\n"]
+    speech_config: list[dict[str, str]] = []
+    for name, text in lines:
+        prompt_parts.append(f"{name}: {text}")
+        speech_config.append({"speaker": name, "voice": _gemini_voice_for_speaker(name)})
+    return "\n".join(prompt_parts), speech_config or [{"voice": GEMINI_ML_VOICE}]
 
 
-def _generate_gemini_malayalam_audio_sync(raw_text: str, output_path: Path) -> Path:
+def _generate_gemini_malayalam_audio_sync(
+    raw_text: str, output_path: Path, scene: dict[str, Any] | None = None
+) -> Path:
     if not _gemini_tts_enabled():
         raise RuntimeError("Gemini TTS not configured (set GEMINI_API_KEY and pip install google-genai)")
 
-    prompt, speech_config = _build_gemini_malayalam_request(raw_text)
+    prompt, speech_config = _build_gemini_malayalam_request(raw_text, scene)
     client = google_genai.Client()
     interaction = client.interactions.create(
         model=GEMINI_TTS_MODEL,
@@ -835,18 +965,23 @@ def _generate_gemini_malayalam_audio_sync(raw_text: str, output_path: Path) -> P
     return output_path
 
 
-async def generate_malayalam_audio(raw_text: str, output_path: Path) -> Path:
-    """Prefer Gemini TTS for Malayalam; fall back to Edge-TTS."""
+async def generate_malayalam_audio(
+    raw_text: str, output_path: Path, scene: dict[str, Any] | None = None
+) -> Path:
+    """Prefer Gemini TTS for Malayalam; fall back to Edge-TTS with scene-aware pitch."""
     if _gemini_tts_enabled():
         try:
             return await asyncio.to_thread(
-                _generate_gemini_malayalam_audio_sync, raw_text, output_path
+                _generate_gemini_malayalam_audio_sync, raw_text, output_path, scene
             )
         except Exception as exc:
             log.warning("Gemini Malayalam TTS failed (%s); using Edge-TTS fallback.", exc)
 
+    delivery = _ml_scene_delivery(scene)
     text = prepare_malayalam_tts(raw_text)
-    return await generate_audio(text, VOICE_ML, output_path, rate=VOICE_ML_RATE, pitch=VOICE_ML_PITCH)
+    return await generate_audio(
+        text, VOICE_ML, output_path, rate=delivery["rate"], pitch=delivery["pitch"]
+    )
 
 
 def _tts_profile(lang: str) -> tuple[str | None, str | None]:
@@ -858,19 +993,33 @@ def _tts_profile(lang: str) -> tuple[str | None, str | None]:
 
 
 async def generate_scene_audios(
-    scenes: list[dict[str, Any]], voice: str, lang: str, day: int
+    scenes: list[dict[str, Any]],
+    voice: str,
+    lang: str,
+    day: int,
+    *,
+    season: int = 1,
+    episode_title_en: str = "",
+    episode_title_ml: str = "",
 ) -> list[Path]:
     """Generate one TTS clip per scene; duration drives the matching visual cut."""
     paths: list[Path] = []
-    rate, pitch = _tts_profile(lang)
     for scene in scenes:
         raw_text = scene[f"voiceover_{lang}"]
         if not raw_text.strip():
             raise ValueError(f"Day {day} scene {scene['id']} missing voiceover_{lang}")
         dest = TEMP_AUDIO_DIR / f"day{day:02d}_{lang}_scene{scene['id']:02d}.mp3"
         if lang == "ml":
-            await generate_malayalam_audio(raw_text, dest)
+            ml_scene = {
+                **scene,
+                "day": day,
+                "season": season,
+                "episode_title_en": episode_title_en,
+                "episode_title_ml": episode_title_ml,
+            }
+            await generate_malayalam_audio(raw_text, dest, ml_scene)
         else:
+            rate, pitch = _tts_profile(lang)
             text = prepare_tts_text(raw_text, lang=lang)
             await generate_audio(text, voice, dest, rate=rate, pitch=pitch)
         paths.append(dest)
@@ -898,26 +1047,59 @@ def concatenate_audio_files(audio_paths: list[Path], output_path: Path) -> Path:
     return output_path
 
 
+def _season_bgm_config() -> dict[str, dict[str, Any]]:
+    """Load per-season BGM tracks — unique files each month, no repeat within season."""
+    season = load_season_state().get("season", 1)
+    if not BGM_MANIFEST_FILE.exists():
+        return BGM_CUE_CONFIG
+    try:
+        manifest = json.loads(BGM_MANIFEST_FILE.read_text(encoding="utf-8"))
+        key = f"{season:02d}"
+        block = manifest.get("seasons", {}).get(key)
+        if not block:
+            return BGM_CUE_CONFIG
+        folder = BASE_DIR / block["folder"]
+        merged: dict[str, dict[str, Any]] = {}
+        for cue, meta in block.get("tracks", {}).items():
+            base = BGM_CUE_CONFIG.get(cue, BGM_CUE_CONFIG["default"])
+            merged[cue] = {
+                **base,
+                "file": meta["file"],
+                "urls": meta.get("urls", base.get("urls", [])),
+            }
+        return merged or BGM_CUE_CONFIG
+    except (json.JSONDecodeError, OSError, KeyError) as exc:
+        log.warning("BGM manifest load failed (%s); using default cues.", exc)
+        return BGM_CUE_CONFIG
+
+
 def ensure_bgm_library() -> dict[str, Path]:
     """Download/load BGM cues for combat, emotional, epic hook, and default scenes."""
+    cue_config = _season_bgm_config()
+    season = load_season_state().get("season", 1)
+    season_dir = BASE_DIR / "assets" / "bgm" / f"season_{season:02d}"
+    season_dir.mkdir(parents=True, exist_ok=True)
     BGM_DIR.mkdir(parents=True, exist_ok=True)
     library: dict[str, Path] = {}
 
-    for cue, config in BGM_CUE_CONFIG.items():
-        dest = BGM_DIR / config["file"]
+    for cue, config in cue_config.items():
+        dest = season_dir / config["file"]
+        if not dest.exists():
+            dest = BGM_DIR / config["file"]
         if dest.exists() and dest.stat().st_size > 10_000:
             library[cue] = dest
             continue
 
-        for url in config["urls"]:
+        for url in config.get("urls", []):
             try:
-                log.info("Downloading BGM cue '%s': %s", cue, url)
+                log.info("Downloading BGM cue '%s' (season %s): %s", cue, season, url)
                 response = requests.get(url, timeout=120)
                 response.raise_for_status()
-                dest.write_bytes(response.content)
-                if dest.stat().st_size > 10_000:
-                    library[cue] = dest
-                    log.info("BGM cue saved: %s", dest.name)
+                target = season_dir / config["file"]
+                target.write_bytes(response.content)
+                if target.stat().st_size > 10_000:
+                    library[cue] = target
+                    log.info("BGM cue saved: %s", target.name)
                     break
             except (OSError, requests.RequestException) as exc:
                 log.warning("BGM cue '%s' download failed (%s): %s", cue, url, exc)
@@ -2182,8 +2364,24 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
             TARGET_DURATION_SEC,
         )
 
-        en_scene_paths = await generate_scene_audios(scenes, VOICE_EN, "en", day)
-        ml_scene_paths = await generate_scene_audios(scenes, VOICE_ML, "ml", day)
+        en_scene_paths = await generate_scene_audios(
+            scenes,
+            VOICE_EN,
+            "en",
+            day,
+            season=season,
+            episode_title_en=episode.get("title", ""),
+            episode_title_ml=episode.get("title_ml", ""),
+        )
+        ml_scene_paths = await generate_scene_audios(
+            scenes,
+            VOICE_ML,
+            "ml",
+            day,
+            season=season,
+            episode_title_en=episode.get("title", ""),
+            episode_title_ml=episode.get("title_ml", ""),
+        )
 
         en_narration = TEMP_AUDIO_DIR / f"day{day:02d}_en.mp3"
         ml_narration = TEMP_AUDIO_DIR / f"day{day:02d}_ml.mp3"
@@ -2304,11 +2502,17 @@ async def async_main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     state = load_state()
     day = state["current_day"]
+    season = state.get("season", 1)
 
-    if day > 30:
-        log.info("All 30 days complete. Reset state.json to current_day=1 to restart.")
+    if day > MAX_DAYS_PER_SEASON:
+        log.info(
+            "Season %s complete (%s days). Advance season in data/season_state.json.",
+            season,
+            MAX_DAYS_PER_SEASON,
+        )
         return
 
+    log.info("=== Season %s | Day %s ===", season, day)
     episode = get_episode(day)
     try:
         en_path, ml_path = await process_episode(episode)
@@ -2317,12 +2521,17 @@ async def async_main() -> None:
             raise RuntimeError(f"Malayalam video missing or invalid: {ml_path}")
         if "en" in render_langs and not _video_is_valid(en_path):
             raise RuntimeError(f"English video missing or invalid: {en_path}")
-        state["current_day"] = day + 1
+        if day >= MAX_DAYS_PER_SEASON:
+            state["season"] = season + 1
+            state["current_day"] = 1
+            log.info("Season %s finale complete. Next run: Season %s Day 1.", season, season + 1)
+        else:
+            state["current_day"] = day + 1
         save_state(state)
-        log.info("Success! Day %s complete.", day)
+        log.info("Success! Season %s Day %s complete.", season, day)
         log.info("  English:   %s", en_path)
         log.info("  Malayalam: %s", ml_path)
-        log.info("Next run will process day %s.", state["current_day"])
+        log.info("Next run: Season %s Day %s.", state.get("season", season), state["current_day"])
     except Exception:
         log.exception("Pipeline failed on day %s (current_day NOT incremented).", day)
         raise

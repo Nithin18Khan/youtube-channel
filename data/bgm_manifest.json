@@ -1,0 +1,257 @@
+{
+  "note": "Each season uses 4 unique BGM files — no track repeats within the same month. Download via ensure_bgm_library() or bundle in assets/bgm/season_XX/",
+  "seasons": {
+    "01": {
+      "folder": "assets/bgm/season_01",
+      "tracks": {
+        "epic_hook": {
+          "file": "s01_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Volatile%20Reaction.mp3"]
+        },
+        "combat": {
+          "file": "s01_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Clash%20Defiant.mp3"]
+        },
+        "emotional": {
+          "file": "s01_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Almost%20in%20F.mp3"]
+        },
+        "default": {
+          "file": "s01_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hero%20Down.mp3"]
+        }
+      }
+    },
+    "02": {
+      "folder": "assets/bgm/season_02",
+      "tracks": {
+        "epic_hook": {
+          "file": "s02_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Strength%20of%20the%20Titan.mp3"]
+        },
+        "combat": {
+          "file": "s02_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Break%20You%20In.mp3"]
+        },
+        "emotional": {
+          "file": "s02_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Despair%20and%20Triumph.mp3"]
+        },
+        "default": {
+          "file": "s02_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Five%20Armies.mp3"]
+        }
+      }
+    },
+    "03": {
+      "folder": "assets/bgm/season_03",
+      "tracks": {
+        "epic_hook": {
+          "file": "s03_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Thunder%20Head.mp3"]
+        },
+        "combat": {
+          "file": "s03_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Exit%20the%20Premises.mp3"]
+        },
+        "emotional": {
+          "file": "s03_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Valley.mp3"]
+        },
+        "default": {
+          "file": "s03_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/India%20Spirit.mp3"]
+        }
+      }
+    },
+    "04": {
+      "folder": "assets/bgm/season_04",
+      "tracks": {
+        "epic_hook": {
+          "file": "s04_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Andante.mp3"]
+        },
+        "combat": {
+          "file": "s04_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Forced%20Perspective.mp3"]
+        },
+        "emotional": {
+          "file": "s04_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dhaka.mp3"]
+        },
+        "default": {
+          "file": "s04_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Temple%20of%20the%20Muse.mp3"]
+        }
+      }
+    },
+    "05": {
+      "folder": "assets/bgm/season_05",
+      "tracks": {
+        "epic_hook": {
+          "file": "s05_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Digital%20Hard.mp3"]
+        },
+        "combat": {
+          "file": "s05_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Chipper%20Doodle.mp3"]
+        },
+        "emotional": {
+          "file": "s05_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Slow%20Motion.mp3"]
+        },
+        "default": {
+          "file": "s05_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/EDM%20Detection%20Mode.mp3"]
+        }
+      }
+    },
+    "06": {
+      "folder": "assets/bgm/season_06",
+      "tracks": {
+        "epic_hook": {
+          "file": "s06_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Cipher.mp3"]
+        },
+        "combat": {
+          "file": "s06_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hitman.mp3"]
+        },
+        "emotional": {
+          "file": "s06_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3"]
+        },
+        "default": {
+          "file": "s06_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Overworld.mp3"]
+        }
+      }
+    },
+    "07": {
+      "folder": "assets/bgm/season_07",
+      "tracks": {
+        "epic_hook": {
+          "file": "s07_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Mystery.mp3"]
+        },
+        "combat": {
+          "file": "s07_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Black%20Vortex.mp3"]
+        },
+        "emotional": {
+          "file": "s07_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Emotional%20Tension.mp3"]
+        },
+        "default": {
+          "file": "s07_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Anachronist.mp3"]
+        }
+      }
+    },
+    "08": {
+      "folder": "assets/bgm/season_08",
+      "tracks": {
+        "epic_hook": {
+          "file": "s08_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Shiva%20Shiva.mp3"]
+        },
+        "combat": {
+          "file": "s08_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Kirtan.mp3"]
+        },
+        "emotional": {
+          "file": "s08_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peace%20of%20Mind.mp3"]
+        },
+        "default": {
+          "file": "s08_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Revival.mp3"]
+        }
+      }
+    },
+    "09": {
+      "folder": "assets/bgm/season_09",
+      "tracks": {
+        "epic_hook": {
+          "file": "s09_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Fog.mp3"]
+        },
+        "combat": {
+          "file": "s09_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gothic%20Shimmy.mp3"]
+        },
+        "emotional": {
+          "file": "s09_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Horror%20Sound.mp3"]
+        },
+        "default": {
+          "file": "s09_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Night%20of%20Chaos.mp3"]
+        }
+      }
+    },
+    "10": {
+      "folder": "assets/bgm/season_10",
+      "tracks": {
+        "epic_hook": {
+          "file": "s10_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crusade.mp3"]
+        },
+        "combat": {
+          "file": "s10_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/All%20This.mp3"]
+        },
+        "emotional": {
+          "file": "s10_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Atlantean%20Twilight.mp3"]
+        },
+        "default": {
+          "file": "s10_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sea%20Shanty.mp3"]
+        }
+      }
+    },
+    "11": {
+      "folder": "assets/bgm/season_11",
+      "tracks": {
+        "epic_hook": {
+          "file": "s11_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Phat%20Sketch.mp3"]
+        },
+        "combat": {
+          "file": "s11_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Blip%20Stream.mp3"]
+        },
+        "emotional": {
+          "file": "s11_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Local%20Forecast.mp3"]
+        },
+        "default": {
+          "file": "s11_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/8bit%20Dungeon%20Level.mp3"]
+        }
+      }
+    },
+    "12": {
+      "folder": "assets/bgm/season_12",
+      "tracks": {
+        "epic_hook": {
+          "file": "s12_epic_hook.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ending%20the%20Hunt.mp3"]
+        },
+        "combat": {
+          "file": "s12_combat.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Legions.mp3"]
+        },
+        "emotional": {
+          "file": "s12_emotional.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/Last%20Stand.mp3"]
+        },
+        "default": {
+          "file": "s12_default.mp3",
+          "urls": ["https://incompetech.com/music/royalty-free/mp3-royaltyfree/The%20Complex.mp3"]
+        }
+      }
+    }
+  }
+}

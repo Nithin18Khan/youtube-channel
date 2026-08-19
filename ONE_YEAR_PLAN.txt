@@ -1,0 +1,112 @@
+================================================================================
+ONE YEAR PLAN — Aug 19, 2026 → Aug 19, 2027
+Target: $1M revenue | 12 seasons × 30 days = 360 episodes
+NOT PUSHED TO GITHUB — push after Day 2 succeeds on Actions
+================================================================================
+
+REVENUE PATH (realistic):
+  42% Brand deals (Kerala cafes, mobile shops, esports) — start Month 5
+  18% AdSense (after monetization)
+  18% Affiliate (gaming gear, phones)
+  12% Memberships (after 50K subs)
+  10% Shorts funnel (add Shorts repo Month 4+)
+
+================================================================================
+12-MONTH CALENDAR
+================================================================================
+
+Month 1  (Aug 2026)  Season 01  Ghost of Sparta (God of War)     scripts/season_01/
+Month 2  (Sep 2026)  Season 02  Ragnarok — Father & Son          scripts/season_02/
+Month 3  (Oct 2026)  Season 03  Mahabharata — Karna's War        scripts/season_03/
+Month 4  (Nov 2026)  Season 04  Ramayana — Lanka Burns           scripts/season_04/
+Month 5  (Dec 2026)  Season 05  BGMI — Last Zone Kerala          scripts/season_05/
+Month 6  (Jan 2027)  Season 06  Free Fire — Gulf Dream           scripts/season_06/
+Month 7  (Feb 2027)  Season 07  Elden Ring — Tarnished           scripts/season_07/
+Month 8  (Mar 2027)  Season 08  Vishu — Shiva's Third Eye        scripts/season_08/
+Month 9  (Apr 2027)  Season 09  Horror — Yakshi & the Game       scripts/season_09/
+Month 10 (May 2027)  Season 10  Assassin — Kerala Coast          scripts/season_10/
+Month 11 (Jun 2027)  Season 11  Valorant — One Clutch Kochi      scripts/season_11/
+Month 12 (Jul 2027)  Season 12  Legends Unite — Year Finale      scripts/season_12/
+
+================================================================================
+FILES CREATED (LOCAL ONLY)
+================================================================================
+
+data/season_state.json       — season 1, day 2 (current)
+data/bgm_manifest.json       — unique BGM per season (48 tracks, 4 per month)
+data/state.json              — synced with season_state
+
+scripts/season_01/           — Day 1-30 Ghost of Sparta (generate: python scripts/generate_season01_scripts.py)
+scripts/season_02/ … 12/     — 30 scripts each (330 files generated)
+
+scripts/season_definitions.json  — master story data (1.7MB, seasons 2–12, from story generator)
+scripts/_generate_season_definitions.py — regenerate definitions if needed (do NOT use build_season_definitions.py — overwrites quality)
+scripts/build_season_definitions.py  — legacy template builder (deprecated)
+scripts/generate_year_scripts.py     — builds scripts/season_XX/ from season_definitions.json
+
+main.py updated:
+  - Loads scripts/season_XX/day_YY_script.json
+  - Auto-advances season after Day 30
+  - Per-season BGM from assets/bgm/season_XX/
+
+================================================================================
+BGM — NO REPEAT WITHIN A MONTH
+================================================================================
+
+Each season folder: assets/bgm/season_XX/
+  sXX_epic_hook.mp3
+  sXX_combat.mp3
+  sXX_emotional.mp3
+  sXX_default.mp3
+
+Different incompetech URL per season — see data/bgm_manifest.json
+CI downloads on first run each month.
+
+================================================================================
+IMPORTANT — SCRIPT QUALITY
+================================================================================
+
+Season 2-12 scripts are GENERATED (structure valid, same JSON as Day 2).
+Malayalam voiceover lines use season-themed templates.
+
+BEFORE each season airs, refine Week 1 (Days 1-7) with Gemini:
+  Audit:  python scripts/audit_malayalam_scripts.py --season N
+  Auto:   python scripts/refine_malayalam_gemini.py --season N --from-day 1 --to-day 7
+  All 360 (local daily):  powershell -File scripts/run_daily_refine.ps1
+  GitHub auto:            .github/workflows/refine-malayalam-scripts.yml
+                          (runs after Daily YouTube Pipeline + midnight backup)
+  Progress file:          data/gemini_refine_progress.json (resume safe)
+  Speed up (paid API):    GitHub secret GEMINI_REFINE_MAX_PER_RUN=100
+                          Free tier = ~18/day (~20 days for 344 left)
+  Manual: youtube_script_prompts.txt on Desktop — Prompt 5 (South Kerala slang)
+  Requirements: native South Kerala slang, no Manglish/English, no repeated lines, natural TTS
+
+Season 1 Days 1-30 complete in scripts/season_01/ — refine Week 1 Malayalam with Gemini before air
+
+================================================================================
+WHEN TO PUSH GITHUB
+================================================================================
+
+1. Wait for Day 2 green check on Actions
+2. Then push:
+   git add data/ scripts/ main.py
+   git commit -m "Add 12-season year plan and scripts for seasons 2-12"
+   git push
+
+Do NOT push until Day 2 succeeds.
+
+================================================================================
+MONTHLY CHECKLIST
+================================================================================
+
+End of each month:
+  [ ] Verify Season finale uploaded (Day 30)
+  [ ] Pipeline auto-advances to next season (season_state.json)
+  [ ] Download/commit season BGM files OR let CI fetch
+  [ ] Refine next season Days 1-7 Malayalam with Gemini
+  [ ] Update youtube_upload.py tags for new season
+  [ ] Community post: "New season starts tomorrow"
+
+================================================================================
+END
+================================================================================
