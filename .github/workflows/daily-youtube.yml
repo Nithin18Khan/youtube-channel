@@ -21,7 +21,7 @@ permissions:
 env:
   PIPELINE_STATE_FILE: data/state.json
   UPLOAD_STATE_FILE: data/upload_state.json
-  PIPELINE_RENDER_LANGS: ml
+  PIPELINE_RENDER_LANGS: en,ml
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
   YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
   YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -63,8 +63,8 @@ jobs:
         if: github.event.inputs.skip_render != 'true'
         run: df -h && ls -lh output/ || true
 
-      - name: Upload Malayalam video to YouTube
-        run: python upload_day.py --lang ml --privacy public
+      - name: Upload to YouTube (EN + ML videos)
+        run: python upload_day.py --privacy public
 
       - name: Commit pipeline state
         run: |
