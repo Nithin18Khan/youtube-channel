@@ -843,40 +843,38 @@ ML_SCENE_DELIVERY: dict[str, dict[str, str]] = {
 
 
 def _ml_scene_delivery(scene: dict[str, Any] | None) -> dict[str, str]:
-    """Pitch/rate + Gemini delivery notes from scene story beat."""
-    if not scene:
-        base = ML_SCENE_DELIVERY["establishing"]
-        return {**base, "story": ""}
-    scene_type = str(scene.get("type") or scene.get("pace") or "establishing").lower()
-    profile = ML_SCENE_DELIVERY.get(scene_type, ML_SCENE_DELIVERY["establishing"])
-    out = dict(profile)
-    if scene.get("complex_action"):
-        out["instructions"] += " Extra fight-scene urgency — tighten pace, grit in the voice."
-        out["rate"] = "+8%"
-        out["pitch"] = "-4Hz"
-    title_bits = []
-    if scene.get("episode_title_ml"):
-        title_bits.append(str(scene["episode_title_ml"]))
-    if scene.get("episode_title_en"):
-        title_bits.append(str(scene["episode_title_en"]))
-    if scene.get("season"):
-        title_bits.insert(0, f"Season {scene['season']}")
-    if scene.get("day"):
-        title_bits.insert(1 if scene.get("season") else 0, f"Day {scene['day']}")
-    out["story"] = " — ".join(title_bits)
-    return out
+    """Fixed narrator delivery — same pitch/rate every scene (no character voice swaps)."""
+    return {
+        "instructions": (
+            "Steady South Kerala kathaprasangam narrator — one warm voice, same pitch and tone "
+            "from start to finish. Natural pauses only; do not shift character voices."
+        ),
+        "rate": VOICE_ML_RATE,
+        "pitch": VOICE_ML_PITCH,
+        "story": "",
+    }
 
 
 def _primary_speaker_delivery(lines: list[tuple[str, str]]) -> str:
-    if not lines:
-        return ML_SPEAKER_DELIVERY["നറേറ്റർ"]
-    name = lines[0][0]
-    return ML_SPEAKER_DELIVERY.get(name, ML_SPEAKER_DELIVERY.get(name.lower(), ML_SPEAKER_DELIVERY["നറേറ്റർ"]))
+    return (
+        "Single consistent storyteller voice throughout — read dialogue as narration, "
+        "never switch to a different character voice."
+    )
 
 
 def _gemini_voice_for_speaker(name: str) -> str:
-    key = name.strip().lower()
-    return ML_GEMINI_VOICE_MAP.get(key, ML_GEMINI_VOICE_MAP.get(name.strip(), GEMINI_ML_VOICE))
+    del name  # single narrator — ignore speaker tags for voice selection
+    return GEMINI_ML_VOICE
+
+
+def _narrator_plain_text(raw: str, *, lang: str) -> str:
+    """Flatten [SPEAKER]: lines into one block for single-voice narration."""
+    lines = _parse_dialogue_lines(raw)
+    if lines:
+        combined = " ".join(text for _, text in lines)
+    else:
+        combined = raw
+    return prepare_malayalam_tts(combined) if lang == "ml" else prepare_english_tts(combined)
 
 
 def _parse_dialogue_lines(raw: str) -> list[tuple[str, str]]:
@@ -891,50 +889,22 @@ def _parse_dialogue_lines(raw: str) -> list[tuple[str, str]]:
 def _build_gemini_malayalam_request(
     raw_text: str, scene: dict[str, Any] | None = None
 ) -> tuple[str, list[dict[str, str]]]:
-    """Southern Kerala cinematic story-narration — scene-aware pitch and delivery."""
-    delivery = _ml_scene_delivery(scene)
+    """Single Malayalam narrator voice — same tone for every scene and character line."""
+    del scene
+    delivery = _ml_scene_delivery(None)
+    text = _apply_malayalam_text_fixes(_narrator_plain_text(raw_text, lang="ml"))
     style = (
         "You are a master Malayalam story narrator from South Kerala (Travancore-Kollam style). "
-        "CRITICAL: Read the Malayalam text EXACTLY as written. Do not paraphrase, shorten, "
+        "CRITICAL: Use ONE consistent voice, pitch, and tone for the entire clip — like a "
+        "kathaprasangam storyteller. Do NOT use different voices for different characters; "
+        "read all dialogue in the same warm narrator voice. "
+        "Read the Malayalam text EXACTLY as written. Do not paraphrase, shorten, "
         "translate, or replace any words. Preserve every Malayalam character and name exactly. "
-        "Understand the STORY BEAT and match VOICE PITCH + EMOTION to the scene:\n"
-        f"- Scene delivery: {delivery['instructions']}\n"
-        "Use natural pauses at commas and ellipses (...). Rise on hooks and questions. "
-        "Soft landing on emotional lines. Never sound robotic or monotone."
+        f"{delivery['instructions']} "
+        "Use natural pauses at commas and ellipses (...). Never sound robotic."
     )
-    if delivery.get("story"):
-        style += f"\nStory context: {delivery['story']}."
-    lines = _parse_dialogue_lines(raw_text)
-    lines = [(name, _apply_malayalam_text_fixes(text)) for name, text in lines]
-    speaker_note = _primary_speaker_delivery(lines)
-    style += f"\nPrimary speaker tone: {speaker_note}"
-
-    if len(lines) == 1:
-        name, text = lines[0]
-        prompt = (
-            f"{style}\n\n"
-            f"Perform as [{name}] with the pitch and emotion described above:\n\n{text}"
-        )
-        return prompt, [{"voice": _gemini_voice_for_speaker(name)}]
-
-    if len(lines) == 2:
-        (n1, t1), (n2, t2) = lines
-        prompt = (
-            f"{style}\n\n"
-            "Perform this Malayalam cinematic dialogue — each speaker with distinct pitch/energy:\n\n"
-            f"{n1}: {t1}\n{n2}: {t2}"
-        )
-        return prompt, [
-            {"speaker": n1, "voice": _gemini_voice_for_speaker(n1)},
-            {"speaker": n2, "voice": _gemini_voice_for_speaker(n2)},
-        ]
-
-    prompt_parts = [f"{style}\n\nPerform this Malayalam story sequence scene by scene:\n"]
-    speech_config: list[dict[str, str]] = []
-    for name, text in lines:
-        prompt_parts.append(f"{name}: {text}")
-        speech_config.append({"speaker": name, "voice": _gemini_voice_for_speaker(name)})
-    return "\n".join(prompt_parts), speech_config or [{"voice": GEMINI_ML_VOICE}]
+    prompt = f"{style}\n\n{text}"
+    return prompt, [{"voice": GEMINI_ML_VOICE}]
 
 
 def _generate_gemini_malayalam_audio_sync(
@@ -968,7 +938,7 @@ def _generate_gemini_malayalam_audio_sync(
 async def generate_malayalam_audio(
     raw_text: str, output_path: Path, scene: dict[str, Any] | None = None
 ) -> Path:
-    """Prefer Gemini TTS for Malayalam; fall back to Edge-TTS with scene-aware pitch."""
+    """Prefer Gemini TTS for Malayalam; fall back to Edge-TTS with fixed narrator pitch."""
     if _gemini_tts_enabled():
         try:
             return await asyncio.to_thread(
@@ -977,10 +947,9 @@ async def generate_malayalam_audio(
         except Exception as exc:
             log.warning("Gemini Malayalam TTS failed (%s); using Edge-TTS fallback.", exc)
 
-    delivery = _ml_scene_delivery(scene)
-    text = prepare_malayalam_tts(raw_text)
+    text = _narrator_plain_text(raw_text, lang="ml")
     return await generate_audio(
-        text, VOICE_ML, output_path, rate=delivery["rate"], pitch=delivery["pitch"]
+        text, VOICE_ML, output_path, rate=VOICE_ML_RATE, pitch=VOICE_ML_PITCH
     )
 
 
