@@ -216,16 +216,28 @@ BGM_CUE_BY_SCENE_TYPE = {
 }
 
 VOICE_EN = "en-US-ChristopherNeural"
-VOICE_ML = "ml-IN-SobhanaNeural"
+VOICE_ML_SOBHANA = "ml-IN-SobhanaNeural"
+VOICE_ML_MIDHUN = "ml-IN-MidhunNeural"
+VOICE_ML = VOICE_ML_SOBHANA  # season 1 default; see malayalam_voice_for_season()
 VOICE_EN_RATE = "+2%"
 VOICE_EN_PITCH = "+0Hz"
-VOICE_ML_RATE = "+2%"
+VOICE_ML_RATE = "-3%"  # slightly slower for clearer Malayalam pronunciation
 VOICE_ML_PITCH = "+0Hz"
 GEMINI_TTS_MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
 GEMINI_ML_VOICE = os.environ.get("GEMINI_ML_VOICE", "Kore")
 GEMINI_ML_VOICE_ALT = os.environ.get("GEMINI_ML_VOICE_ALT", "Puck")
-# Default edge = one stable Sobhana storyteller voice every scene (no Gemini/Edge mix).
+# Default edge = one stable storyteller voice per episode (no Gemini/Edge mix).
 MALAYALAM_TTS_ENGINE = os.environ.get("MALAYALAM_TTS", "edge").strip().lower()
+
+
+def malayalam_voice_for_season(season: int) -> str:
+    """Rotate Malayalam narrator by month/season across the year (12 seasons).
+
+    Odd seasons (1,3,5…): Sobhana — female kathaprasangam storyteller.
+    Even seasons (2,4,6…): Midhun — male storyteller.
+    """
+    s = max(1, min(int(season), 12))
+    return VOICE_ML_SOBHANA if s % 2 == 1 else VOICE_ML_MIDHUN
 SUB_SHOT_CROSSFADE_SEC = 0.22
 SCENE_CROSSFADE_SEC = 0.35
 BGM_CROSSFADE_SEC = 0.85
@@ -946,6 +958,8 @@ async def generate_malayalam_audio(
     raw_text: str, output_path: Path, scene: dict[str, Any] | None = None
 ) -> Path:
     """Prefer Gemini TTS when MALAYALAM_TTS=gemini; else Edge-TTS storyteller (stable tone)."""
+    season = int((scene or {}).get("season", load_season_state().get("season", 1)))
+    voice = malayalam_voice_for_season(season)
     if _use_gemini_malayalam_tts():
         try:
             return await asyncio.to_thread(
@@ -956,7 +970,7 @@ async def generate_malayalam_audio(
 
     text = _narrator_plain_text(raw_text, lang="ml")
     return await generate_audio(
-        text, VOICE_ML, output_path, rate=VOICE_ML_RATE, pitch=VOICE_ML_PITCH
+        text, voice, output_path, rate=VOICE_ML_RATE, pitch=VOICE_ML_PITCH
     )
 
 
@@ -2322,9 +2336,12 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
     if _use_gemini_malayalam_tts():
         log.info("Malayalam TTS: Gemini (%s)", GEMINI_TTS_MODEL)
     else:
+        ml_voice = malayalam_voice_for_season(season)
         log.info(
-            "Malayalam TTS: Edge-TTS (%s) — single kathaprasangam storyteller voice",
-            VOICE_ML,
+            "Malayalam TTS: Edge-TTS (%s) — season %s narrator (rate %s)",
+            ml_voice,
+            season,
+            VOICE_ML_RATE,
         )
 
     write_thumbnail_txt_files(episode, day)
@@ -2352,7 +2369,7 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
         )
         ml_scene_paths = await generate_scene_audios(
             scenes,
-            VOICE_ML,
+            malayalam_voice_for_season(season),
             "ml",
             day,
             season=season,
@@ -2425,7 +2442,9 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
         await generate_audio(
             episode["script_en"], VOICE_EN, en_audio, rate=VOICE_EN_RATE, pitch=VOICE_EN_PITCH
         )
-        await generate_malayalam_audio(episode["script_ml"], ml_audio)
+        await generate_malayalam_audio(
+            episode["script_ml"], ml_audio, scene={"season": season}
+        )
 
         en_mixed = mix_voice_with_bgm(en_audio, bgm_path, bgm_volume)
         ml_mixed = mix_voice_with_bgm(ml_audio, bgm_path, bgm_volume)
@@ -2465,7 +2484,7 @@ async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
                     staged_images or [],
                     staged_ml,
                     ml_out,
-                    subtitle_text=episode["script_ml"],
+                    subtitle_text=prepare_malayalam_tts(episode["script_ml"]),
                     subtitle_lang="ml",
                 )
         else:
