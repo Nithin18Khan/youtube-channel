@@ -2330,6 +2330,7 @@ def cleanup_staging(day: int) -> None:
 
 async def process_episode(episode: dict[str, Any]) -> tuple[Path, Path]:
     day = episode["day"]
+    season = load_season_state().get("season", 1)
     source = episode.get("source", "unknown")
     title_ml = episode.get("title_ml", episode["title"])
     bgm_library = ensure_bgm_library()
