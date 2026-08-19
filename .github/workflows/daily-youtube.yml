@@ -52,6 +52,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Verify required secrets
+        run: |
+          missing=0
+          for var in GEMINI_API_KEY YOUTUBE_CLIENT_ID YOUTUBE_CLIENT_SECRET YOUTUBE_REFRESH_TOKEN_MALAYALAM; do
+            if [ -z "${!var}" ]; then
+              echo "::error::Missing GitHub secret: $var — run scripts/sync_github_secrets.ps1 locally"
+              missing=1
+            fi
+          done
+          exit $missing
+
       - name: Disk space (before)
         run: df -h
 
@@ -67,7 +78,10 @@ jobs:
         run: df -h && ls -lh output/ || true
 
       - name: Upload to YouTube (EN + ML videos)
-        run: python upload_day.py --privacy public
+        run: |
+          DAY=$(python -c "import json; print(max(int(json.load(open('data/state.json'))['current_day']) - 1, 1))")
+          echo "Uploading rendered episode: Day $DAY"
+          python upload_day.py --day "$DAY" --privacy public
 
       - name: Commit pipeline state
         run: |

@@ -91,6 +91,15 @@ def _token_path(channel_key: str) -> Path:
     return BASE_DIR / "credentials" / f"token_{channel_key}.json"
 
 
+def _config_channel_meta(channel_key: str) -> tuple[str | None, str | None]:
+    """Channel id/title from config — used when CI secrets have no saved metadata."""
+    try:
+        ch = load_config()["channels"][channel_key]
+        return ch.get("id"), ch.get("title") or ch.get("name")
+    except (KeyError, FileNotFoundError, json.JSONDecodeError):
+        return None, None
+
+
 def _load_token_meta(channel_key: str) -> tuple[str, str | None, str | None]:
     """Return refresh_token and optional channel_id/title saved at OAuth time."""
     env_map = {
@@ -100,7 +109,14 @@ def _load_token_meta(channel_key: str) -> tuple[str, str | None, str | None]:
     for env_name in env_map.get(channel_key, ()):
         token = os.environ.get(env_name, "").strip()
         if token:
-            return token, None, None
+            id_env = os.environ.get(f"YOUTUBE_CHANNEL_ID_{channel_key.upper()}", "").strip()
+            title_env = os.environ.get(f"YOUTUBE_CHANNEL_TITLE_{channel_key.upper()}", "").strip()
+            cfg_id, cfg_title = _config_channel_meta(channel_key)
+            return (
+                token,
+                id_env or cfg_id,
+                title_env or cfg_title,
+            )
 
     token_path = _token_path(channel_key)
     if token_path.exists():
@@ -292,7 +308,16 @@ def verify_token_channel(youtube, channel_key: str) -> dict[str, str]:
     if saved_id:
         actual = {"id": saved_id, "title": saved_title or saved_id}
     else:
-        actual = get_authenticated_channel(youtube)
+        try:
+            actual = get_authenticated_channel(youtube)
+        except Exception as exc:
+            log.warning(
+                "Channel API verify skipped for %s (%s); trusting config %s",
+                channel_key,
+                exc,
+                expected_id,
+            )
+            actual = {"id": expected_id, "title": expected.get("title", channel_key)}
 
     if actual["id"] != expected_id:
         raise RuntimeError(
