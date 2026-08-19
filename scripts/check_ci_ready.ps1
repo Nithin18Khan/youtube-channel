@@ -34,7 +34,7 @@ Write-Host "  GEMINI_API_KEY"
 Write-Host "  YOUTUBE_CLIENT_ID"
 Write-Host "  YOUTUBE_CLIENT_SECRET"
 Write-Host "  YOUTUBE_REFRESH_TOKEN_MALAYALAM"
-Write-Host "  YOUTUBE_REFRESH_TOKEN_ENGLISH (optional — uses Malayalam in single-channel mode)"
+Write-Host "  YOUTUBE_REFRESH_TOKEN_ENGLISH (optional, uses Malayalam token in single-channel mode)"
 Write-Host ""
 Write-Host "Auto-sync (if gh CLI installed):" -ForegroundColor Yellow
 Write-Host "  powershell -ExecutionPolicy Bypass -File scripts/sync_github_secrets.ps1"
