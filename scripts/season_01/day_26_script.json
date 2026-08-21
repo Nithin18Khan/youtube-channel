@@ -2,9 +2,9 @@
   "day": 26,
   "season": 1,
   "title_en": "OLYMPUS RAGES",
-  "title_ml": "ഓളിമ്പസ് കോപിക്കുന്നു",
+  "title_ml": "ഓളിമ്പസ് കോപിക്കുന്നു!",
   "hook_en": "HEAVEN SHAKES!",
-  "hook_ml": "സ്വർഗ്ഗം കുലുങ്ങുന്നു!",
+  "hook_ml": "ഓളിമ്പസ് രോഷാഗ്നിയിൽ!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 26 — HEAVEN SHAKES! — OLYMPUS RAGES.",
-      "voiceover_ml": "[നറേറ്റർ]: സ്വർഗ്ഗം കുലുങ്ങുന്നു! — ഓളിമ്പസ് കോപിക്കുന്നു. ദിവസം 26 — കഥാപ്രസംഗം തീവ്രമാകുന്നു!",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുപത്തിയാറാം ദിനം... ആകാശം പ്രകമ്പനം കൊള്ളുന്നു! ഓളിമ്പസ് രോഷാഗ്നിയിൽ!",
       "prompt": "Kratos heroic low angle on River Styx gate day 26, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "title_overlay_en": "HEAVEN SHAKES!",
-      "title_overlay_ml": "സ്വർഗ്ഗം കുലുങ്ങുന്നു!"
+      "title_overlay_ml": "ഓളിമ്പസ് രോഷാഗ്നിയിൽ!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: River Styx gate breathes smoke and ash — Kratos will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: സ്റ്റിക്സ് നദി പുകമൂടി... യുദ്ധം നിർത്താതെ തുടരുന്നു. ക്രാറ്റോസ് പിന്മാറാൻ വന്നവനല്ല.",
+      "voiceover_ml": "[നറേറ്റർ]: സ്റ്റിക്സ് നദിയുടെ കവാടം പുകയും ചാരവും ശ്വാസമെന്ന പോലെ പുറന്തള്ളുന്നു... ക്രാറ്റോസ് പിന്മാറുകയേയില്ല!",
       "prompt": "wide establishing shot River Styx gate storm sky, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[KRATOS]: Ares! I serve your war... but I am still a man!",
-      "voiceover_ml": "[ക്രാറ്റോസ്]: ഏറീസ്! നിന്റെ യുദ്ധം ഞാൻ ചെയ്യും... പക്ഷേ ഞാൻ ഇനിയും മനുഷ്യനാണ്!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: ഏറീസ്! നിൻ്റെ യുദ്ധത്തിൽ ഞാൻ പങ്കാളിയാണ്... പക്ഷെ, എനിക്കിപ്പോഴും ഒരു മനുഷ്യൻ്റെ മനസ്സുണ്ട്!",
       "prompt": "Kratos mid battle Blades of Chaos River Styx gate, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ARES]: Then bleed for me, Ghost! Leave nothing standing!",
-      "voiceover_ml": "[ഏറീസ്]: അപ്പോൾ എന്റേക്ക് ചോര ഒഴുക്ക്, പ്രേതമേ! ഒന്നും നിൽക്കരുത്!",
+      "voiceover_ml": "[ഏറീസ്]: എങ്കിൽ, എനിക്കായി രക്തമൊഴുക്കൂ, പ്രേതമേ! സകലതും തകർത്തെറിയൂ!",
       "prompt": "Ares fiery vision above battlefield day 26, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[NARRATOR]: Lydia and Calliope flicker in memory — soft, cruel, necessary.",
-      "voiceover_ml": "[നറേറ്റർ]: ലിഡിയയും കാലിയോപ്പിയും ഓർമ്മയിൽ തിളക്കുന്നു — മധുരവും കഠിനവും.",
+      "voiceover_ml": "[നറേറ്റർ]: ലിഡിയയും കാലിയോപ്പിയും ഓർമ്മയിൽ മായാതെ നിൽക്കുന്നു... സൗമ്യവും, ഭീകരവും, ഒഴിച്ചുകൂടാനാവാത്തതുമായ ചിന്തകൾ.",
       "prompt": "memory ghost Lydia Calliope overlay Kratos, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[KRATOS]: Their names are not chains. Your war is!",
-      "voiceover_ml": "[ക്രാറ്റോസ്]: അവരുടെ പേരുകൾ ചങ്ങലയല്ല. നിന്റെ യുദ്ധമാണ് ചങ്ങല!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: ആ പേരുകൾ എനിക്കൊരു വിലങ്ങല്ല! ഈ യുദ്ധമാണ് എന്നെ പിടിച്ചുനിർത്തുന്നത്!",
       "prompt": "Kratos shattering chains shrine floor, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Blades of Chaos spin — thunder wrapped in fire.",
-      "voiceover_ml": "[നറേറ്റർ]: കോപത്തിന്റെ വാളുകൾ തിരിയുന്നു... കഥ പുതിയ മുറിവ് തുറക്കുന്നു.",
+      "voiceover_ml": "[നറേറ്റർ]: വിനാശത്തിൻ്റെ വാളുകൾ അതിവേഗം കറങ്ങുന്നു... അഗ്നിയും ഇടിമിന്നലും ഒരുമിച്ചുയരുന്നു!",
       "prompt": "slow motion Blades of Chaos strike enemies, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -82,7 +82,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[ZEUS]: Olympus watches the Spartan... and smiles in secret.",
-      "voiceover_ml": "[സ്യൂസ്]: ഓളിമ്പസ് ഈ സ്പാർട്ടനെ നോക്കുന്നു... രഹസ്യമായി പുഞ്ചിരിക്കുന്നു.",
+      "voiceover_ml": "[സ്യൂസ്]: ഓളിമ്പസിൻ്റെ നോട്ടം സ്പാർട്ടനിലാണ്... സ്യൂസ് രഹസ്യമായി ചിരിക്കുകയാണ്.",
       "prompt": "Zeus silhouette Olympus clouds lightning, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
     },
     {
@@ -91,7 +91,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[KRATOS]: I will break every god who uses my grief!",
-      "voiceover_ml": "[ക്രാറ്റോസ്]: എന്റെ വേദന ഉപയോഗിക്കുന്ന ഓരോ ദേവനെയും ഞാൻ തകർക്കും!",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: എൻ്റെ ദുഃഖത്തിൽ ലാഭം കാണുന്ന ഓരോ ദേവനെയും ഞാൻ ശിക്ഷിക്കും!",
       "prompt": "Kratos rage close up rain blood, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -101,7 +101,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ARES]: You cannot kill war itself, Kratos!",
-      "voiceover_ml": "[ഏറീസ്]: യുദ്ധത്തെ നീ കൊല്ലാൻ പറ്റില്ല, ക്രാറ്റോസ്!",
+      "voiceover_ml": "[ഏറീസ്]: ക്രാറ്റോസ്! യുദ്ധം എന്ന ശക്തിയെ ഇല്ലാതാക്കാൻ നിനക്കൊരു കാലത്തും സാധിക്കില്ല!",
       "prompt": "Ares wounded retreating fire, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
     },
     {
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Sparta did not raise a saint. It raised a weapon that learned to think.",
-      "voiceover_ml": "[നറേറ്റർ]: സ്പാർട്ട ഒരു പുണ്യവാനെ ഉയർത്തിയില്ല — ചിന്തിക്കാൻ പഠിച്ച ആയുധത്തെ ഉയർത്തി.",
+      "voiceover_ml": "[നറേറ്റർ]: സ്പാർട്ട ഒരു സന്യാസിയെ ആയിരുന്നില്ല രൂപപ്പെടുത്തിയത്... സ്വന്തമായി ചിന്തിക്കാൻ പഠിച്ചൊരു ആയുധത്തെയായിരുന്നു!",
       "prompt": "wide Sparta red dawn after battle, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: The Ghost rises still. Do not miss day 27.",
-      "voiceover_ml": "[നറേറ്റർ]: പ്രേതം ഉയർന്നുകൊണ്ടിരിക്കുന്നു. Day 27 കാണാൻ മറക്കരുത്.",
+      "voiceover_ml": "[നറേറ്റർ]: പ്രേതം ഇനിയും അജയ്യനായി ഉണരുകയാണ്. അടുത്ത ദിനം... ഇരുപത്തിയേഴാം ദിനം, കാണാതിരിക്കരുത്!",
       "prompt": "Kratos walking away burning ruins epic poster day 26, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, glowing fiery blades of chaos, dynamic embers flying, dark storm background with lightning strike, volumetric smoke, dramatic cinematic side lighting, depth of field, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
