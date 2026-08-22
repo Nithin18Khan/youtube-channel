@@ -59,14 +59,14 @@
     "s02d27",
     "s02d28",
     "s02d29",
-    "s02d30"
-  ],
-  "failed": [
+    "s02d30",
     "s03d01",
     "s03d02",
     "s03d03",
     "s03d04",
-    "s03d05",
+    "s03d05"
+  ],
+  "failed": [
     "s03d06",
     "s03d07",
     "s03d08",
@@ -139,6 +139,6 @@
     "s05d15",
     "s05d16"
   ],
-  "updated_at": "2026-08-22T14:09:47.735146+00:00",
+  "updated_at": "2026-08-22T19:01:14.102317+00:00",
   "note": "Week 1 S1+S2 pre-refined; batch --all skips these unless --force"
 }
