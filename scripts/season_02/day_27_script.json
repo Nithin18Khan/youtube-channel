@@ -2,9 +2,9 @@
   "day": 27,
   "season": 2,
   "title_en": "RAGNAROK PEAK",
-  "title_ml": "രാഗ്നരോക്ക് ശിഖരം",
+  "title_ml": "രാഗ്നറോക്ക് ശിഖരം: ഇരുപത്തിയേഴാം ദിനം",
   "hook_en": "GODS CLASH!",
-  "hook_ml": "ദേവന്മാർ colliding!",
+  "hook_ml": "രാഗ്നറോക്ക് മുറുകുന്നു, വിധി മാറുന്നു!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 27 — the war for Midgard frost wilds deepens.",
-      "voiceover_ml": "[നറേറ്റർ]: മഞ്ഞു കാറ്റ് പോലെ പറന്നു വന്ന കഥ... ക്രാറ്റോസും അത്രേയസും — പിതാവും പുത്രനും — മിഡ്ഗാർഡിന്റെ=white silence-ൽ നടന്നു.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുപത്തിയേഴാം ദിനം... മിഡ്ഗാർഡിന്റെ മഞ്ഞുകാടുകളിൽ യുദ്ധം അതിന്റെ ആഴങ്ങളിലേക്ക് നീങ്ങുന്നു.",
       "prompt": "Kratos heroic low angle in Midgard frost wilds, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "title_overlay_en": "GODS CLASH!",
-      "title_overlay_ml": "ദേവന്മാർ colliding!"
+      "title_overlay_ml": "രാഗ്നറോക്ക് മുറുകുന്നു, വിധി മാറുന്നു!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Midgard frost wilds breathes smoke and fate — Kratos will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: കാൽപ്പാടുകൾ മഞ്ഞിൽ അരിയുന്നു; ഓരോ ചുവടും ഒരു പഴയ പാപത്തിന്റെ ഓർമ്മ.",
+      "voiceover_ml": "[നറേറ്റർ]: മിഡ്ഗാർഡിന്റെ മഞ്ഞുകാടുകൾ പുകയും വിധിയും ശ്വാസമെടുക്കുന്നു... ക്രാറ്റോസ് ഒട്ടും പിന്നോട്ട് മാറുന്നില്ല.",
       "prompt": "wide establishing shot of Midgard frost wilds storm sky day 27, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[KRATOS]: I did not come this far to kneel on day 27.",
-      "voiceover_ml": "[ക്രാറ്റോസ്]: മുട്ടുകുത്താൻ വന്നതല്ല... മകനെ നിരത്താൻ.",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: ഇരുപത്തിയേഴാം ദിനത്തിൽ മുട്ടുമടക്കാൻ വേണ്ടിയല്ല ഞാൻ ഇവിടം വരെ എത്തിയത്.",
       "prompt": "Kratos mid battle against shadows in Midgard frost wilds, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ODIN]: Then bleed again, hero — Midgard frost wilds remembers every coward.",
-      "voiceover_ml": "[ഓഡിൻ]: നീ think you can hide from fate? Midgard belongs to my ravens!",
+      "voiceover_ml": "[ഓഡിൻ]: നിൻ്റെ ചോര ഇനിയും ചിതറട്ടെ, ധീരാ... ഭീരുക്കളെ ഈ മിഡ്ഗാർഡ് ഓർമ്മയിൽ സൂക്ഷിക്കും.",
       "prompt": "Odin villain reveal fire backlight, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[ATREUS]: Stand up. We finish day 27 together.",
-      "voiceover_ml": "[അത്രേയസ്]: അച്ഛാ, ഞാൻ പേടിക്കുന്നില്ല — നമ്മൾ ഒന്നിച്ച്.",
+      "voiceover_ml": "[അത്രേയസ്]: അച്ഛാ, എഴുന്നേൽക്കൂ! ഈ ഇരുപത്തിയേഴാം ദിനത്തിലെ പോരാട്ടം നമുക്കൊരുമിച്ച് തീർക്കാം.",
       "prompt": "Atreus and Kratos stand back to back, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 27.",
-      "voiceover_ml": "[നറേറ്റർ]: Leviathan axe-ന്റെ നീല തീ പോലെ, പitaavinte krodham prajwalanikkunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുമ്പുകൾ കൂട്ടിമുട്ടി, തീപ്പൊരി ചിതറി... ഇരുപത്തിയേഴാം ദിനത്തിലെ ഓരോ കാൽപ്പാടും ഭൂമി അടയാളപ്പെടുത്തുന്നു.",
       "prompt": "Kratos running through burning ruins, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[KRATOS]: My pain is my weapon now — watch me on day 27.",
-      "voiceover_ml": "[ക്രാറ്റോസ്]: എന്റെ vaydu enikku weapon aayi — adhuvum enikku path aayi.",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: എന്റെ നോവ്... ഇപ്പോൾ അതാണ് എന്റെ ആയുധം! ഇരുപത്തിയേഴാം ദിനത്തിലെ എന്റെ ശക്തി നിങ്ങൾ കണ്ടറിയൂ.",
       "prompt": "close up Kratos face rage and tears, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 27 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Freyya-yude shaapam kaattil whisper cheyyunnu — maathru hrudayam oru yudham.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മനസ്സിലേക്ക് തിരിച്ചെത്തുന്നു — മധുരവും, കയ്‌പേറിയതും, അനിവാര്യമായ സത്യങ്ങളും. ഇരുപത്തിയേഴാം ദിനം സത്യം ആവശ്യപ്പെടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[KRATOS]: For Kerala. For every soul who believed — day 27 is ours.",
-      "voiceover_ml": "[ക്രാറ്റോസ്]: Ragnarok varumbol, naan muzhuvan thalarnnittum nikkum — enikku oru puthran und.",
+      "voiceover_ml": "[ക്രാറ്റോസ്]: എൻ്റെ കേരളത്തിനായി! എന്നിൽ വിശ്വാസമർപ്പിച്ച ഓരോ ഹൃദയങ്ങൾക്കായും... ഈ ഇരുപത്തിയേഴാം ദിനം നമ്മുടേതാണ്!",
       "prompt": "Kratos final strike slow motion day 27, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ODIN]: You win today... but day 28 takes everything.",
-      "voiceover_ml": "[ഓഡിൻ]: Win today, Spartan... tomorrow the wolf eats your sky.",
+      "voiceover_ml": "[ഓഡിൻ]: ഇന്നത്തെ ഈ വിജയം നിനക്ക് സ്വന്തമെന്ന് കരുതാം... എന്നാൽ ഇരുപത്തിയെട്ടാം ദിനം നിനക്കെല്ലാം കൈവിട്ടുപോകും!",
       "prompt": "Odin falls or escapes cliffhanger, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Midgard frost wilds — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Yudhathinte shesham, nishabdham oru prathijna pole — naale oru puthiya lokam.",
+      "voiceover_ml": "[നറേറ്റർ]: മിഡ്ഗാർഡിന്റെ മഞ്ഞുകാടുകളെ നിശബ്ദത പുതപ്പിച്ചു... എങ്കിലും, ആ മൗനം അധികകാലം നിലനിന്നില്ല.",
       "prompt": "wide Midgard frost wilds dawn after battle, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 28.",
-      "voiceover_ml": "[നറേറ്റർ]: Innu divasam 27 — naale nammal thirike varum. Ragnarok thudarunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ ഈ ലോകം മറ്റൊരു കാഴ്ച കാണും... ഇരുപത്തിയെട്ടാം ദിനത്തിലെ രംഗങ്ങൾ നിങ്ങൾ ഒട്ടും പാഴാക്കരുത്.",
       "prompt": "Kratos walks toward camera epic finale, God of War Ragnarok cinematic game trailer frame, Unreal Engine 5 render, icy Norse father-son journey, frost-blue and ember-orange palette, Leviathan Axe glow, volumetric snow, dramatic cinematic lighting, depth of field, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
