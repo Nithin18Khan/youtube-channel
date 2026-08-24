@@ -4,7 +4,7 @@
   "title_en": "SUN GOD MOURNS",
   "title_ml": "സൂര്യദേവൻ ദുഃഖിക്കുന്നു",
   "hook_en": "SON LOST!",
-  "hook_ml": "മകൻ നഷ്ടപ്പെട്ടു!",
+  "hook_ml": "സൂര്യദേവൻ്റെ ദുഃഖം",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 26 — the war for Kurukshetra plain deepens.",
-      "voiceover_ml": "[നറേറ്റർ]: Kurukshetrathinte mannil, suryaputhran Karnnan vannu — radheyam enna peru kaattil muriyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുപത്തിയാറാം ദിനം; കുരുക്ഷേത്രക്കളം യുദ്ധഭൂമിയായി കൂടുതൽ തീക്ഷ്ണമാവുന്നു.",
       "prompt": "Karna heroic low angle in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "SON LOST!",
-      "title_overlay_ml": "മകൻ നഷ്ടപ്പെട്ടു!"
+      "title_overlay_ml": "സൂര്യദേവൻ്റെ ദുഃഖം"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kurukshetra plain breathes smoke and fate — Karna will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Vellathinte pole oru yudham — dharma-yum adharma-yum randu vellangal pole.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രഭൂമി പുകച്ചുരുളിൽ ശ്വാസം മുട്ടുന്നു... വിധി അവിടെ തളംകെട്ടി നിൽക്കുന്നു. കർണ്ണൻ പിൻവാങ്ങാൻ മനസ്സില്ല.",
       "prompt": "wide establishing shot of Kurukshetra plain storm sky day 26, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[KARNA]: I did not come this far to kneel on day 26.",
-      "voiceover_ml": "[കർണ്ണൻ]: Naan janichathu apamanathil — pakshe marikkunnathu veerathil.",
+      "voiceover_ml": "[കർണ്ണൻ]: ഇരുപത്തിയാറാം ദിനത്തിൽ തലകുനിക്കാൻ, ഇവിടം വരെയെത്തിയതല്ല ഞാൻ.",
       "prompt": "Karna mid battle against shadows in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ARJUNA]: Then bleed again, hero — Kurukshetra plain remembers every coward.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Nee ente saahodaran aayirunnu ennu ariyilla — pakshe veeran nee!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: ഇനിയും നിൻ്റെ രക്തം ഈ മണ്ണിൽ വീഴട്ടെ, കർണ്ണാ! ഈ കുരുക്ഷേത്രഭൂമി ഭീരുക്കളെ ഓർമ്മിക്കില്ല...",
       "prompt": "Arjuna villain reveal fire backlight, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KRISHNA]: Stand up. We finish day 26 together.",
-      "voiceover_ml": "[കൃഷ്ണൻ]: Karnna, rajyam tharu — atho sathyam kelku.",
+      "voiceover_ml": "[കൃഷ്ണൻ]: കർണ്ണാ, എഴുന്നേൽക്കൂ! ഈ ഇരുപത്തിയാറാം ദിനം, നമുക്കൊന്നിച്ച് ഈ യുദ്ധം അതിജീവിക്കാം.",
       "prompt": "Krishna and Karna stand back to back, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 26.",
-      "voiceover_ml": "[നറേറ്റർ]: Indran vanchichu — kavacham pooyi; pakshe veeratha pooyi ennu parayilla.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ തീപ്പൊരി ചിതറി ഏറ്റുമുട്ടുന്നു... ഈ ഇരുപത്തിയാറാം ദിനത്തിലെ ഓരോ കാൽപ്പാടും ഈ മണ്ണ് തൻ്റെ ചരിത്രത്തിൽ രേഖപ്പെടുത്തും.",
       "prompt": "Karna running through burning ruins, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[KARNA]: My pain is my weapon now — watch me on day 26.",
-      "voiceover_ml": "[കർണ്ണൻ]: Daanam cheytha veeran — maranathilum daanam cheyyum.",
+      "voiceover_ml": "[കർണ്ണൻ]: എൻ്റെ ദുരിതങ്ങളിതാ എൻ്റെ ആയുധമായി മാറുന്നു... ഇരുപത്തിയാറാം ദിനത്തിൽ എൻ്റെ യുദ്ധം ലോകം കാണട്ടെ!",
       "prompt": "close up Karna face rage and tears, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 26 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Radha-yude peru anthima swaasa vare — Karnnante hrudayathil theliyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: മറഞ്ഞുകിടന്ന ഓർമ്മകൾ ഇതാ തെളിയുന്നു... മധുരവും, ക്രൂരവും, അനിവാര്യവുമായ സത്യങ്ങൾ; ഇരുപത്തിയാറാം ദിനം അതെല്ലാം പുറത്തുകൊണ്ടുവരും!",
       "prompt": "vision of past memory ghostly overlay, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[KARNA]: For Kerala. For every soul who believed — day 26 is ours.",
-      "voiceover_ml": "[കർണ്ണൻ]: Oru ambum, oru vachanam — Arjuna, nee thayar!",
+      "voiceover_ml": "[കർണ്ണൻ]: ഈ കേരളത്തിൻ്റെ മഹിമയ്ക്കായി... എന്നെ വിശ്വസിച്ച ഓരോ ഹൃദയത്തിനും വേണ്ടി... ഈ ഇരുപത്തിയാറാം ദിനം നമ്മൾ സ്വന്തമാക്കും!",
       "prompt": "Karna final strike slow motion day 26, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ARJUNA]: You win today... but day 27 takes everything.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Njan shoot cheyyum — bhagavan, ksamaikkoo!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: ഇന്നത്തെ ദിനം നീ ജയിച്ചുവെന്നിരിക്കാം... എന്നാൽ, ഇരുപത്തിയേഴാം ദിനം നിൻ്റെ സർവ്വസ്വവും കാലം കവർന്നെടുക്കും!",
       "prompt": "Arjuna falls or escapes cliffhanger, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kurukshetra plain — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Suryan astamichu — pakshe Radheyante peru nithyam.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രഭൂമിയിൽ ഘോരമായൊരു മൗനം തളംകെട്ടി... എന്നാൽ ആ ശാന്തതയുടെ ആയുസ്സ് കുറവായിരുന്നു.",
       "prompt": "wide Kurukshetra plain dawn after battle, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 27.",
-      "voiceover_ml": "[നറേറ്റർ]: Karnnan vannu, Karnnan poyi — pakshe kaalam oru veerante smaranam thekkum.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളത്തെ പ്രഭാതം സർവ്വവും മാറ്റിമറിക്കും! ഇരുപത്തിയേഴാം ദിനം നിങ്ങൾ ഒരിക്കലും കാണാതെ പോകരുത്!",
       "prompt": "Karna walks toward camera epic finale, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "സൂര്യദേവൻ ദുഃഖിക്കുന്നു"
     }
   ]
 }
