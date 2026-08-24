@@ -4,7 +4,7 @@
   "title_en": "RADHA'S NAME",
   "title_ml": "രാധയുടെ പേര്",
   "hook_en": "LAST WORD!",
-  "hook_ml": "അ último വാക്ക്!",
+  "hook_ml": "രാധയുടെ പേര്... സത്യം തേടി",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 23 — the war for Kurukshetra plain deepens.",
-      "voiceover_ml": "[നറേറ്റർ]: Kurukshetrathinte mannil, suryaputhran Karnnan vannu — radheyam enna peru kaattil muriyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുപത്തിമൂന്നാം ദിനം... കുരുക്ഷേത്രഭൂമിയിൽ യുദ്ധം അതിൻ്റെ ആഴങ്ങളിലേക്ക് ഇറങ്ങുന്നു.",
       "prompt": "Karna heroic low angle in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "LAST WORD!",
-      "title_overlay_ml": "അ último വാക്ക്!"
+      "title_overlay_ml": "രാധയുടെ പേര്... സത്യം തേടി"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kurukshetra plain breathes smoke and fate — Karna will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Vellathinte pole oru yudham — dharma-yum adharma-yum randu vellangal pole.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രക്കളം പുകഞ്ഞുയരുന്നു... വിധി കാർമേഘമായി മൂടുന്നു; കർണ്ണൻ ഒരു ചുവട് പിന്നോട്ടില്ല.",
       "prompt": "wide establishing shot of Kurukshetra plain storm sky day 23, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[KARNA]: I did not come this far to kneel on day 23.",
-      "voiceover_ml": "[കർണ്ണൻ]: Naan janichathu apamanathil — pakshe marikkunnathu veerathil.",
+      "voiceover_ml": "[കർണ്ണൻ]: ഈ ഇരുപത്തിമൂന്നാം ദിനത്തിൽ മുട്ടുമടക്കാൻ ഞാൻ ഇവിടം വരെയെത്തിയില്ല.",
       "prompt": "Karna mid battle against shadows in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ARJUNA]: Then bleed again, hero — Kurukshetra plain remembers every coward.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Nee ente saahodaran aayirunnu ennu ariyilla — pakshe veeran nee!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: നിൻ്റെ ചോരയിനിയും ഈ കുരുക്ഷേത്രക്കളത്തിൽ ഒഴുകട്ടെ, ധീരാ! പേടിച്ച് പിന്മാറുന്നവരെ ഈ മണ്ണ് ഓർമ്മയിൽ വെക്കില്ല.",
       "prompt": "Arjuna villain reveal fire backlight, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KRISHNA]: Stand up. We finish day 23 together.",
-      "voiceover_ml": "[കൃഷ്ണൻ]: Karnna, rajyam tharu — atho sathyam kelku.",
+      "voiceover_ml": "[കൃഷ്ണൻ]: കർണ്ണാ, വീണ്ടും ഉയിർത്തെഴുന്നേൽക്കൂ... ഈ ഇരുപത്തിമൂന്നാം ദിനം നമ്മൾ ചേർന്ന് പൂർത്തിയാക്കും.",
       "prompt": "Krishna and Karna stand back to back, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 23.",
-      "voiceover_ml": "[നറേറ്റർ]: Indran vanchichu — kavacham pooyi; pakshe veeratha pooyi ennu parayilla.",
+      "voiceover_ml": "[നറേറ്റർ]: ലോഹങ്ങൾ കോർക്കുന്നു, അഗ്നി ചിതറുന്നു... ഇരുപത്തിമൂന്നാം ദിനത്തിലെ ഓരോ നിമിഷവും ഈ മണ്ണിൽ എഴുതപ്പെടും.",
       "prompt": "Karna running through burning ruins, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[KARNA]: My pain is my weapon now — watch me on day 23.",
-      "voiceover_ml": "[കർണ്ണൻ]: Daanam cheytha veeran — maranathilum daanam cheyyum.",
+      "voiceover_ml": "[കർണ്ണൻ]: എൻ്റെ വേദനകൾ ഇതാ എൻ്റെ വാളായി മാറി... ഇരുപത്തിമൂന്നാം ദിനത്തിൽ എൻ്റെ വീര്യം നിങ്ങൾ കാണും!",
       "prompt": "close up Karna face rage and tears, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 23 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Radha-yude peru anthima swaasa vare — Karnnante hrudayathil theliyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകളുടെ പ്രവാഹം ഇതാ തിരികെയെത്തുന്നു... മധുരവും, ക്രൂരവുമായ സത്യങ്ങൾ; ഇരുപത്തിമൂന്നാം ദിനം അത് അനാവരണം ചെയ്യും.",
       "prompt": "vision of past memory ghostly overlay, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[KARNA]: For Kerala. For every soul who believed — day 23 is ours.",
-      "voiceover_ml": "[കർണ്ണൻ]: Oru ambum, oru vachanam — Arjuna, nee thayar!",
+      "voiceover_ml": "[കർണ്ണൻ]: ഈ പുണ്യ കേരളത്തിനായി... എന്നെ വിശ്വസിച്ച ഓരോ ജീവനുമായി... ഈ ഇരുപത്തിമൂന്നാം ദിനം വിജയം നമ്മൾ നേടും!",
       "prompt": "Karna final strike slow motion day 23, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ARJUNA]: You win today... but day 24 takes everything.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Njan shoot cheyyum — bhagavan, ksamaikkoo!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: ഇന്നത്തെ യുദ്ധം നിനക്ക് ജയിക്കാം... എന്നാൽ നാളത്തെ പ്രഭാതം നിൻ്റെയെല്ലാം ഇല്ലാതാക്കും!",
       "prompt": "Arjuna falls or escapes cliffhanger, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kurukshetra plain — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Suryan astamichu — pakshe Radheyante peru nithyam.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രക്കളത്തിൽ ഘോരമായൊരു നിശ്ശബ്ദത പരന്നു... എന്നാൽ ആ നിശബ്ദതയ്ക്ക് അധികം ആയുസ്സുണ്ടായിരുന്നില്ല.",
       "prompt": "wide Kurukshetra plain dawn after battle, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 24.",
-      "voiceover_ml": "[നറേറ്റർ]: Karnnan vannu, Karnnan poyi — pakshe kaalam oru veerante smaranam thekkum.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ ഒരു പുതിയ ലോകം തന്നെ ഉണരും! ഇരുപത്തിനാലാം ദിനം നിങ്ങൾ കാണാതെ പോകരുത്.",
       "prompt": "Karna walks toward camera epic finale, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "നാളത്തെ പ്രഭാതം..."
     }
   ]
 }

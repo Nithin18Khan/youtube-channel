@@ -4,7 +4,7 @@
   "title_en": "BHIMA VS DUSHASANA",
   "title_ml": "ഭീമൻ ദുശ്ശാസനനെ നേരുന്നു",
   "hook_en": "VOW OF BLOOD!",
-  "hook_ml": "രക്ത പ്രതിജ്ഞ!",
+  "hook_ml": "ഭീമൻ ദുശ്ശാസനനെ നേരുന്നു",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Kurukshetra plain, chapter 13 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Kurukshetrathinte mannil, suryaputhran Karnnan vannu — radheyam enna peru kaattil muriyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രത്തിൽ, പതിമൂന്നാം നാൾ ഇടിനാദം പോലെ ഉണരുന്നു.",
       "prompt": "Karna heroic low angle in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "VOW OF BLOOD!",
-      "title_overlay_ml": "രക്ത പ്രതിജ്ഞ!"
+      "title_overlay_ml": "ഭീമൻ ദുശ്ശാസനനെ നേരുന്നു"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kurukshetra plain breathes smoke and fate — Karna will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Vellathinte pole oru yudham — dharma-yum adharma-yum randu vellangal pole.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രം പുകയും വിധിയും ശ്വാസമെടുക്കുന്നു... കർണ്ണൻ ഒരിഞ്ച് പോലും പിന്നോട്ടില്ല.",
       "prompt": "wide establishing shot of Kurukshetra plain storm sky day 13, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[KARNA]: I did not come this far to kneel on day 13.",
-      "voiceover_ml": "[കർണ്ണൻ]: Naan janichathu apamanathil — pakshe marikkunnathu veerathil.",
+      "voiceover_ml": "[കർണ്ണൻ]: പതിമൂന്നാം ദിനത്തിൽ മുട്ടുമടക്കാൻ ഈ ദൂരം ഞാൻ താണ്ടിയതല്ല!",
       "prompt": "Karna mid battle against shadows in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ARJUNA]: Then bleed again, hero — Kurukshetra plain remembers every coward.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Nee ente saahodaran aayirunnu ennu ariyilla — pakshe veeran nee!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: അങ്ങനെയെങ്കിൽ, നിന്റെ ചോര ഇതാ വീണ്ടും വീഴട്ടെ, ധീരാ... ഭീരുക്കളുടെ നിഴൽ ഈ കുരുക്ഷേത്രം മറക്കില്ല!",
       "prompt": "Arjuna villain reveal fire backlight, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KRISHNA]: Stand up. We finish day 13 together.",
-      "voiceover_ml": "[കൃഷ്ണൻ]: Karnna, rajyam tharu — atho sathyam kelku.",
+      "voiceover_ml": "[കൃഷ്ണൻ]: കർണ്ണാ, എഴുന്നേൽക്കൂ! ഈ പതിമൂന്നാം ദിനം നമുക്കൊന്നിച്ച് ജയിക്കണം.",
       "prompt": "Krishna and Karna stand back to back, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 13.",
-      "voiceover_ml": "[നറേറ്റർ]: Indran vanchichu — kavacham pooyi; pakshe veeratha pooyi ennu parayilla.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ ഏറ്റുമുട്ടുന്നു; പതിമൂന്നാം ദിനത്തിലെ ഓരോ ചുവടും ഈ മണ്ണ് ഹൃദയത്തിൽ സൂക്ഷിക്കും.",
       "prompt": "Karna running through burning ruins, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[KARNA]: My pain is my weapon now — watch me on day 13.",
-      "voiceover_ml": "[കർണ്ണൻ]: Daanam cheytha veeran — maranathilum daanam cheyyum.",
+      "voiceover_ml": "[കർണ്ണൻ]: എന്റെ കഷ്ടപ്പാടുകളാണ് എൻ്റെ ഈ നിമിഷത്തിലെ ആയുധം... പതിമൂന്നാം ദിനത്തിൽ ഞാൻ ആരാണെന്ന് കണ്ടോളൂ!",
       "prompt": "close up Karna face rage and tears, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 13 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Radha-yude peru anthima swaasa vare — Karnnante hrudayathil theliyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മനസ്സിലേക്ക് ഇതാ തിരിച്ചെത്തുന്നു... മധുരവും, ക്രൂരവുമായ സത്യങ്ങൾ, പതിമൂന്നാം ദിനം അത് ആവശ്യപ്പെടുന്നു!",
       "prompt": "vision of past memory ghostly overlay, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[KARNA]: For Kerala. For every soul who believed — day 13 is ours.",
-      "voiceover_ml": "[കർണ്ണൻ]: Oru ambum, oru vachanam — Arjuna, nee thayar!",
+      "voiceover_ml": "[കർണ്ണൻ]: ഈ കേരള മണ്ണിനു വേണ്ടി... എന്നെ വിശ്വസിച്ച ഓരോ മനസ്സുകൾക്കുമായി... പതിമൂന്നാം ദിനം നമ്മുടേതാണ്!",
       "prompt": "Karna final strike slow motion day 13, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ARJUNA]: You win today... but day 14 takes everything.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Njan shoot cheyyum — bhagavan, ksamaikkoo!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: ഇന്ന് നീ ജയിച്ചേക്കാം, കർണ്ണാ... പക്ഷേ പതിനാലാം ദിനം നിനക്കൊന്നും ബാക്കിയാക്കില്ല!",
       "prompt": "Arjuna falls or escapes cliffhanger, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kurukshetra plain — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Suryan astamichu — pakshe Radheyante peru nithyam.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രഭൂമിയിൽ നിശ്ശബ്ദത പടർന്നു... എന്നാൽ ആ ശാന്തത അധികനേരം നീണ്ടുനിന്നില്ല.",
       "prompt": "wide Kurukshetra plain dawn after battle, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 14.",
-      "voiceover_ml": "[നറേറ്റർ]: Karnnan vannu, Karnnan poyi — pakshe kaalam oru veerante smaranam thekkum.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ എല്ലാം മാറും; പതിനാലാം ദിനം നിങ്ങൾ കണ്ടിരിക്കണം!",
       "prompt": "Karna walks toward camera epic finale, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"

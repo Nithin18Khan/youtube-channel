@@ -4,7 +4,7 @@
   "title_en": "PARASHURAMA REMEMBERS",
   "title_ml": "പരശുരാമൻ ഓർക്കുന്നു",
   "hook_en": "CURSE FULFILLED!",
-  "hook_ml": "ശാപം പൂർത്തിയാകുന്നു!",
+  "hook_ml": "ഗുരു ഓർക്കുന്നു, ശിഷ്യൻ പോരാടുന്നു.",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Kurukshetra plain, chapter 17 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Kurukshetrathinte mannil, suryaputhran Karnnan vannu — radheyam enna peru kaattil muriyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രഭൂമിയിൽ, പതിനേഴാം ദിനം ഇതാ... ഒരു മഹാപ്രളയം കണക്കെ ഉണരുന്നു!",
       "prompt": "Karna heroic low angle in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "CURSE FULFILLED!",
-      "title_overlay_ml": "ശാപം പൂർത്തിയാകുന്നു!"
+      "title_overlay_ml": "ഗുരു ഓർക്കുന്നു, ശിഷ്യൻ പോരാടുന്നു."
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kurukshetra plain breathes smoke and fate — Karna will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Vellathinte pole oru yudham — dharma-yum adharma-yum randu vellangal pole.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രമാകെ പുകച്ചുരുളുകൾ നിറയുന്നു; വിധി കർണ്ണനെ തേടിയെത്തി, അവൻ ഒരു മുഴം പിന്നോട്ടില്ല!",
       "prompt": "wide establishing shot of Kurukshetra plain storm sky day 17, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[KARNA]: I did not come this far to kneel on day 17.",
-      "voiceover_ml": "[കർണ്ണൻ]: Naan janichathu apamanathil — pakshe marikkunnathu veerathil.",
+      "voiceover_ml": "[കർണ്ണൻ]: ഈ പതിനേഴാം ദിനത്തിൽ തോൽവി സമ്മതിക്കാൻ... ഈ ദൂരം ഞാൻ താണ്ടിയതല്ല!",
       "prompt": "Karna mid battle against shadows in Kurukshetra plain, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ARJUNA]: Then bleed again, hero — Kurukshetra plain remembers every coward.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Nee ente saahodaran aayirunnu ennu ariyilla — pakshe veeran nee!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: എന്നാൽ നിന്റെ ചോര ഇനിയും ഈ മണ്ണിൽ വീഴട്ടെ! ഭീരുക്കളുടെ അടയാളങ്ങൾ ഈ കുരുക്ഷേത്രം മായ്ക്കില്ല.",
       "prompt": "Arjuna villain reveal fire backlight, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KRISHNA]: Stand up. We finish day 17 together.",
-      "voiceover_ml": "[കൃഷ്ണൻ]: Karnna, rajyam tharu — atho sathyam kelku.",
+      "voiceover_ml": "[കൃഷ്ണൻ]: ധീരാ, വീണ്ടും ഉയർന്നുനിൽക്കൂ... ഈ പതിനേഴാം ദിനം നമ്മൾ ചേർന്ന് ജയിക്കും!",
       "prompt": "Krishna and Karna stand back to back, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 17.",
-      "voiceover_ml": "[നറേറ്റർ]: Indran vanchichu — kavacham pooyi; pakshe veeratha pooyi ennu parayilla.",
+      "voiceover_ml": "[നറേറ്റർ]: ഉരുക്കുകൾ ഇതാ തീവ്രമായി ഏറ്റുമുട്ടുന്നു; പതിനേഴാം ദിനത്തിലെ ഓരോ കാൽവെപ്പും ഈ മണ്ണ് മായാതെ രേഖപ്പെടുത്തുന്നു.",
       "prompt": "Karna running through burning ruins, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[KARNA]: My pain is my weapon now — watch me on day 17.",
-      "voiceover_ml": "[കർണ്ണൻ]: Daanam cheytha veeran — maranathilum daanam cheyyum.",
+      "voiceover_ml": "[കർണ്ണൻ]: എൻ്റെ ദുരിതങ്ങളെല്ലാം ഇപ്പോൾ എൻ്റെ ശക്തിയാണ്... പതിനേഴാം ദിനത്തിൽ എൻ്റെ പോരാട്ടം നിങ്ങൾ കണ്ടറിയുക!",
       "prompt": "close up Karna face rage and tears, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 17 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Radha-yude peru anthima swaasa vare — Karnnante hrudayathil theliyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ ഒരു പുഴപോലെ ഇതാ തിരികെ ഒഴുകിയെത്തുന്നു... മധുരവും കയ്പേറിയതുമായ ആ സത്യങ്ങൾ; പതിനേഴാം ദിനം അത് വെളിപ്പെടുത്തും!",
       "prompt": "vision of past memory ghostly overlay, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[KARNA]: For Kerala. For every soul who believed — day 17 is ours.",
-      "voiceover_ml": "[കർണ്ണൻ]: Oru ambum, oru vachanam — Arjuna, nee thayar!",
+      "voiceover_ml": "[കർണ്ണൻ]: ഈ കേരള മണ്ണിനായി... എന്നിൽ വിശ്വാസം അർപ്പിച്ച എല്ലാ ഹൃദയങ്ങൾക്കുമായി... പതിനേഴാം ദിനം നമ്മുടെ വിജയത്തിനായി!",
       "prompt": "Karna final strike slow motion day 17, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ARJUNA]: You win today... but day 18 takes everything.",
-      "voiceover_ml": "[അർജ്ജുനൻ]: Njan shoot cheyyum — bhagavan, ksamaikkoo!",
+      "voiceover_ml": "[അർജ്ജുനൻ]: ഇന്നത്തെ യുദ്ധം നിനക്ക് നേടാം... പക്ഷേ പതിനെട്ടാം ദിനം നിൻ്റെയെല്ലാം കാലം കവർന്നെടുക്കും!",
       "prompt": "Arjuna falls or escapes cliffhanger, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kurukshetra plain — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Suryan astamichu — pakshe Radheyante peru nithyam.",
+      "voiceover_ml": "[നറേറ്റർ]: കുരുക്ഷേത്രക്കളത്തിൽ ഇതാ ഒരു നിശബ്ദത തഴുകിയെത്തി... എന്നാൽ അത് അധികം വൈകിയില്ല!",
       "prompt": "wide Kurukshetra plain dawn after battle, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 18.",
-      "voiceover_ml": "[നറേറ്റർ]: Karnnan vannu, Karnnan poyi — pakshe kaalam oru veerante smaranam thekkum.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളത്തെ പ്രഭാതം ഒരു പുതിയ ലോകം തന്നെ തുറക്കും! പതിനെട്ടാം ദിനം ഒരു കാരണവശാലും നിങ്ങൾ കാണാതെ പോകരുത്.",
       "prompt": "Karna walks toward camera epic finale, Mahabharata epic boss battle cinematic Unreal Engine 5 frame, golden chariot dust, Kurukshetra sunset, divine armor gleam, volumetric war smoke, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
