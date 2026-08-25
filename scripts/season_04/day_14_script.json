@@ -2,9 +2,9 @@
   "day": 14,
   "season": 4,
   "title_en": "RAMA WOUNDED",
-  "title_ml": "രാമൻ ranjapped",
+  "title_ml": "രാമൻ രഞ്ജപ്പെട്ടു",
   "hook_en": "HERO BLEEDS!",
-  "hook_ml": "നായകൻ രക്തം ഒഴുക്കുന്നു!",
+  "hook_ml": "പതിനാലാം ദിനം: രാമൻ മുട്ടുമടക്കില്ല.",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Lanka golden city, chapter 14 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Kadalin appuram, Lanka — suvarna nagaram — Ramante hrudayathil theliyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ലങ്കയുടെ സ്വർണ്ണ നഗരത്തിൽ, പതിനാലാം ദിനം ഇതാ ഇടിനാദം മുഴക്കി വരുന്നു.",
       "prompt": "Rama heroic low angle in Lanka golden city, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "title_overlay_en": "HERO BLEEDS!",
-      "title_overlay_ml": "നായകൻ രക്തം ഒഴുക്കുന്നു!"
+      "title_overlay_ml": "പതിനാലാം ദിനം: രാമൻ മുട്ടുമടക്കില്ല."
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Lanka golden city breathes smoke and fate — Rama will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Hanuman aakashathil parannu — kadal muriyunnu, hrudayam muriyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: സ്വർണ്ണലങ്കയിൽ പുക ശ്വാസം മുട്ടിക്കുന്നു... വിധി തൻ്റെ വഴിയേ മുന്നോട്ട്. രാമൻ പിൻവാങ്ങില്ല.",
       "prompt": "wide establishing shot of Lanka golden city storm sky day 14, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[RAMA]: I did not come this far to kneel on day 14.",
-      "voiceover_ml": "[രാമൻ]: Sita-yude swaram kettu — njan vannu, njan thirichu kondu pokum.",
+      "voiceover_ml": "[രാമൻ]: ഈ പതിനാലാം ദിനത്തിൽ... മുട്ടുമടക്കാൻ ഇത്ര ദൂരം ഞാൻ വന്നില്ല!",
       "prompt": "Rama mid battle against shadows in Lanka golden city, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[RAVANA]: Then bleed again, hero — Lanka golden city remembers every coward.",
-      "voiceover_ml": "[രാവണൻ]: Pathu thala, pathu ahankaram — njan devanum adhipan.",
+      "voiceover_ml": "[രാവണൻ]: അങ്ങനെയെങ്കിൽ, പിന്നെയും ചോരയൊഴുക്കൂ, വീരാ! ലങ്കാ നഗരിക്ക് ഭീരുക്കളെ ഓർക്കാൻ സമയമില്ല.",
       "prompt": "Ravana villain reveal fire backlight, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[HANUMAN]: Stand up. We finish day 14 together.",
-      "voiceover_ml": "[ഹനുമാൻ]: Lanka kattum — ente tailathinte thee kondu.",
+      "voiceover_ml": "[ഹനുമാൻ]: എഴുന്നേറ്റാലും, പ്രഭോ! ഈ പതിനാലാം ദിനം നമ്മൾ ഒരുമിച്ചു തന്നെ അവസാനിപ്പിക്കും.",
       "prompt": "Hanuman and Rama stand back to back, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 14.",
-      "voiceover_ml": "[നറേറ്റർ]: Sethu uyarunnu — viswasathinte paalam, kadalinte mel.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ പിന്നെയും ഏറ്റുമുട്ടി... ഈ പതിനാലാം ദിനത്തിലെ ഓരോ കാൽവെപ്പും ഭൂമി കുറിച്ചിടുന്നു.",
       "prompt": "Rama running through burning ruins, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[RAMA]: My pain is my weapon now — watch me on day 14.",
-      "voiceover_ml": "[രാമൻ]: Dharma yudhathil — oru ambum, oru neri.",
+      "voiceover_ml": "[രാമൻ]: എൻ്റെ വേദനയിന്ന് എൻ്റെ ആയുധമാണ്... ഈ പതിനാലാം ദിനത്തിലെ എൻ്റെ യുദ്ധം കണ്ടാലും.",
       "prompt": "close up Rama face rage and tears, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 14 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Ravana veenu — ahankaram veenu; Lanka kattu — pakshe nyayam jayichu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മനസ്സിൽ നിറയുന്നു... മധുരവും കയ്‌പ്പും, ഒപ്പം വേണ്ടതുമായ സത്യങ്ങൾ. പതിനാലാം ദിനം യാഥാർത്ഥ്യം തേടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[RAMA]: For Kerala. For every soul who believed — day 14 is ours.",
-      "voiceover_ml": "[രാമൻ]: Sita-ye thirichu — pranayam jayichu, dharmam jayichu.",
+      "voiceover_ml": "[രാമൻ]: ഈ കേരളത്തിനായി... എന്നിൽ പ്രതീക്ഷയർപ്പിച്ച ഓരോ ഹൃദയങ്ങൾക്കും വേണ്ടി. ഈ പതിനാലാം ദിനം നമ്മുടേതാക്കും!",
       "prompt": "Rama final strike slow motion day 14, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[RAVANA]: You win today... but day 15 takes everything.",
-      "voiceover_ml": "[രാവണൻ]: Njan veenu — pakshe Katha thudarunnu.",
+      "voiceover_ml": "[രാവണൻ]: ഈ വിജയം നിനക്ക് സ്വന്തം... പക്ഷേ പതിനഞ്ചാം ദിനം നിൻ്റെയെല്ലാം ഞാൻ കവർന്നെടുക്കും.",
       "prompt": "Ravana falls or escapes cliffhanger, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Lanka golden city — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Ayodhyayile deepam — Lanka-yude theeyil ninnu thulachu.",
+      "voiceover_ml": "[നറേറ്റർ]: സ്വർണ്ണലങ്കാ നഗരിയിൽ ഒരു നിമിഷത്തേക്ക് നിശബ്ദത വ്യാപിച്ചു... എന്നാൽ അത് കേവലം ഒരു താൽക്കാലിക മൗനം മാത്രം.",
       "prompt": "wide Lanka golden city dawn after battle, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 15.",
-      "voiceover_ml": "[നറേറ്റർ]: Ramayanam avasanichu — pakshe oru puthiya yudham thudangunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ, വിധി പുനർനിർവചിക്കപ്പെടും... പതിനഞ്ചാം ദിനം നിങ്ങൾ കാണാതെ പോകരുത്.",
       "prompt": "Rama walks toward camera epic finale, Ramayana epic cinematic game trailer frame Lanka fire, Unreal Engine 5 render, golden palace flames, Hanuman leap silhouette, divine bow glow, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "കാത്തിരിക്കുക: പതിനഞ്ചാം ദിനം"
     }
   ]
 }
