@@ -105,11 +105,11 @@
     "s04d13",
     "s04d14",
     "s04d15",
-    "s04d16"
+    "s04d16",
+    "s04d17",
+    "s04d18"
   ],
   "failed": [
-    "s04d17",
-    "s04d18",
     "s04d19",
     "s04d20",
     "s04d21",
@@ -139,6 +139,6 @@
     "s05d15",
     "s05d16"
   ],
-  "updated_at": "2026-08-25T14:33:32.513158+00:00",
+  "updated_at": "2026-08-25T19:11:10.264763+00:00",
   "note": "Week 1 S1+S2 pre-refined; batch --all skips these unless --force"
 }
