@@ -125,20 +125,20 @@
     "s05d03",
     "s05d04",
     "s05d05",
-    "s05d06"
-  ],
-  "failed": [
+    "s05d06",
     "s05d07",
     "s05d08",
     "s05d09",
     "s05d10",
     "s05d11",
     "s05d12",
-    "s05d13",
+    "s05d13"
+  ],
+  "failed": [
     "s05d14",
     "s05d15",
     "s05d16"
   ],
-  "updated_at": "2026-08-26T18:44:20.423083+00:00",
+  "updated_at": "2026-08-26T20:42:07.743076+00:00",
   "note": "Week 1 S1+S2 pre-refined; batch --all skips these unless --force"
 }
