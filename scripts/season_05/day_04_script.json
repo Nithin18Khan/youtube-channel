@@ -2,9 +2,9 @@
   "day": 4,
   "season": 5,
   "title_en": "FIRST KNOCK",
-  "title_ml": "ആദ്യ knock",
+  "title_ml": "അഞ്ചാം സീസൺ, നാലാം ദിനം: ആദ്യ പ്രഹരം",
   "hook_en": "BLOOD SPILLED!",
-  "hook_ml": "രക്തം ഒഴിഞ്ഞു!",
+  "hook_ml": "നാലാം ദിനം, ആദ്യ പ്രഹരം!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 4 — FIRST KNOCK.",
-      "voiceover_ml": "[നറേറ്റർ]: Erangel map-il, Kerala squad — blue zone muriyunnu, hrudayam muriyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാലാം ദിനം പുലർന്നു... ആദ്യ പ്രഹരം ആഞ്ഞുവീശുന്നു!",
       "prompt": "Arjun heroic low angle in Erangel final zone, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "title_overlay_en": "BLOOD SPILLED!",
-      "title_overlay_ml": "രക്തം ഒഴിഞ്ഞു!"
+      "title_overlay_ml": "നാലാം ദിനം, ആദ്യ പ്രഹരം!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Erangel final zone breathes smoke and fate — Arjun will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Drop plane-il ninnu — jeevan oru loot box pole.",
+      "voiceover_ml": "[നറേറ്റർ]: എറങ്ങൽ കളത്തിലെ പുകമഞ്ഞ് തീവ്രമാകുന്നു... വിധി വേട്ടയാടുമ്പോഴും അർജുൻ ഉറച്ചുനിൽക്കും.",
       "prompt": "wide establishing shot of Erangel final zone storm sky day 4, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ARJUN]: I did not come this far to kneel on day 4.",
-      "voiceover_ml": "[അർജുൻ]: Squad, kelkoo — last zone nammude aanu.",
+      "voiceover_ml": "[അർജുൻ]: ഇവിടെ വരെ ഞാൻ എത്തിച്ചേർന്നത്, ഈ നാലാം ദിനം തോൽക്കാൻ വേണ്ടിയല്ല.",
       "prompt": "Arjun mid battle against shadows in Erangel final zone, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ENEMY TEAM]: Then bleed again, hero — Erangel final zone remembers every coward.",
-      "voiceover_ml": "[എതിർ ടീം]: Ningalkku chance illa — njanengil winner.",
+      "voiceover_ml": "[എതിർ ടീം]: വീണ്ടും ചോര ചിന്താൻ തയ്യാറായിക്കോ, വീരാ... എറങ്ങൽ കളം ഭീരുക്കളെ ഓർത്ത് വെക്കാറില്ല!",
       "prompt": "Enemy team villain reveal fire backlight, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[SQUAD]: Stand up. We finish day 4 together.",
-      "voiceover_ml": "[സ്ക്വാഡ്]: Cover eduthu, push cheyyoo — Malayali style!",
+      "voiceover_ml": "[സ്ക്വാഡ്]: നാലാം ദിനം നമ്മൾ ഒന്നിച്ചു കടക്കും, എണീക്ക്!",
       "prompt": "Squad and Arjun stand back to back, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 4.",
-      "voiceover_ml": "[നറേറ്റർ]: M416 tracers kaattil veenu — oru knock, randu knock.",
+      "voiceover_ml": "[നറേറ്റർ]: ഉരുക്കിന്റെ ശബ്ദം മുഴങ്ങി... ഈ നാലാം ദിനം, ഓരോ ചുവടുകളും എറങ്ങൽ ഓർക്കും.",
       "prompt": "Arjun running through burning ruins, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[ARJUN]: My pain is my weapon now — watch me on day 4.",
-      "voiceover_ml": "[അർജുൻ]: One HP — pakshe aim steady, manassu steady.",
+      "voiceover_ml": "[അർജുൻ]: വേദന എൻ്റെ ശക്തിയാണിന്ന്! നാലാം ദിനത്തിൽ എൻ്റെ പോരാട്ടം നിങ്ങൾ കണ്ടറിയും!",
       "prompt": "close up Arjun face rage and tears, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 4 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Zone muriyunnu — bullet pole, time pole.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ തിരതല്ലി വരുന്നു... മധുരവും കയ്പ്പും നിറഞ്ഞ ആ സത്യം, നാലാം ദിനം അനാവരണം ചെയ്യും.",
       "prompt": "vision of past memory ghostly overlay, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ARJUN]: For Kerala. For every soul who believed — day 4 is ours.",
-      "voiceover_ml": "[അർജുൻ]: Last enemy — oru shot, oru dream.",
+      "voiceover_ml": "[അർജുൻ]: കേരളത്തിന് വേണ്ടി... എന്നെ വിശ്വസിച്ച ഓരോ മനസ്സുകൾക്കും വേണ്ടി... ഈ നാലാം ദിനം നമ്മൾ പിടിച്ചടക്കും!",
       "prompt": "Arjun final strike slow motion day 4, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ENEMY TEAM]: You win today... but day 5 takes everything.",
-      "voiceover_ml": "[എതിർ ടീം]: Impossible — njan winner aayirunnu!",
+      "voiceover_ml": "[എതിർ ടീം]: ഇന്നത്തെ വിജയം നിനക്ക് സ്വന്തം... എന്നാൽ അഞ്ചാം ദിനം നിങ്ങളെല്ലാം നഷ്ടപ്പെടുത്തും!",
       "prompt": "Enemy team falls or escapes cliffhanger, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Erangel final zone — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Winner Winner — chicken dinner — Kerala heart.",
+      "voiceover_ml": "[നറേറ്റർ]: എറങ്ങൽ യുദ്ധക്കളം ഒരു നിമിഷം നിശബ്ദമായി... പക്ഷേ, ആ മൗനം നീണ്ടുനിൽക്കില്ല.",
       "prompt": "wide Erangel final zone dawn after battle, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 5.",
-      "voiceover_ml": "[നറേറ്റർ]: Match avasanichu — pakshe Gulf-il oru puthiya sapnam veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ ഒരു പുതിയ അധ്യായം കുറിക്കും... അഞ്ചാം ദിനത്തിലെ ആവേശകരമായ പോരാട്ടം കാണാൻ മറക്കരുത്!",
       "prompt": "Arjun walks toward camera epic finale, BGMI PUBG Mobile cinematic Erangel map Kerala squad, Unreal Engine 5 render, blue zone shrinking, m416 tracer fire, rooftop Kochi skyline haze, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "അഞ്ചാം ദിനം വരുന്നു!"
     }
   ]
 }
