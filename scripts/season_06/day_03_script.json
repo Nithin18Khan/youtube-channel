@@ -2,9 +2,9 @@
   "day": 3,
   "season": 6,
   "title_en": "FIRST RANK PUSH",
-  "title_ml": "ആദ്യ rank push",
+  "title_ml": "ആദ്യ റാങ്ക് പുഷ്",
   "hook_en": "GRIND BEGINS!",
-  "hook_ml": "grind തുടങ്ങുന്നു!",
+  "hook_ml": "ആദ്യ റാങ്ക് പുഷ്!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 3 — FIRST RANK PUSH.",
-      "voiceover_ml": "[നറേറ്റർ]: Gulf-ile raathri — oru Malayali kali, oru valiya swapnam.",
+      "voiceover_ml": "[നറേറ്റർ]: ഈ മൂന്നാം നാളിൽ... റാങ്കിനായുള്ള ആദ്യ മുന്നേറ്റം തുടങ്ങുന്നു!",
       "prompt": "Riyas heroic low angle in Berlin arena, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "title_overlay_en": "GRIND BEGINS!",
-      "title_overlay_ml": "grind തുടങ്ങുന്നു!"
+      "title_overlay_ml": "ആദ്യ റാങ്ക് പുഷ്!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Berlin arena breathes smoke and fate — Riyas will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Berlin map — neon, bullet, biryani memories.",
+      "voiceover_ml": "[നറേറ്റർ]: ബെർലിൻ കളരിയിൽ പുകയും വിധിയും തളം കെട്ടി... റിയാസ് പിന്നോട്ട് പോകില്ല, തീർച്ച.",
       "prompt": "wide establishing shot of Berlin arena storm sky day 3, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[RIYAS]: I did not come this far to kneel on day 3.",
-      "voiceover_ml": "[റിയാസ്]: Amma, njan try cheyyunnu — rank, prize, nammude veedu.",
+      "voiceover_ml": "[റിയാസ്]: ഈ മൂന്നാം ദിനം കീഴടങ്ങാൻ ഞാൻ ഇവിടം വരെ വന്നതല്ല.",
       "prompt": "Riyas mid battle against shadows in Berlin arena, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[CHAMPION]: Then bleed again, hero — Berlin arena remembers every coward.",
-      "voiceover_ml": "[ചാമ്പ്യൻ]: Gulf-il winner aakan kashtam — nee aarum alla.",
+      "voiceover_ml": "[ചാമ്പ്യൻ]: എങ്കിൽ വീണ്ടും രക്തം വാർക്കപ്പെടട്ടെ, ധീരാ! ഈ കളരി ഭീരുക്കളെ ഓർക്കും.",
       "prompt": "Champion villain reveal fire backlight, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[CREW]: Stand up. We finish day 3 together.",
-      "voiceover_ml": "[സഹപ്രവർത്തകർ]: Malayali squad — oru manass, oru target.",
+      "voiceover_ml": "[സഹപ്രവർത്തകർ]: എഴുന്നേൽക്ക്! ഈ മൂന്നാം നാൾ നമുക്കൊരുമിച്ച് ജയിക്കണം.",
       "prompt": "Crew and Riyas stand back to back, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 3.",
-      "voiceover_ml": "[നറേറ്റർ]: Booyah screen — crowd roar, desert stars.",
+      "voiceover_ml": "[നറേറ്റർ]: ഉരുക്കുകൾ തമ്മിലിടിക്കുന്നു; ഈ മണ്ണ് മൂന്നാം നാളിലെ ഓരോ ചുവടും അറിയുന്നു.",
       "prompt": "Riyas running through burning ruins, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[RIYAS]: My pain is my weapon now — watch me on day 3.",
-      "voiceover_ml": "[റിയാസ്]: One clutch — oru veetile light.",
+      "voiceover_ml": "[റിയാസ്]: എൻ്റെ വേദനയിപ്പോൾ എൻ്റെ ആയുധമാണ്... ഈ മൂന്നാം നാൾ എൻ്റെ കളി കാണൂ!",
       "prompt": "close up Riyas face rage and tears, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 3 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Tournament stage — sweat, faith, Malayalam callouts.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ വീണ്ടും വന്നെത്തി... മധുരമുള്ളതും ക്രൂരമായതുമായ സത്യങ്ങൾ... മൂന്നാം ദിനം അവയെ ആവശ്യപ്പെടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[RIYAS]: For Kerala. For every soul who believed — day 3 is ours.",
-      "voiceover_ml": "[റിയാസ്]: Gulf dream — njan jayichu, nammal jayichu.",
+      "voiceover_ml": "[റിയാസ്]: എൻ്റെ കേരളത്തിനായി! എന്നെ വിശ്വസിച്ച ഓരോ ഹൃദയത്തിനും വേണ്ടി... ഈ മൂന്നാം ദിനം നമുക്കുള്ളതാണ്.",
       "prompt": "Riyas final strike slow motion day 3, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[CHAMPION]: You win today... but day 4 takes everything.",
-      "voiceover_ml": "[ചാമ്പ്യൻ]: Next time — pakshe nee legend aayi.",
+      "voiceover_ml": "[ചാമ്പ്യൻ]: ഈ ദിനം നിനക്കാണ്... പക്ഷേ, നാലാം നാൾ എല്ലാം തട്ടിയെടുക്കപ്പെടും.",
       "prompt": "Champion falls or escapes cliffhanger, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Berlin arena — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Riyaz veetilekk money anuppunnu — Amma smile.",
+      "voiceover_ml": "[നറേറ്റർ]: ബെർലിൻ കളരിയിൽ നിശ്ശബ്ദത നിറഞ്ഞു... പക്ഷേ, അത് അധികം വൈകാതെ മാറും.",
       "prompt": "wide Berlin arena dawn after battle, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 4.",
-      "voiceover_ml": "[നറേറ്റർ]: Free Fire avasanichu — Erdtree-il oru Tarnished veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ എല്ലാം കീഴ്മേൽ മറിയും. നാലാം നാൾ നഷ്ടപ്പെടുത്തരുത്!",
       "prompt": "Riyas walks toward camera epic finale, Free Fire cinematic mobile esports Gulf Malayali hero, Unreal Engine 5 render, Berlin map neon, desert sunset gold, squad wipe slow-mo, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "നാലാം നാൾ കാണാൻ മറക്കരുത്!"
     }
   ]
 }
