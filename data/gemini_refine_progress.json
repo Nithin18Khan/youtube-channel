@@ -153,9 +153,11 @@
     "s06d01",
     "s06d02",
     "s06d03",
-    "s06d04"
+    "s06d04",
+    "s06d05",
+    "s06d06"
   ],
   "failed": [],
-  "updated_at": "2026-08-28T02:17:52.025834+00:00",
+  "updated_at": "2026-08-29T01:51:52.571761+00:00",
   "note": "Week 1 S1+S2 pre-refined; batch --all skips these unless --force"
 }
