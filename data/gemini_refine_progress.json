@@ -195,9 +195,12 @@
     "s07d13",
     "s07d14",
     "s07d15",
-    "s07d16"
+    "s07d16",
+    "s07d17",
+    "s07d18",
+    "s07d19"
   ],
   "failed": [],
-  "updated_at": "2026-08-30T17:44:15.846350+00:00",
+  "updated_at": "2026-08-30T21:27:28.470637+00:00",
   "note": "Week 1 S1+S2 pre-refined; batch --all skips these unless --force"
 }
