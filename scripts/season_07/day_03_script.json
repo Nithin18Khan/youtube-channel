@@ -2,9 +2,9 @@
   "day": 3,
   "season": 7,
   "title_en": "LIMGRAVE STORM",
-  "title_ml": "limgrave storm",
+  "title_ml": "ലിംഗ്രേവിലെ കൊടുങ്കാറ്റ്",
   "hook_en": "FOG WAR!",
-  "hook_ml": "fog war!",
+  "hook_ml": "മൂന്നാം നാൾ, കൊടുങ്കാറ്റൊടുങ്ങുമോ?",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 3 — LIMGRAVE STORM.",
-      "voiceover_ml": "[നറേറ്റർ]: Erdtree kaattil — oru Malayali Tarnished, oru maranam, oru uyirppu.",
+      "voiceover_ml": "[നറേറ്റർ]: മൂന്നാം നാൾ... ലിംഗ്രേവിൻ്റെ മണ്ണിൽ കൊടുങ്കാറ്റ് കനക്കുന്നു.",
       "prompt": "Tarnished heroic low angle in Limgrave ruins, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "title_overlay_en": "FOG WAR!",
-      "title_overlay_ml": "fog war!"
+      "title_overlay_ml": "മൂന്നാം നാൾ, കൊടുങ്കാറ്റൊടുങ്ങുമോ?"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Limgrave ruins breathes smoke and fate — Tarnished will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Limgrave fog — pratheekshayum bhayavum randu kaikal.",
+      "voiceover_ml": "[നറേറ്റർ]: പുകഞ്ഞെരിയുന്ന ലിംഗ്രേവ് അവശിഷ്ടങ്ങളിൽ... പുതിയ വിധി കുറിക്കപ്പെടുന്നു. ടാർണിഷ്ഡ്, പിന്നോട്ട് മാറാൻ തയ്യാറല്ല.",
       "prompt": "wide establishing shot of Limgrave ruins storm sky day 3, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[TARNISHED]: I did not come this far to kneel on day 3.",
-      "voiceover_ml": "[ടാർണിഷ്ഡ്]: Rise Tarnished — njan vannu, njan thirike vannu.",
+      "voiceover_ml": "[ടാർണിഷ്ഡ്]: മുട്ടുമടക്കാനായിരുന്നെങ്കിൽ... ഈ മൂന്നാം നാളിൽ ഞാൻ ഇവിടെ വരില്ലായിരുന്നു!",
       "prompt": "Tarnished mid battle against shadows in Limgrave ruins, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[GODRICK]: Then bleed again, hero — Limgrave ruins remembers every coward.",
-      "voiceover_ml": "[ഗോഡ്രിക്]: Foul Tarnished — nee ente kottathil saavum.",
+      "voiceover_ml": "[ഗോഡ്രിക്]: എങ്കിൽ വീണ്ടും നിൻ്റെ ചോരയൊഴുക്കൂ, വീരാ... ഭീരുക്കളെ ലിംഗ്രേവ് മണ്ണ് എന്നെന്നും ഓർമ്മിക്കും.",
       "prompt": "Godrick villain reveal fire backlight, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[MELINA]: Stand up. We finish day 3 together.",
-      "voiceover_ml": "[മെലിന]: Maiden vazhi kaattum — pakshe vazhi nee thanne cut cheyyum.",
+      "voiceover_ml": "[മെലിന]: എഴുന്നേൽക്കൂ... ഈ മൂന്നാം നാൾ നമ്മൾ ഒരുമിച്ച് തീർക്കും.",
       "prompt": "Melina and Tarnished stand back to back, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 3.",
-      "voiceover_ml": "[നറേറ്റർ]: YOU DIED — pakshe Malayali manass marikkilla.",
+      "voiceover_ml": "[നറേറ്റർ]: ലോഹങ്ങൾ ഘോരം പോരടിച്ചു... മൂന്നാം നാളിലെ ഓരോ ചുവടും ലിംഗ്രേവിൻ്റെ മണ്ണിൽ രേഖപ്പെട്ടു.",
       "prompt": "Tarnished running through burning ruins, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[TARNISHED]: My pain is my weapon now — watch me on day 3.",
-      "voiceover_ml": "[ടാർണിഷ്ഡ്]: Rune farm, pain farm — Elden Lord aavunnathinu.",
+      "voiceover_ml": "[ടാർണിഷ്ഡ്]: എൻ്റെ വേദനയിപ്പോൾ എൻ്റെ ശക്തിയാണ്... ഈ മൂന്നാം നാൾ ഞാൻ ആരാണെന്ന് ലോകം കാണും.",
       "prompt": "close up Tarnished face rage and tears, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 3 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Godrick veenu — stormveil thurannu.",
+      "voiceover_ml": "[നറേറ്റർ]: മറവിയിൽ നിന്ന് ഓർമ്മകൾ ഉണരുന്നു... മധുരമായി, ക്രൂരമായി, അനിവാര്യമായി. മൂന്നാം നാൾ സത്യം വെളിപ്പെടുത്തും.",
       "prompt": "vision of past memory ghostly overlay, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[TARNISHED]: For Kerala. For every soul who believed — day 3 is ours.",
-      "voiceover_ml": "[ടാർണിഷ്ഡ്]: Kerala njan orkkunnu — bonfire-il oru nimisham.",
+      "voiceover_ml": "[ടാർണിഷ്ഡ്]: കേരളമേ നിനക്കായി! എന്നിൽ വിശ്വാസം അർപ്പിച്ച എല്ലാ മനസ്സുകൾക്കുമായി... ഈ മൂന്നാം നാൾ ഞങ്ങൾ നേടും.",
       "prompt": "Tarnished final strike slow motion day 3, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[GODRICK]: You win today... but day 4 takes everything.",
-      "voiceover_ml": "[ഗോഡ്രിക്]: Grace thirichu tharum — pakshe nee kondupoyi.",
+      "voiceover_ml": "[ഗോഡ്രിക്]: ഈ വിജയം നിനക്ക് സ്വന്തമാക്കാം... പക്ഷേ നാലാം നാൾ നിനക്കേറ്റവും പ്രിയപ്പെട്ടത് നഷ്ടമാകും.",
       "prompt": "Godrick falls or escapes cliffhanger, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Limgrave ruins — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Elden Lord crowned — cycle thudangunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ലിംഗ്രേവിൻ്റെ അവശിഷ്ടങ്ങളിൽ... നിശബ്ദതയുടെ തണുപ്പ് പരന്നു. എന്നാൽ അത് ശാശ്വതമായിരുന്നില്ല.",
       "prompt": "wide Limgrave ruins dawn after battle, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 4.",
-      "voiceover_ml": "[നറേറ്റർ]: Ring avasanichu — Vishu prabhaathathil Shiva veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ ഈ കഥ മാറിമറിയും... നാലാം നാൾ കാണാതെ പോകരുത്!",
       "prompt": "Tarnished walks toward camera epic finale, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "നാലാം നാൾ, പുതിയ യുദ്ധം."
     }
   ]
 }
