@@ -2,9 +2,9 @@
   "day": 2,
   "season": 8,
   "title_en": "KANI ARRANGEMENT",
-  "title_ml": "kani arrangement",
+  "title_ml": "രണ്ടാം ദിനം: കണി ഒരുക്കം!",
   "hook_en": "GOLD FLOWERS!",
-  "hook_ml": "golden flowers!",
+  "hook_ml": "രണ്ടാം ദിനം: കണി ഒരുക്കം!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 2 — KANI ARRANGEMENT.",
-      "voiceover_ml": "[നറേറ്റർ]: Vishu prabhaatham — kani, pushpam, nirmalyam — Kerala hrudayam thudangunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: രണ്ടാം ദിനം തുടങ്ങുന്നു... കണി ഒരുക്കം!",
       "prompt": "Shiva heroic low angle in Kerala temple dawn, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "title_overlay_en": "GOLD FLOWERS!",
-      "title_overlay_ml": "golden flowers!"
+      "title_overlay_ml": "രണ്ടാം ദിനം: കണി ഒരുക്കം!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kerala temple dawn breathes smoke and fate — Shiva will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Kshethrathinte ghantayil — oru asuranude nada.",
+      "voiceover_ml": "[നറേറ്റർ]: ക്ഷേത്രത്തിൽ വീണ്ടും പുലർന്നു... വിധി വീണ്ടും വഴി തുറക്കുന്നു. ശിവൻ പിന്നോട്ടില്ല!",
       "prompt": "wide establishing shot of Kerala temple dawn storm sky day 2, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[SHIVA]: I did not come this far to kneel on day 2.",
-      "voiceover_ml": "[ശിവൻ]: Asura, nee bhayam aanu — njan bhayathinte antam.",
+      "voiceover_ml": "[ശിവൻ]: ഈ രണ്ടാം ദിനവും മുട്ടുമടക്കാൻ ഞാനൊരുക്കമല്ല. ഇത്ര ദൂരം ഞാൻ വന്നത് തോൽക്കാനുമല്ല!",
       "prompt": "Shiva mid battle against shadows in Kerala temple dawn, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ASURA]: Then bleed again, hero — Kerala temple dawn remembers every coward.",
-      "voiceover_ml": "[അസുരൻ]: Moonnam nethram — njan adakkum!",
+      "voiceover_ml": "[അസുരൻ]: എന്നാൽ ചോരയൊഴുക്കൂ വീരാ... ഈ പുലരി ഭീരുക്കളെ ഓർത്ത് വെക്കും!",
       "prompt": "Asura villain reveal fire backlight, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[VILLAGER]: Stand up. We finish day 2 together.",
-      "voiceover_ml": "[ഗ്രാമവാസി]: Deva, nammude kshethram rakshikkoo!",
+      "voiceover_ml": "[ഗ്രാമവാസി]: എഴുന്നേൽക്കൂ... ഈ രണ്ടാം നാൾ നമുക്കൊരുമിച്ച് പൂർത്തിയാക്കണം!",
       "prompt": "Villager and Shiva stand back to back, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 2.",
-      "voiceover_ml": "[നറേറ്റർ]: Tandavam — bhoomi nadakkunnu, aakasham nadakkunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ലോഹങ്ങൾ കൂട്ടിമുട്ടി! ഈ രണ്ടാം ദിനം ഓരോ കാൽപ്പാടും ഭൂമി ഓർത്ത് വെക്കും.",
       "prompt": "Shiva running through burning ruins, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[SHIVA]: My pain is my weapon now — watch me on day 2.",
-      "voiceover_ml": "[ശിവൻ]: Neethi veenu — bhakthi ninnu.",
+      "voiceover_ml": "[ശിവൻ]: എൻ്റെ നോവാണ് എൻ്റെ ആയുധം... ഈ രണ്ടാം ദിനം എൻ്റെ പോരാട്ടം കണ്ടറിയൂ!",
       "prompt": "close up Shiva face rage and tears, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 2 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Moonnam nethram thurannu — neela thee, shuddhi.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ തിരിച്ചെത്തുന്നു... മധുരവും, കയ്പ്പും, അറിയേണ്ട സത്യങ്ങളും. ഈ രണ്ടാം നാൾ സത്യം വെളിപ്പെടുത്തും.",
       "prompt": "vision of past memory ghostly overlay, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[SHIVA]: For Kerala. For every soul who believed — day 2 is ours.",
-      "voiceover_ml": "[ശിവൻ]: Vishu kani — bhayam illatha bhavishyam.",
+      "voiceover_ml": "[ശിവൻ]: ഈ കേരളത്തിനായി! എന്നിൽ വിശ്വസിച്ച ഓരോ ആത്മാവിനും വേണ്ടി... ഈ രണ്ടാം ദിനം നമ്മുടേതാണ്!",
       "prompt": "Shiva final strike slow motion day 2, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ASURA]: You win today... but day 3 takes everything.",
-      "voiceover_ml": "[അസുരൻ]: Njan veenu — pakshe theeyil ninnu prabhaatham.",
+      "voiceover_ml": "[അസുരൻ]: ഇന്ന് നീ ജയിച്ചു... പക്ഷേ മൂന്നാം ദിനം നിനക്കെല്ലാം നഷ്ടമാകും!",
       "prompt": "Asura falls or escapes cliffhanger, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kerala temple dawn — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Sadhya, harathi, keralam — devanum manushyanum idayil.",
+      "voiceover_ml": "[നറേറ്റർ]: ക്ഷേത്രത്തിൽ മൗനം തളം കെട്ടി... എന്നാൽ അധികനേരം ആ ശാന്തത നിലനിന്നില്ല!",
       "prompt": "wide Kerala temple dawn dawn after battle, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 3.",
-      "voiceover_ml": "[നറേറ്റർ]: Vishu avasanichu — irula vazhiyil Yakshi kaathunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: അടുത്ത ദിനം ഈ ലോകം മാറും! മൂന്നാം ദിനം കാത്തിരിക്കുന്നു, ഒരു നിമിഷം പോലും കണ്ണെടുക്കരുത്!",
       "prompt": "Shiva walks toward camera epic finale, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"

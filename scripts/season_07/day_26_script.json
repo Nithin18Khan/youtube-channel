@@ -2,9 +2,9 @@
   "day": 26,
   "season": 7,
   "title_en": "FINAL BOSS DOOR",
-  "title_ml": "final boss door",
+  "title_ml": "ലിംഗ്രേവിൻ്റെ അവശിഷ്ടങ്ങളിൽ: ഇരുപത്തിയാറാം ദിനം",
   "hook_en": "GOD AWAITS!",
-  "hook_ml": "god awaits!",
+  "hook_ml": "ഇരുപത്തിയാറാം ദിനം: വിധി.",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 26 — the war for Limgrave ruins deepens.",
-      "voiceover_ml": "[നറേറ്റർ]: Erdtree kaattil — oru Malayali Tarnished, oru maranam, oru uyirppu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുപത്തിയാറാം ദിനം, ലിംഗ്രേവിൻ്റെ അവശിഷ്ടങ്ങളിൽ യുദ്ധത്തിൻ്റെ ചൂട് വർധിച്ചു.",
       "prompt": "Tarnished heroic low angle in Limgrave ruins, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "title_overlay_en": "GOD AWAITS!",
-      "title_overlay_ml": "god awaits!"
+      "title_overlay_ml": "ഇരുപത്തിയാറാം ദിനം: വിധി."
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Limgrave ruins breathes smoke and fate — Tarnished will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Limgrave fog — pratheekshayum bhayavum randu kaikal.",
+      "voiceover_ml": "[നറേറ്റർ]: പുകമഞ്ഞിൽ മൂടിയ ലിംഗ്രേവ്, ഓരോ ശ്വാസത്തിലും വിധി മന്ത്രിച്ചു. ടാർണിഷ്ഡ് അവിടെ ഉറച്ചുനിന്നു, ഒരു പിന്നോട്ട് പോക്കില്ല.",
       "prompt": "wide establishing shot of Limgrave ruins storm sky day 26, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[TARNISHED]: I did not come this far to kneel on day 26.",
-      "voiceover_ml": "[ടാർണിഷ്ഡ്]: Rise Tarnished — njan vannu, njan thirike vannu.",
+      "voiceover_ml": "[ടാർണിഷ്ഡ്]: ഇരുപത്തിയാറാം ദിനത്തിൽ മുട്ടുമടക്കാൻ വേണ്ടിയായിരുന്നില്ല എൻ്റെ ഈ യാത്ര!",
       "prompt": "Tarnished mid battle against shadows in Limgrave ruins, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[GODRICK]: Then bleed again, hero — Limgrave ruins remembers every coward.",
-      "voiceover_ml": "[ഗോഡ്രിക്]: Foul Tarnished — nee ente kottathil saavum.",
+      "voiceover_ml": "[ഗോഡ്രിക്]: എന്നാൽ നിൻ്റെ ചോര ഇനിയും വീഴും, ധീരാ! ഈ ലിംഗ്രേവ് മണ്ണ് ഒരു ഭീരുവിനെയും വെറുതെ വിടില്ല.",
       "prompt": "Godrick villain reveal fire backlight, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[MELINA]: Stand up. We finish day 26 together.",
-      "voiceover_ml": "[മെലിന]: Maiden vazhi kaattum — pakshe vazhi nee thanne cut cheyyum.",
+      "voiceover_ml": "[മെലിന]: ഉണർന്ന് എഴുന്നേൽക്കൂ. ഈ ഇരുപത്തിയാറാം ദിനം നമ്മൾ ഒരുമിച്ച് വിജയിക്കും.",
       "prompt": "Melina and Tarnished stand back to back, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 26.",
-      "voiceover_ml": "[നറേറ്റർ]: YOU DIED — pakshe Malayali manass marikkilla.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ അലറി, യുദ്ധക്കളം പ്രകമ്പിതമായി. ഇരുപത്തിയാറാം ദിനത്തിലെ ഓരോ കാൽപ്പാടും ഭൂമിയിൽ പതിഞ്ഞു, ഒരു മുദ്രയായി.",
       "prompt": "Tarnished running through burning ruins, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[TARNISHED]: My pain is my weapon now — watch me on day 26.",
-      "voiceover_ml": "[ടാർണിഷ്ഡ്]: Rune farm, pain farm — Elden Lord aavunnathinu.",
+      "voiceover_ml": "[ടാർണിഷ്ഡ്]: എൻ്റെ വേദനകളെല്ലാം ഇപ്പോൾ എൻ്റെ ആയുധത്തിന് മൂർച്ച നൽകുന്നു. ഈ ഇരുപത്തിയാറാം ദിനം എൻ്റെ തീവ്രത നിങ്ങൾ കാണും.",
       "prompt": "close up Tarnished face rage and tears, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 26 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Godrick veenu — stormveil thurannu.",
+      "voiceover_ml": "[നറേറ്റർ]: മറവിയിൽ നിന്നും ഓർമ്മകൾ ഉണർന്നു. മധുരവും, കഠിനവും, ഒഴിച്ചുകൂടാനാവാത്തതുമായ സത്യം... ഇരുപത്തിയാറാം ദിനം അത് തേടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[TARNISHED]: For Kerala. For every soul who believed — day 26 is ours.",
-      "voiceover_ml": "[ടാർണിഷ്ഡ്]: Kerala njan orkkunnu — bonfire-il oru nimisham.",
+      "voiceover_ml": "[ടാർണിഷ്ഡ്]: എൻ്റെ നാടിനായി, കേരളത്തിനായി! എന്നിൽ വിശ്വാസമർപ്പിച്ച ഓരോ ആത്മാക്കൾക്കുമായി... ഈ ഇരുപത്തിയാറാം ദിനം എൻ്റെതാണ്!",
       "prompt": "Tarnished final strike slow motion day 26, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[GODRICK]: You win today... but day 27 takes everything.",
-      "voiceover_ml": "[ഗോഡ്രിക്]: Grace thirichu tharum — pakshe nee kondupoyi.",
+      "voiceover_ml": "[ഗോഡ്രിക്]: ഇന്നത്തെ പോരാട്ടം നീ ജയിച്ചു... പക്ഷേ ഇരുപത്തിയേഴാം ദിനം നിനക്കൊരുങ്ങുന്നത് വലിയ നഷ്ടങ്ങളായിരിക്കും!",
       "prompt": "Godrick falls or escapes cliffhanger, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Limgrave ruins — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Elden Lord crowned — cycle thudangunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ലിംഗ്രേവിൻ്റെ അവശിഷ്ടങ്ങളിൽ ഒരു നേർത്ത ശാന്തത പടർന്നു... എന്നാൽ ആ മൗനത്തിന് അധികം ആയുസ്സുണ്ടായിരുന്നില്ല.",
       "prompt": "wide Limgrave ruins dawn after battle, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 27.",
-      "voiceover_ml": "[നറേറ്റർ]: Ring avasanichu — Vishu prabhaathathil Shiva veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളത്തെ ഉദയം എല്ലാ കഥകളും മാറ്റിമറിക്കും. ഇരുപത്തിയേഴാം ദിനം നിങ്ങൾ കണ്ടിരിക്കണം.",
       "prompt": "Tarnished walks toward camera epic finale, Elden Ring dark fantasy cinematic tarnished warrior, Unreal Engine 5 render, Limgrave fog, golden Erdtree beam, greatsword spark, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
