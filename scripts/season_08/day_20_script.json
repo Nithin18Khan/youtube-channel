@@ -2,9 +2,9 @@
   "day": 20,
   "season": 8,
   "title_en": "NEXT THREAT",
-  "title_ml": "next threat",
+  "title_ml": "അടുത്ത ഭീഷണി",
   "hook_en": "SHADOW RETURNS!",
-  "hook_ml": "shadow returns!",
+  "hook_ml": "അടുത്ത ഭീഷണി... ഇരുപതാം ദിനം!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Kerala temple dawn, chapter 20 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Vishu prabhaatham — kani, pushpam, nirmalyam — Kerala hrudayam thudangunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: കേരള ക്ഷേത്രത്തിൻ്റെ പ്രഭാതത്തിൽ... ഇരുപതാം അധ്യായം ഒരു ഇടിമുഴക്കമായി തുടങ്ങി.",
       "prompt": "Shiva heroic low angle in Kerala temple dawn, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "title_overlay_en": "SHADOW RETURNS!",
-      "title_overlay_ml": "shadow returns!"
+      "title_overlay_ml": "അടുത്ത ഭീഷണി... ഇരുപതാം ദിനം!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kerala temple dawn breathes smoke and fate — Shiva will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Kshethrathinte ghantayil — oru asuranude nada.",
+      "voiceover_ml": "[നറേറ്റർ]: ഈ ഹോമപ്പുക നിറഞ്ഞ പ്രഭാതത്തിൽ... വിധി തൻ്റെ കളി തുടങ്ങുന്നു, ശിവൻ ഒരു തരിമ്പും പിന്മാറില്ല.",
       "prompt": "wide establishing shot of Kerala temple dawn storm sky day 20, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[SHIVA]: I did not come this far to kneel on day 20.",
-      "voiceover_ml": "[ശിവൻ]: Asura, nee bhayam aanu — njan bhayathinte antam.",
+      "voiceover_ml": "[ശിവൻ]: ഇരുപതാം ദിനത്തിൽ മുട്ടുമടക്കാൻ... ഞാൻ ഈ വഴി വന്നതേയില്ല.",
       "prompt": "Shiva mid battle against shadows in Kerala temple dawn, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ASURA]: Then bleed again, hero — Kerala temple dawn remembers every coward.",
-      "voiceover_ml": "[അസുരൻ]: Moonnam nethram — njan adakkum!",
+      "voiceover_ml": "[അസുരൻ]: എങ്കിൽ വീണ്ടും നിൻ്റെ രക്തം ചിന്തട്ടെ, വീരാ... ഭീരുവിനെ ഈ ഇരുപതാം പ്രഭാതം ഓർമ്മപ്പെടുത്തും.",
       "prompt": "Asura villain reveal fire backlight, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[VILLAGER]: Stand up. We finish day 20 together.",
-      "voiceover_ml": "[ഗ്രാമവാസി]: Deva, nammude kshethram rakshikkoo!",
+      "voiceover_ml": "[ഗ്രാമവാസി]: നിൽക്കൂ, ദേവാ! ഈ ഇരുപതാം ദിനം നമുക്കൊരുമിച്ച് പൊരുതി ജയിക്കാം.",
       "prompt": "Villager and Shiva stand back to back, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 20.",
-      "voiceover_ml": "[നറേറ്റർ]: Tandavam — bhoomi nadakkunnu, aakasham nadakkunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഉരുക്കുകൾ തമ്മിൽ ഏറ്റുമുട്ടി... ഇരുപതാം ദിനത്തിലെ ഓരോ കാൽപ്പാടും ഈ മണ്ണ് മനസ്സിലാക്കി.",
       "prompt": "Shiva running through burning ruins, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[SHIVA]: My pain is my weapon now — watch me on day 20.",
-      "voiceover_ml": "[ശിവൻ]: Neethi veenu — bhakthi ninnu.",
+      "voiceover_ml": "[ശിവൻ]: എൻ്റെ എല്ലാ കഷ്ടപ്പാടുകളും ഇപ്പോൾ എൻ്റെ ആയുധം... ഈ ഇരുപതാം ദിനം ഞാൻ എങ്ങനെ പൊരുതുമെന്ന് നീ കണ്ടറിയും!",
       "prompt": "close up Shiva face rage and tears, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 20 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Moonnam nethram thurannu — neela thee, shuddhi.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ വീണ്ടും ഒരു തഴുകൽ പോലെ... മധുരവും, ക്രൂരവും, അനിവാര്യവുമായ സത്യങ്ങൾ. ഇരുപതാം ദിനം അതിന് ഉത്തരങ്ങൾ തേടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[SHIVA]: For Kerala. For every soul who believed — day 20 is ours.",
-      "voiceover_ml": "[ശിവൻ]: Vishu kani — bhayam illatha bhavishyam.",
+      "voiceover_ml": "[ശിവൻ]: ഈ കേരളത്തിനായി! എന്നിൽ ആത്മാർത്ഥമായി വിശ്വസിച്ച ഓരോ ആത്മാവിനും വേണ്ടി... ഈ ഇരുപതാം ദിനം നമ്മുടെ വിജയദിനമാണ്!",
       "prompt": "Shiva final strike slow motion day 20, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ASURA]: You win today... but day 21 takes everything.",
-      "voiceover_ml": "[അസുരൻ]: Njan veenu — pakshe theeyil ninnu prabhaatham.",
+      "voiceover_ml": "[അസുരൻ]: ഇന്നത്തെ ഈ വിജയം നിനക്ക്... പക്ഷേ ഇരുപത്തിയൊന്നാം ദിനം നിനക്കൊന്നും ബാക്കിയുണ്ടാകില്ല!",
       "prompt": "Asura falls or escapes cliffhanger, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kerala temple dawn — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Sadhya, harathi, keralam — devanum manushyanum idayil.",
+      "voiceover_ml": "[നറേറ്റർ]: പോരാട്ടത്തിനൊടുവിൽ... കേരള ക്ഷേത്രമുറ്റത്ത് ഒരു നിശ്ശബ്ദത തളംകെട്ടി... പക്ഷേ ആ നിശബ്ദത അധികനാൾ നിലനിന്നില്ല.",
       "prompt": "wide Kerala temple dawn dawn after battle, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 21.",
-      "voiceover_ml": "[നറേറ്റർ]: Vishu avasanichu — irula vazhiyil Yakshi kaathunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളത്തെ പ്രഭാതം... എല്ലാം തിരുത്തിയെഴുതും! ഇരുപത്തിയൊന്നാം ദിനം... നിങ്ങൾ കണ്ടേ തീരൂ!",
       "prompt": "Shiva walks toward camera epic finale, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "അടുത്ത ഭീഷണി"
     }
   ]
 }

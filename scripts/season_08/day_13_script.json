@@ -2,9 +2,9 @@
   "day": 13,
   "season": 8,
   "title_en": "ASURA FALLS",
-  "title_ml": "asura falls",
+  "title_ml": "അസുര പതനം: പതിമൂന്നാം അദ്ധ്യായം",
   "hook_en": "EVIL BURNS!",
-  "hook_ml": "evil burns!",
+  "hook_ml": "അസുര പതനം... പതിമൂന്നാം ദിനം!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Kerala temple dawn, chapter 13 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Vishu prabhaatham — kani, pushpam, nirmalyam — Kerala hrudayam thudangunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: കേരള ക്ഷേത്രത്തിൽ പതിമൂന്നാം അദ്ധ്യായം... ഘോരമായ ഇടിമുഴക്കത്തോടെ ആരംഭിക്കുകയായി.",
       "prompt": "Shiva heroic low angle in Kerala temple dawn, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "title_overlay_en": "EVIL BURNS!",
-      "title_overlay_ml": "evil burns!"
+      "title_overlay_ml": "അസുര പതനം... പതിമൂന്നാം ദിനം!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Kerala temple dawn breathes smoke and fate — Shiva will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Kshethrathinte ghantayil — oru asuranude nada.",
+      "voiceover_ml": "[നറേറ്റർ]: ക്ഷേത്രമുറ്റത്ത് പുലരി പുകമഞ്ഞുപോൽ... വിധിക്ക് മുന്നിൽ ശിവൻ കുലുങ്ങില്ല, ഒരിക്കലും പിന്മാറില്ല.",
       "prompt": "wide establishing shot of Kerala temple dawn storm sky day 13, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[SHIVA]: I did not come this far to kneel on day 13.",
-      "voiceover_ml": "[ശിവൻ]: Asura, nee bhayam aanu — njan bhayathinte antam.",
+      "voiceover_ml": "[ശിവൻ]: പതിമൂന്നാം ദിനത്തിൽ മുട്ടുമടക്കാനായിരുന്നില്ല, ഈ ദൂരം ഞാൻ വന്നത്!",
       "prompt": "Shiva mid battle against shadows in Kerala temple dawn, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ASURA]: Then bleed again, hero — Kerala temple dawn remembers every coward.",
-      "voiceover_ml": "[അസുരൻ]: Moonnam nethram — njan adakkum!",
+      "voiceover_ml": "[അസുരൻ]: എന്നാൽ രക്തം ചിന്തട്ടെ വീരാ... ഭീരുക്കൾക്ക് ഇവിടെ സ്ഥാനമില്ലെന്ന് ഈ മണ്ണ് ഓർമ്മിപ്പിക്കും!",
       "prompt": "Asura villain reveal fire backlight, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[VILLAGER]: Stand up. We finish day 13 together.",
-      "voiceover_ml": "[ഗ്രാമവാസി]: Deva, nammude kshethram rakshikkoo!",
+      "voiceover_ml": "[ഗ്രാമവാസി]: ഉണരൂ! ഈ പതിമൂന്നാം ദിനം നമ്മൾ ഒന്നിച്ചു നേരിടും.",
       "prompt": "Villager and Shiva stand back to back, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 13.",
-      "voiceover_ml": "[നറേറ്റർ]: Tandavam — bhoomi nadakkunnu, aakasham nadakkunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ മുഴങ്ങി... പതിമൂന്നാം ദിനത്തിൽ ഓരോ ചുവടുകളും ഈ ഭൂമി മാറോടു ചേർത്തു!",
       "prompt": "Shiva running through burning ruins, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[SHIVA]: My pain is my weapon now — watch me on day 13.",
-      "voiceover_ml": "[ശിവൻ]: Neethi veenu — bhakthi ninnu.",
+      "voiceover_ml": "[ശിവൻ]: എൻ്റെ സകല വേദനയും ഇപ്പോൾ എൻ്റെ ആയുധമാണ്... പതിമൂന്നാം ദിനത്തിൽ എൻ്റെ വിജയം നീ കാണും!",
       "prompt": "close up Shiva face rage and tears, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 13 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Moonnam nethram thurannu — neela thee, shuddhi.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ ഒരു നദിപോലെ ഒഴുകിയെത്തി... മധുരവും, ക്രൂരവുമായ സത്യങ്ങൾ. പതിമൂന്നാം ദിനം എല്ലാം വെളിപ്പെടുത്തുന്നു!",
       "prompt": "vision of past memory ghostly overlay, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[SHIVA]: For Kerala. For every soul who believed — day 13 is ours.",
-      "voiceover_ml": "[ശിവൻ]: Vishu kani — bhayam illatha bhavishyam.",
+      "voiceover_ml": "[ശിവൻ]: ഈ മണ്ണിനു വേണ്ടി! എന്നിൽ അടിയുറച്ച ഓരോ ഹൃദയത്തിനും വേണ്ടി... ഈ പതിമൂന്നാം ദിനം നമ്മുടേതാണ്!",
       "prompt": "Shiva final strike slow motion day 13, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ASURA]: You win today... but day 14 takes everything.",
-      "voiceover_ml": "[അസുരൻ]: Njan veenu — pakshe theeyil ninnu prabhaatham.",
+      "voiceover_ml": "[അസുരൻ]: ഇന്നത്തെ ജയം നിൻ്റേതാകട്ടെ... പക്ഷേ പതിനാലാം ദിനം എല്ലാം ഞാൻ കവർന്നെടുക്കും!",
       "prompt": "Asura falls or escapes cliffhanger, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Kerala temple dawn — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Sadhya, harathi, keralam — devanum manushyanum idayil.",
+      "voiceover_ml": "[നറേറ്റർ]: കേരള ക്ഷേത്രത്തിൽ ഒരു നിശ്ശബ്ദത ആവരണം ചെയ്തു... പക്ഷേ അത് നിലനിൽക്കില്ലെന്ന് കാലം തെളിയിക്കും.",
       "prompt": "wide Kerala temple dawn dawn after battle, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 14.",
-      "voiceover_ml": "[നറേറ്റർ]: Vishu avasanichu — irula vazhiyil Yakshi kaathunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ എല്ലാം മാറ്റിമറിക്കും! പതിനാലാം ദിനം നിങ്ങൾ കണ്ടേ തീരൂ!",
       "prompt": "Shiva walks toward camera epic finale, Indian myth Shiva Vishu cinematic temple Kerala, Unreal Engine 5 render, kani konna gold, third eye blue fire, temple gopuram dawn, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
