@@ -2,9 +2,9 @@
   "day": 18,
   "season": 9,
   "title_en": "FINAL BOSS YAKSHI",
-  "title_ml": "final boss yakshi",
+  "title_ml": "യക്ഷിയുടെ അന്ത്യം: പതിനെട്ടാം ദിനം",
   "hook_en": "BOSS FIGHT!",
-  "hook_ml": "boss fight!",
+  "hook_ml": "അവസാന പോരാട്ടം: യക്ഷി",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In dark forest road, chapter 18 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Raathri — kaattu vazhi — game loading 99 percent.",
+      "voiceover_ml": "[നറേറ്റർ]: കാടിൻ്റെ ഇരുൾ മൂടിയ വഴികളിൽ, പതിനെട്ടാം ദിനം ഇടിവെട്ടോടെ ഉണർന്നു.",
       "prompt": "Player heroic low angle in dark forest road, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "title_overlay_en": "BOSS FIGHT!",
-      "title_overlay_ml": "boss fight!"
+      "title_overlay_ml": "അവസാന പോരാട്ടം: യക്ഷി"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: dark forest road breathes smoke and fate — Player will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Controller kayyil — pakshe bhayam real aayi.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുൾവഴിയിൽ പുകയും വിധിവിളികളും അലയടിച്ചു; കളിക്കാരൻ പിൻവാങ്ങാൻ ഒരുക്കമായിരുന്നില്ല.",
       "prompt": "wide establishing shot of dark forest road storm sky day 18, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[PLAYER]: I did not come this far to kneel on day 18.",
-      "voiceover_ml": "[കളിക്കാരൻ]: Suhrippu, evideya nee — loading screen thudarnnu.",
+      "voiceover_ml": "[കളിക്കാരൻ]: പതിനെട്ടാം ദിനത്തിൽ തോൽവി സമ്മതിച്ച് മുട്ടുകുത്താൻ, ഞാനിതുവരെ എത്തിയതല്ല!",
       "prompt": "Player mid battle against shadows in dark forest road, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[YAKSHI]: Then bleed again, hero — dark forest road remembers every coward.",
-      "voiceover_ml": "[യക്ഷി]: Nee kali thudangiyalo — njanum.",
+      "voiceover_ml": "[യക്ഷി]: വീണ്ടും നിൻ്റെ ചോരയൊഴുക്കൂ, വീരാ... ഈ ഇരുൾവഴി ഭീരുക്കളെ ഓർത്ത് ചിരിക്കും!",
       "prompt": "Yakshi villain reveal fire backlight, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[FRIEND]: Stand up. We finish day 18 together.",
-      "voiceover_ml": "[സുഹൃത്ത്]: Real alla — game alla — entho bhayankaram.",
+      "voiceover_ml": "[സുഹൃത്ത്]: എഴുന്നേൽക്ക്, ചങ്ങാതീ! ഈ പതിനെട്ടാം ദിനം നമ്മൾ ഒരുമിച്ച് വിജയിക്കും.",
       "prompt": "Friend and Player stand back to back, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 18.",
-      "voiceover_ml": "[നറേറ്റർ]: Vella saree — palathinte naduve — oru nada.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ ഉഗ്രമായി കൂട്ടിമുട്ടി; പതിനെട്ടാം ദിനത്തിലെ ഓരോ ചുവടും ഈ മണ്ണ് ഓർത്തു.",
       "prompt": "Player running through burning ruins, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[PLAYER]: My pain is my weapon now — watch me on day 18.",
-      "voiceover_ml": "[കളിക്കാരൻ]: Odu — engine start cheyyoo — Yakshi pinne!",
+      "voiceover_ml": "[കളിക്കാരൻ]: എൻ്റെ വേദനയിപ്പോൾ എൻ്റെ ആയുധമാണ്... പതിനെട്ടാം ദിനത്തിലെ എൻ്റെ പോരാട്ടം ലോകം കാണട്ടെ!",
       "prompt": "close up Player face rage and tears, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 18 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Jump scare — hrudayam stop aayi — thudarnnu beat aayi.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മനസ്സിൽ ഉണർന്നു... മധുരവും ക്രൂരവും, ഒഴിച്ചുകൂടാനാവാത്തതുമായ സത്യം പതിനെട്ടാം ദിനം തേടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[PLAYER]: For Kerala. For every soul who believed — day 18 is ours.",
-      "voiceover_ml": "[കളിക്കാരൻ]: Tulsi — raksha — njan jayikkum.",
+      "voiceover_ml": "[കളിക്കാരൻ]: ഈ കേരളത്തിനു വേണ്ടി! എന്നെ വിശ്വസിച്ച ഓരോ ഹൃദയത്തിനും വേണ്ടി... ഈ പതിനെട്ടാം ദിനം നമ്മൾ കൈക്കലാക്കും!",
       "prompt": "Player final strike slow motion day 18, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[YAKSHI]: You win today... but day 19 takes everything.",
-      "voiceover_ml": "[യക്ഷി]: Game over — continue? — njan parayunnu: NEVER.",
+      "voiceover_ml": "[യക്ഷി]: ഈ ജയം ഇന്ന് നിനക്ക് സ്വന്തമാക്കാം... എന്നാൽ പതിനൊമ്പതാം ദിനം നിൻ്റെ സകലതും ഞാൻ സ്വന്തമാക്കും!",
       "prompt": "Yakshi falls or escapes cliffhanger, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over dark forest road — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Phone ring — unknown number — raathri thirichu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുണ്ട വനപാതയിൽ നിശബ്ദത തളംകെട്ടി നിന്നു... എന്നാൽ ഈ മൗനത്തിന് അധികം ആയുസ്സുണ്ടായിരുന്നില്ല.",
       "prompt": "wide dark forest road dawn after battle, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 19.",
-      "voiceover_ml": "[നറേറ്റർ]: Yakshi pooyi — pakshe Malabar thurathil blade veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളത്തെ പ്രഭാതം എല്ലാം മാറ്റിമറിക്കും! പതിനൊമ്പതാം ദിനം നിങ്ങൾ ഒരിക്കലും കാണാതെ പോകരുത്.",
       "prompt": "Player walks toward camera epic finale, horror cinematic game loading screen yakshi Kerala night, Unreal Engine 5 render, palm shadows, moonlit paddy, glowing eyes in dark, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
