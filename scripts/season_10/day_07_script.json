@@ -2,9 +2,9 @@
   "day": 7,
   "season": 10,
   "title_en": "SPICE TRADE",
-  "title_ml": "spice trade",
+  "title_ml": "സുഗന്ധവ്യാപാരം",
   "hook_en": "PEPPER GOLD!",
-  "hook_ml": "pepper gold!",
+  "hook_ml": "ഏഴാം ദിനം: സുഗന്ധവ്യാപാരം",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 7 — SPICE TRADE.",
-      "voiceover_ml": "[നറേറ്റർ]: Malabar kaattil — kadal, pepper, rahasyam — Hidden One veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഏഴാം ദിനം തുടങ്ങുന്നു... സുഗന്ധവ്യാപാരം.",
       "prompt": "Hidden One heroic low angle in Malabar port, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "title_overlay_en": "PEPPER GOLD!",
-      "title_overlay_ml": "pepper gold!"
+      "title_overlay_ml": "ഏഴാം ദിനം: സുഗന്ധവ്യാപാരം"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Malabar port breathes smoke and fate — Hidden One will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Colonial fort — Templar-ude nada, Assassin-ude prathijna.",
+      "voiceover_ml": "[നറേറ്റർ]: മലബാർ തുറമുഖം പുകയുന്നു, വിധി അവനെ കാത്തിരിക്കുന്നു... ഈ ഏഴാം ദിനത്തിൽ മറഞ്ഞവന് പിന്മാറ്റമില്ല.",
       "prompt": "wide establishing shot of Malabar port storm sky day 7, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[HIDDEN ONE]: I did not come this far to kneel on day 7.",
-      "voiceover_ml": "[മറഞ്ഞവൻ]: Nothing is true — everything is permitted.",
+      "voiceover_ml": "[മറഞ്ഞവൻ]: ഈ ഏഴാം ദിനത്തിൽ... മുട്ടുമടക്കാൻ വേണ്ടിയല്ല ഞാൻ ഇവിടം വരെ എത്തിയത്.",
       "prompt": "Hidden One mid battle against shadows in Malabar port, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[TEMPLAR]: Then bleed again, hero — Malabar port remembers every coward.",
-      "voiceover_ml": "[ടെംപിൾ]: Order nammude — nee oru ghost maathram.",
+      "voiceover_ml": "[ടെംപിൾ]: അങ്ങനെയെങ്കിൽ വീണ്ടും രക്തം ചിന്തുക, യോദ്ധാവേ... ഈ തുറമുഖം ഭീരുക്കളെ ഓർക്കാൻ മറക്കില്ല.",
       "prompt": "Templar villain reveal fire backlight, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[MENTOR]: Stand up. We finish day 7 together.",
-      "voiceover_ml": "[ഗുരു]: Leap of faith — kadalil veezhoo, vishwasathil ezhoo.",
+      "voiceover_ml": "[ഗുരു]: എഴുന്നേൽക്കൂ, മകനേ... ഈ ഏഴാം ദിനം നമ്മൾ ഒരുമിച്ച് കടന്നുപോകും.",
       "prompt": "Mentor and Hidden One stand back to back, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 7.",
-      "voiceover_ml": "[നറേറ്റർ]: Hidden blade — silent, deadly, Kerala coast.",
+      "voiceover_ml": "[നറേറ്റർ]: ഉരുക്ക് കൂട്ടിമുട്ടി ശബ്ദിച്ചു... ഈ ഏഴാം ദിനത്തിലെ ഓരോ ചുവടും മണ്ണ് കുറിച്ചുവെക്കും.",
       "prompt": "Hidden One running through burning ruins, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[HIDDEN ONE]: My pain is my weapon now — watch me on day 7.",
-      "voiceover_ml": "[മറഞ്ഞവൻ]: Templar veenu — coast swatantram aayi.",
+      "voiceover_ml": "[മറഞ്ഞവൻ]: എൻ്റെ വേദനയിപ്പോൾ എൻ്റെ ആയുധം തന്നെ... ഈ ഏഴാം ദിനം എൻ്റെ ശക്തി കാണുക!",
       "prompt": "close up Hidden One face rage and tears, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 7 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Eagle vision — truth kaattunnu, lie marakkunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ വീണ്ടും വന്നെത്തുന്നു... മധുരവും കടുപ്പമുള്ളതുമാണവ, അത്യാവശ്യമായതും. ഏഴാം ദിനം സത്യത്തെ ആവശ്യപ്പെടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[HIDDEN ONE]: For Kerala. For every soul who believed — day 7 is ours.",
-      "voiceover_ml": "[മറഞ്ഞവൻ]: Brotherhood — oru manass, oru mission.",
+      "voiceover_ml": "[മറഞ്ഞവൻ]: കേരളത്തിൻ്റെ മണ്ണിൽ... എന്നിൽ വിശ്വാസമർപ്പിച്ച എല്ലാ ആത്മാക്കൾക്കും വേണ്ടി... ഈ ഏഴാം ദിനം നമ്മുടേത്!",
       "prompt": "Hidden One final strike slow motion day 7, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[TEMPLAR]: You win today... but day 8 takes everything.",
-      "voiceover_ml": "[ടെംപിൾ]: Njan veenu — pakshe Order thudarunnu.",
+      "voiceover_ml": "[ടെംപിൾ]: ഇന്ന് നീ ജയിച്ചെന്ന് കരുതൂ... പക്ഷേ എട്ടാം ദിനം നിൻ്റെ എല്ലാം ഞാനെടുക്കും!",
       "prompt": "Templar falls or escapes cliffhanger, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Malabar port — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Mentor pooyi — torch pass cheythu.",
+      "voiceover_ml": "[നറേറ്റർ]: മലബാർ തുറമുഖത്ത് നിശ്ശബ്ദത നിറഞ്ഞു... എന്നാൽ അതിന് അധികം ആയുസ്സുണ്ടായില്ല.",
       "prompt": "wide Malabar port dawn after battle, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 8.",
-      "voiceover_ml": "[നറേറ്റർ]: Assassin avasanichu — Kochi arena-il clutch veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെയാണ് ഈ കഥ മാറുന്നത്! എട്ടാം ദിനം നിങ്ങൾക്ക് നഷ്ടപ്പെടുത്താനാകില്ല.",
       "prompt": "Hidden One walks toward camera epic finale, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "എട്ടാം ദിനം"
     }
   ]
 }
