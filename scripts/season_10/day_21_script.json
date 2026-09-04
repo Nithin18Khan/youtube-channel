@@ -2,9 +2,9 @@
   "day": 21,
   "season": 10,
   "title_en": "CREED OATH",
-  "title_ml": "creed oath",
+  "title_ml": "പ്രതിജ്ഞാ വാക്ക്",
   "hook_en": "NOTHING IS TRUE!",
-  "hook_ml": "nothing is true!",
+  "hook_ml": "പ്രതിജ്ഞയും പുതിയ ദിനവും",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Malabar port, chapter 21 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Malabar kaattil — kadal, pepper, rahasyam — Hidden One veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: മലബാർ തുറമുഖത്ത്, ഇരുപത്തിയൊന്നാം അധ്യായം ഇടിമുഴക്കത്തോടെ വിരിയുന്നു.",
       "prompt": "Hidden One heroic low angle in Malabar port, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "title_overlay_en": "NOTHING IS TRUE!",
-      "title_overlay_ml": "nothing is true!"
+      "title_overlay_ml": "പ്രതിജ്ഞയും പുതിയ ദിനവും"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Malabar port breathes smoke and fate — Hidden One will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Colonial fort — Templar-ude nada, Assassin-ude prathijna.",
+      "voiceover_ml": "[നറേറ്റർ]: മലബാർ തുറമുഖം പുകയും വിധിവിളിയും പേറി... മറഞ്ഞവൻ പിൻവാങ്ങില്ല, സത്യം.",
       "prompt": "wide establishing shot of Malabar port storm sky day 21, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[HIDDEN ONE]: I did not come this far to kneel on day 21.",
-      "voiceover_ml": "[മറഞ്ഞവൻ]: Nothing is true — everything is permitted.",
+      "voiceover_ml": "[മറഞ്ഞവൻ]: മുട്ടുമടക്കാൻ വേണ്ടിയായിരുന്നില്ല എൻ്റെ ഈ കടന്നുവരവ്... ഈ ഇരുപത്തിയൊന്നാം ദിനം!",
       "prompt": "Hidden One mid battle against shadows in Malabar port, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[TEMPLAR]: Then bleed again, hero — Malabar port remembers every coward.",
-      "voiceover_ml": "[ടെംപിൾ]: Order nammude — nee oru ghost maathram.",
+      "voiceover_ml": "[ടെംപിൾ]: വീണ്ടും നിൻ്റെ രക്തം ഒഴുകട്ടെ, ധീരാ! ഈ മലബാർ തുറമുഖം ഭീരുത്വത്തെ പൊറുക്കില്ല.",
       "prompt": "Templar villain reveal fire backlight, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[MENTOR]: Stand up. We finish day 21 together.",
-      "voiceover_ml": "[ഗുരു]: Leap of faith — kadalil veezhoo, vishwasathil ezhoo.",
+      "voiceover_ml": "[ഗുരു]: എഴുന്നേൽക്ക്. ഇരുപത്തിയൊന്നാം ദിനം നമുക്കൊരുമിച്ച് നേടാം.",
       "prompt": "Mentor and Hidden One stand back to back, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 21.",
-      "voiceover_ml": "[നറേറ്റർ]: Hidden blade — silent, deadly, Kerala coast.",
+      "voiceover_ml": "[നറേറ്റർ]: ലോഹങ്ങൾ കൂട്ടിയിടിച്ചു; ഈ ഇരുപത്തിയൊന്നാം ദിനത്തിലെ ഓരോ പാദമുദ്രയും മണ്ണ് അടയാളപ്പെടുത്തും.",
       "prompt": "Hidden One running through burning ruins, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[HIDDEN ONE]: My pain is my weapon now — watch me on day 21.",
-      "voiceover_ml": "[മറഞ്ഞവൻ]: Templar veenu — coast swatantram aayi.",
+      "voiceover_ml": "[മറഞ്ഞവൻ]: എൻ്റെ വേദനയിന്ന് എൻ്റെ ആയുധമായി... ഈ ഇരുപത്തിയൊന്നാം ദിനത്തിലെ എൻ്റെ കളി നിങ്ങളറിയുക!",
       "prompt": "close up Hidden One face rage and tears, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 21 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Eagle vision — truth kaattunnu, lie marakkunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മടങ്ങിയെത്തി... മധുരവും ക്രൂരവും, അത്യാവശ്യമായ സത്യങ്ങളും. ഇരുപത്തിയൊന്നാം ദിനം ആ സത്യം അറിയാൻ വെമ്പൽ കൊള്ളുന്നു.",
       "prompt": "vision of past memory ghostly overlay, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[HIDDEN ONE]: For Kerala. For every soul who believed — day 21 is ours.",
-      "voiceover_ml": "[മറഞ്ഞവൻ]: Brotherhood — oru manass, oru mission.",
+      "voiceover_ml": "[മറഞ്ഞവൻ]: ഈ കേരളത്തിന്! എന്നിൽ പ്രതീക്ഷയർപ്പിച്ച ഓരോ ആത്മാവിനും വേണ്ടി... ഇരുപത്തിയൊന്നാം ദിനം നമ്മുടേതാകുന്നു!",
       "prompt": "Hidden One final strike slow motion day 21, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[TEMPLAR]: You win today... but day 22 takes everything.",
-      "voiceover_ml": "[ടെംപിൾ]: Njan veenu — pakshe Order thudarunnu.",
+      "voiceover_ml": "[ടെംപിൾ]: ഈ ദിനം നിനക്ക് നേടാം... പക്ഷേ ഇരുപത്തിരണ്ടാം ദിനം ഞാൻ നിൻ്റെയെല്ലാം ഇല്ലാതാക്കും!",
       "prompt": "Templar falls or escapes cliffhanger, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Malabar port — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Mentor pooyi — torch pass cheythu.",
+      "voiceover_ml": "[നറേറ്റർ]: മലബാർ തുറമുഖത്ത് ഒരു നിമിഷം മൗനം കനത്തു... എന്നാൽ ഈ ശാന്തത വെറും തുടക്കം മാത്രം.",
       "prompt": "wide Malabar port dawn after battle, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 22.",
-      "voiceover_ml": "[നറേറ്റർ]: Assassin avasanichu — Kochi arena-il clutch veenu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ വിധി മാറും! ഇരുപത്തിരണ്ടാം ദിനം ഒരിക്കലും കണ്ണെടുക്കരുത്!",
       "prompt": "Hidden One walks toward camera epic finale, Assassins Creed cinematic Malabar coast hidden blade, Unreal Engine 5 render, monsoon sea spray, colonial fort silhouette, leap of faith, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
