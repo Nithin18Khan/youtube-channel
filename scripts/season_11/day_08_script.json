@@ -2,9 +2,9 @@
   "day": 8,
   "season": 11,
   "title_en": "HEADSHOT TWO",
-  "title_ml": "headshot two",
+  "title_ml": "തലവെട്ട് രണ്ട്",
   "hook_en": "TWO LEFT!",
-  "hook_ml": "two left!",
+  "hook_ml": "എട്ടാം ദിനം, വിധിയുടെ യുദ്ധം!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In Ascent map, chapter 8 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Kochi arena — neon, crowd, oru round, oru jeevan.",
+      "voiceover_ml": "[നറേറ്റർ]: അസെന്റ് മാപ്പിൽ, എട്ടാം അധ്യായം ഇടിനാദമുയർത്തി തുറക്കുന്നു.",
       "prompt": "Agent heroic low angle in Ascent map, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "title_overlay_en": "TWO LEFT!",
-      "title_overlay_ml": "two left!"
+      "title_overlay_ml": "എട്ടാം ദിനം, വിധിയുടെ യുദ്ധം!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Ascent map breathes smoke and fate — Agent will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Match point — 1v5 — Malayali heart clutch cheyyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: അസെന്റ് മാപ്പ് പുകയാൽ നിറഞ്ഞു, വിധി അവിടെ കാത്തിരിക്കുന്നു. എട്ടാം ദിനത്തിൽ ഏജൻ്റ് പിന്നോട്ട് പോകാൻ ഒരുക്കമല്ല.",
       "prompt": "wide establishing shot of Ascent map storm sky day 8, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[AGENT]: I did not come this far to kneel on day 8.",
-      "voiceover_ml": "[ഏജന്റ്]: Team, trust cheyyoo — njan handle cheyyum.",
+      "voiceover_ml": "[ഏജന്റ്]: ഈ എട്ടാം ദിനം കീഴടങ്ങാൻ ഞാൻ ഇവിടെ ഇത്രയും ദൂരം വന്നതേയില്ല.",
       "prompt": "Agent mid battle against shadows in Ascent map, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[RIVAL]: Then bleed again, hero — Ascent map remembers every coward.",
-      "voiceover_ml": "[എതിർ ടീം]: Impossible clutch — njan kanditilla.",
+      "voiceover_ml": "[എതിർ ടീം]: എങ്കിൽ, രക്തം വീണ്ടും ചിന്തൂ, ധീരാ! അസെന്റ് ഭീരുക്കളെ ഓർത്ത് പരിഹസിക്കും.",
       "prompt": "Rival villain reveal fire backlight, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[TEAM]: Stand up. We finish day 8 together.",
-      "voiceover_ml": "[ടീം]: Spike plant — 40 seconds — nammal jayikkum.",
+      "voiceover_ml": "[ടീം]: തലയുയർത്തി നിൽക്കൂ! എട്ടാം ദിനം നമുക്കൊരുമിച്ച് നേടണം.",
       "prompt": "Team and Agent stand back to back, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 8.",
-      "voiceover_ml": "[നറേറ്റർ]: Headshot, headshot — crowd udichu.",
+      "voiceover_ml": "[നറേറ്റർ]: ലോഹങ്ങൾ ഉരസി! എട്ടാം ദിനത്തിലെ ഓരോ ചുവടും മണ്ണ് ഓർമ്മയിൽ സൂക്ഷിക്കും.",
       "prompt": "Agent running through burning ruins, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[AGENT]: My pain is my weapon now — watch me on day 8.",
-      "voiceover_ml": "[ഏജന്റ്]: One HP — one shot — Kochi king.",
+      "voiceover_ml": "[ഏജന്റ്]: എൻ്റെ വേദനയിന്ന് എൻ്റെ ശക്തിയാണ്! ഈ എട്ടാം ദിനത്തിൽ എൻ്റെ പോരാട്ടം കാണൂ.",
       "prompt": "close up Agent face rage and tears, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 8 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: 360 flick — slow motion — legend born.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മനസ്സിൽ തെളിയുന്നു... മധുരവും ക്രൂരവും, സത്യവും. എട്ടാം ദിനം അത് പുറത്തുവരും.",
       "prompt": "vision of past memory ghostly overlay, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[AGENT]: For Kerala. For every soul who believed — day 8 is ours.",
-      "voiceover_ml": "[ഏജന്റ്]: Ace — MVP — nammude Kochi.",
+      "voiceover_ml": "[ഏജന്റ്]: കേരളത്തിനായി. എൻ്റെ വിശ്വാസം കാത്ത ഓരോ ഹൃദയത്തിനും വേണ്ടി! എട്ടാം ദിനം നമ്മുടേത്.",
       "prompt": "Agent final strike slow motion day 8, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[RIVAL]: You win today... but day 9 takes everything.",
-      "voiceover_ml": "[എതിർ ടീം]: Respekt — nee monster aanu.",
+      "voiceover_ml": "[എതിർ ടീം]: ഇന്ന് നിനക്ക് ജയിക്കാം... പക്ഷേ ഒൻപതാം ദിനം നിൻ്റെയെല്ലാം തിരിച്ചെടുക്കും.",
       "prompt": "Rival falls or escapes cliffhanger, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Ascent map — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Trophy uyarthi — Malayalam pride.",
+      "voiceover_ml": "[നറേറ്റർ]: അസെന്റ് മാപ്പിൽ നിമിഷനേരം മൗനം തളംകെട്ടി... പക്ഷേ ആ ശാന്തത വേഗം മാഞ്ഞു.",
       "prompt": "wide Ascent map dawn after battle, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 9.",
-      "voiceover_ml": "[നറേറ്റർ]: Valorant avasanichu — ella legendsum onnu cheyyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ പുതിയൊരു ലോകം! ഒൻപതാം ദിനം കണ്ടിരിക്കേണ്ടതാണ്.",
       "prompt": "Agent walks toward camera epic finale, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
