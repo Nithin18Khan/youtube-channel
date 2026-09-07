@@ -2,9 +2,9 @@
   "day": 3,
   "season": 12,
   "title_en": "KARNA BOW",
-  "title_ml": "karna bow",
+  "title_ml": "കർണ്ണന്റെ വില്ല്",
   "hook_en": "SUN ARROW!",
-  "hook_ml": "sun arrow!",
+  "hook_ml": "കർണ്ണന്റെ വില്ല്, മൂന്നാം ദിനം!",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 3 — KARNA BOW.",
-      "voiceover_ml": "[നറേറ്റർ]: Portal thurannu — Kratos, Karna, Rama, Riyas — ellam onnu.",
+      "voiceover_ml": "[നറേറ്റർ]: മൂന്നാം ദിനം ആരംഭിക്കുന്നു! ഇതാ കർണ്ണന്റെ വില്ല് മുഴങ്ങുന്നു.",
       "prompt": "All Heroes heroic low angle in merged worlds battlefield, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "title_overlay_en": "SUN ARROW!",
-      "title_overlay_ml": "sun arrow!"
+      "title_overlay_ml": "കർണ്ണന്റെ വില്ല്, മൂന്നാം ദിനം!"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: merged worlds battlefield breathes smoke and fate — All Heroes will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Merged worlds — Kerala hrudayam — final war.",
+      "voiceover_ml": "[നറേറ്റർ]: ഒന്നുചേർന്ന ലോകങ്ങളിലെ യുദ്ധക്കളം തീയും പുകയും നിറഞ്ഞിരിക്കുന്നു... നായകരാരും ഒരടി പിന്നോട്ട് വെക്കില്ല.",
       "prompt": "wide establishing shot of merged worlds battlefield storm sky day 3, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ALL HEROES]: I did not come this far to kneel on day 3.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Nammal onnu — Dark King veezhoo!",
+      "voiceover_ml": "[എല്ലാ നായകരും]: ഈ മൂന്നാം ദിനം മുട്ടുമടക്കാൻ, ഇത്രയും ദൂരം ഞങ്ങൾ വന്നതല്ല.",
       "prompt": "All Heroes mid battle against shadows in merged worlds battlefield, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[DARK KING]: Then bleed again, hero — merged worlds battlefield remembers every coward.",
-      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: Ningal ellam story — njan end.",
+      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: എങ്കിൽ വീണ്ടും ചോരയൊഴുക്കാൻ തയ്യാറാവൂ, നായകരെ... ഈ മണ്ണിൽ ഭീരുക്കൾക്ക് സ്ഥാനമില്ല.",
       "prompt": "Dark King villain reveal fire backlight, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KERALA]: Stand up. We finish day 3 together.",
-      "voiceover_ml": "[കerala]: Nammude mannu — nammude swapnam — nammal rakshikkum.",
+      "voiceover_ml": "[കerala]: എഴുന്നേൽക്കൂ, എല്ലാവരും! ഈ മൂന്നാം ദിനം നമുക്ക് ഒരുമിച്ച് ജയിച്ചെടുക്കാം.",
       "prompt": "Kerala and All Heroes stand back to back, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 3.",
-      "voiceover_ml": "[നറേറ്റർ]: Ultimate combo — every season, every hero.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകളുടെ ശബ്ദം യുദ്ധക്കളത്തിൽ മുഴങ്ങുന്നു... ഈ മൂന്നാം ദിനത്തിലെ ഓരോ ചുവടും മണ്ണ് ഓർമ്മിച്ചെടുക്കും.",
       "prompt": "All Heroes running through burning ruins, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[ALL HEROES]: My pain is my weapon now — watch me on day 3.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Sacrifice — hope — ellarum fight cheyyum.",
+      "voiceover_ml": "[എല്ലാ നായകരും]: എന്റെ വേദനയാണ് ഇപ്പോൾ എന്റെ ഏറ്റവും മൂർച്ചയേറിയ ആയുധം... ഈ മൂന്നാം ദിനം നിങ്ങൾ കണ്ടറിയും!",
       "prompt": "close up All Heroes face rage and tears, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 3 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Dark King veenu — portals close — sunrise.",
+      "voiceover_ml": "[നറേറ്റർ]: മറന്നുപോയ ഓർമ്മകൾ ഉണർന്നു വരുന്നു... മധുരവും കയ്പും ചേർന്ന സത്യം ഈ മൂന്നാം ദിനം ആവശ്യപ്പെടുന്നു.",
       "prompt": "vision of past memory ghostly overlay, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ALL HEROES]: For Kerala. For every soul who believed — day 3 is ours.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Thank you — viewer — nammal ellam onnu.",
+      "voiceover_ml": "[എല്ലാ നായകരും]: കേരളത്തിന് വേണ്ടി... നമ്മളെ വിശ്വസിച്ച ഓരോ ജീവനും വേണ്ടി... ഈ മൂന്നാം ദിനം നമ്മൾ സ്വന്തമാക്കും!",
       "prompt": "All Heroes final strike slow motion day 3, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[DARK KING]: You win today... but day 4 takes everything.",
-      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: Njan veenu — pakshe saga thudarunnu.",
+      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: ഇന്ന് നിങ്ങൾ വിജയിച്ചേക്കാം... പക്ഷേ നാലാം ദിനം നിങ്ങളുടെ എല്ലാം കവർന്നെടുക്കാൻ വരും.",
       "prompt": "Dark King falls or escapes cliffhanger, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over merged worlds battlefield — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Year recap — every story you loved.",
+      "voiceover_ml": "[നറേറ്റർ]: ഒന്നുചേർന്ന ലോകങ്ങളിലെ യുദ്ധക്കളത്തിൽ ഒരു നിശബ്ദത പടർന്നു... പക്ഷേ ഈ ശാന്തതയ്ക്ക് അധികം ആയുസ്സില്ല.",
       "prompt": "wide merged worlds battlefield dawn after battle, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 4.",
-      "voiceover_ml": "[നറേറ്റർ]: Year avasanichu — puthiya saga thudangunnu. Namaskaram.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ എല്ലാം തകിടം മറിയും. നാലാം ദിനം നിങ്ങൾ ഒരിക്കലും കാണാതെ പോകരുത്.",
       "prompt": "All Heroes walks toward camera epic finale, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "നാലാം ദിനം"
     }
   ]
 }

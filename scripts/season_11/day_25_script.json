@@ -2,9 +2,9 @@
   "day": 25,
   "season": 11,
   "title_en": "NEXT TOURNAMENT",
-  "title_ml": "next tournament",
+  "title_ml": "അടുത്ത പോരാട്ടം: ഇരുപത്തിയഞ്ചാം ദിനം",
   "hook_en": "VCT CALL!",
-  "hook_ml": "vct call!",
+  "hook_ml": "ഇരുപത്തിയഞ്ചാം ദിനം, നാളത്തെ വിധി.",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 25 — the war for Ascent map deepens.",
-      "voiceover_ml": "[നറേറ്റർ]: Kochi arena — neon, crowd, oru round, oru jeevan.",
+      "voiceover_ml": "[നറേറ്റർ]: ഇരുപത്തിയഞ്ചാം ദിനം... അസെന്റ് കളത്തിൽ പോരാട്ടം പുതിയൊരു തലത്തിലേക്ക് കടന്നു.",
       "prompt": "Agent heroic low angle in Ascent map, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "title_overlay_en": "VCT CALL!",
-      "title_overlay_ml": "vct call!"
+      "title_overlay_ml": "ഇരുപത്തിയഞ്ചാം ദിനം, നാളത്തെ വിധി."
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Ascent map breathes smoke and fate — Agent will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Match point — 1v5 — Malayali heart clutch cheyyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: പുകമറഞ്ഞ അസെന്റ് കളം, ഒരു വിധി രചിക്കാൻ ഒരുങ്ങുന്നു... ഏജൻ്റിന് പിന്നോട്ടില്ല, ഇത് തീർച്ച.",
       "prompt": "wide establishing shot of Ascent map storm sky day 25, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[AGENT]: I did not come this far to kneel on day 25.",
-      "voiceover_ml": "[ഏജന്റ്]: Team, trust cheyyoo — njan handle cheyyum.",
+      "voiceover_ml": "[ഏജന്റ്]: ഇരുപത്തിയഞ്ചാം ദിനം മുട്ടുമടക്കാൻ, ഇത്രയും ദൂരം ഞാൻ കാത്തിരുന്നിട്ടില്ല!",
       "prompt": "Agent mid battle against shadows in Ascent map, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[RIVAL]: Then bleed again, hero — Ascent map remembers every coward.",
-      "voiceover_ml": "[എതിർ ടീം]: Impossible clutch — njan kanditilla.",
+      "voiceover_ml": "[എതിർ ടീം]: ഇനിയും ചോരയൊഴുകാൻ തയ്യാറെടുക്കൂ, വീരാ... അസെന്റ് ഭൂപടം ഭീരുവിനെ മറക്കുകയില്ല.",
       "prompt": "Rival villain reveal fire backlight, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[TEAM]: Stand up. We finish day 25 together.",
-      "voiceover_ml": "[ടീം]: Spike plant — 40 seconds — nammal jayikkum.",
+      "voiceover_ml": "[ടീം]: എഴുന്നേൽക്കൂ... ഈ ഇരുപത്തിയഞ്ചാം ദിനം നമ്മൾ ഒരുമിച്ച് നേരിടും.",
       "prompt": "Team and Agent stand back to back, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 25.",
-      "voiceover_ml": "[നറേറ്റർ]: Headshot, headshot — crowd udichu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഉരുക്കുകൾ ഇടിമുഴക്കം തീർത്തു... ഇരുപത്തിയഞ്ചാം ദിനത്തിലെ ഓരോ കാൽപ്പാടും ഈ ഭൂമിക്ക് മറക്കാനാകില്ല.",
       "prompt": "Agent running through burning ruins, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[AGENT]: My pain is my weapon now — watch me on day 25.",
-      "voiceover_ml": "[ഏജന്റ്]: One HP — one shot — Kochi king.",
+      "voiceover_ml": "[ഏജന്റ്]: എന്നെ മുറിവേൽപ്പിച്ചതെല്ലാം, ഇപ്പോൾ എൻ്റെ ആയുധം... ഇരുപത്തിയഞ്ചാം ദിനം എൻ്റെ പോരാട്ടം നിങ്ങൾ കണ്ടറിയുക!",
       "prompt": "close up Agent face rage and tears, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 25 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: 360 flick — slow motion — legend born.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ മനസ്സിലേക്ക് വീണ്ടും എത്തുന്നു... ഇരുപത്തിയഞ്ചാം ദിനം സത്യത്തിന് മറുപടി നൽകേണ്ടതുണ്ട്.",
       "prompt": "vision of past memory ghostly overlay, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[AGENT]: For Kerala. For every soul who believed — day 25 is ours.",
-      "voiceover_ml": "[ഏജന്റ്]: Ace — MVP — nammude Kochi.",
+      "voiceover_ml": "[ഏജന്റ്]: കേരളത്തിനായി... എന്നെ വിശ്വസിച്ച ഓരോ മനസ്സിനും വേണ്ടി! ഇരുപത്തിയഞ്ചാം ദിനം നമ്മൾ സ്വന്തമാക്കും!",
       "prompt": "Agent final strike slow motion day 25, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[RIVAL]: You win today... but day 26 takes everything.",
-      "voiceover_ml": "[എതിർ ടീം]: Respekt — nee monster aanu.",
+      "voiceover_ml": "[എതിർ ടീം]: ഇന്ന് നീ നേട്ടമുണ്ടാക്കി... എന്നാൽ ഇരുപത്തിയാറാം ദിനം നിൻ്റെയെല്ലാം തകർത്തെറിയും.",
       "prompt": "Rival falls or escapes cliffhanger, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over Ascent map — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Trophy uyarthi — Malayalam pride.",
+      "voiceover_ml": "[നറേറ്റർ]: അസെന്റ് കളത്തിൽ ഒരു നേരിയ ശാന്തത പടർന്നു... പക്ഷേ ആ മൗനത്തിന് അധികം ആയുസ്സുണ്ടായിരുന്നില്ല.",
       "prompt": "wide Ascent map dawn after battle, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 26.",
-      "voiceover_ml": "[നറേറ്റർ]: Valorant avasanichu — ella legendsum onnu cheyyunnu.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ വരാനിരിക്കുന്നത് സകലതും മാറ്റിമറിക്കും! ഇരുപത്തിയാറാം ദിനം നിങ്ങൾ തീർച്ചയായും കാണണം!",
       "prompt": "Agent walks toward camera epic finale, Valorant cinematic esports clutch Kochi arena neon, Unreal Engine 5 render, spike plant glow, agent ability particles, crowd bokeh, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "ഇരുപത്തിയാറാം ദിനം"
     }
   ]
 }
