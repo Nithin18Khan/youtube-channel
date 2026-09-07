@@ -332,9 +332,11 @@
     "s11d30",
     "s12d01",
     "s12d02",
-    "s12d03"
+    "s12d03",
+    "s12d04",
+    "s12d05"
   ],
   "failed": [],
-  "updated_at": "2026-09-07T18:40:50.936992+00:00",
+  "updated_at": "2026-09-07T21:43:53.684685+00:00",
   "note": "Week 1 S1+S2 pre-refined; batch --all skips these unless --force"
 }

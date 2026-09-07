@@ -2,9 +2,9 @@
   "day": 5,
   "season": 12,
   "title_en": "BGMI SQUAD",
-  "title_ml": "bgmi squad",
+  "title_ml": "അഞ്ചാം ദിനം: BGMI സ്ക്വാഡ്",
   "hook_en": "LAST ZONE TEAM!",
-  "hook_ml": "last zone team!",
+  "hook_ml": "അഞ്ചാം ദിനം: പോരാട്ടം തുടരുന്നു.",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Day 5 — BGMI SQUAD.",
-      "voiceover_ml": "[നറേറ്റർ]: Portal thurannu — Kratos, Karna, Rama, Riyas — ellam onnu.",
+      "voiceover_ml": "[നറേറ്റർ]: അഞ്ചാം ദിനം... BGMI സ്ക്വാഡ് കളത്തിലിറങ്ങുന്നു.",
       "prompt": "All Heroes heroic low angle in merged worlds battlefield, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "title_overlay_en": "LAST ZONE TEAM!",
-      "title_overlay_ml": "last zone team!"
+      "title_overlay_ml": "അഞ്ചാം ദിനം: പോരാട്ടം തുടരുന്നു."
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: merged worlds battlefield breathes smoke and fate — All Heroes will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Merged worlds — Kerala hrudayam — final war.",
+      "voiceover_ml": "[നറേറ്റർ]: ഒന്നിച്ച ലോകങ്ങളുടെ യുദ്ധക്കളം തീക്ഷ്ണമാണ്... ഒരു നായകനും ഇവിടെ തോൽക്കാൻ വന്നതല്ല.",
       "prompt": "wide establishing shot of merged worlds battlefield storm sky day 5, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ALL HEROES]: I did not come this far to kneel on day 5.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Nammal onnu — Dark King veezhoo!",
+      "voiceover_ml": "[എല്ലാ നായകരും]: ഇത്രയും കാലം പൊരുതിയത് ഈ അഞ്ചാം ദിനം തോൽക്കാൻ വേണ്ടിയല്ല!",
       "prompt": "All Heroes mid battle against shadows in merged worlds battlefield, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[DARK KING]: Then bleed again, hero — merged worlds battlefield remembers every coward.",
-      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: Ningal ellam story — njan end.",
+      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: എങ്കിൽ, വീണ്ടും രക്തം ചിന്തൂ നായകരെ... ഈ മണ്ണിൽ പേടിച്ച് ഓടുന്നവരെല്ലാം അടയാളപ്പെടുത്തപ്പെടും.",
       "prompt": "Dark King villain reveal fire backlight, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KERALA]: Stand up. We finish day 5 together.",
-      "voiceover_ml": "[കerala]: Nammude mannu — nammude swapnam — nammal rakshikkum.",
+      "voiceover_ml": "[കേരള]: എഴുന്നേൽക്കൂ... ഈ അഞ്ചാം ദിനം നമ്മൾ ഒന്നായി പൂർത്തിയാക്കും!",
       "prompt": "Kerala and All Heroes stand back to back, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 5.",
-      "voiceover_ml": "[നറേറ്റർ]: Ultimate combo — every season, every hero.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾക്ക് മൂർച്ച കൂടും... ഈ മണ്ണിന് അഞ്ചാം ദിനത്തിലെ ഓരോ ചുവടും ഓർമ്മയുണ്ട്.",
       "prompt": "All Heroes running through burning ruins, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[ALL HEROES]: My pain is my weapon now — watch me on day 5.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Sacrifice — hope — ellarum fight cheyyum.",
+      "voiceover_ml": "[എല്ലാ നായകരും]: എന്റെ വേദനയാണ് ഇപ്പോൾ എന്റെ ശക്തി... അഞ്ചാം ദിനം ഞാൻ എന്താണെന്ന് കാണാം!",
       "prompt": "close up All Heroes face rage and tears, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 5 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Dark King veenu — portals close — sunrise.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ തിരിച്ചെത്തുന്നു... മധുരവും കയ്പും ചേർന്ന സത്യം ഈ അഞ്ചാം ദിനം വെളിവാക്കപ്പെടും.",
       "prompt": "vision of past memory ghostly overlay, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ALL HEROES]: For Kerala. For every soul who believed — day 5 is ours.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Thank you — viewer — nammal ellam onnu.",
+      "voiceover_ml": "[എല്ലാ നായകരും]: കേരളത്തിന് വേണ്ടി... വിശ്വസിച്ച ഓരോ ഹൃദയത്തിനും വേണ്ടി... അഞ്ചാം ദിനം നമ്മൾ സ്വന്തമാക്കും!",
       "prompt": "All Heroes final strike slow motion day 5, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[DARK KING]: You win today... but day 6 takes everything.",
-      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: Njan veenu — pakshe saga thudarunnu.",
+      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: ഈ ദിനം നിങ്ങളുടെതാവാം... പക്ഷേ ആറാം ദിനം എല്ലാം കവർന്നെടുക്കും!",
       "prompt": "Dark King falls or escapes cliffhanger, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over merged worlds battlefield — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Year recap — every story you loved.",
+      "voiceover_ml": "[നറേറ്റർ]: ഒന്നായ ലോകങ്ങളുടെ യുദ്ധക്കളത്തിൽ ഒരു നേർത്ത നിശബ്ദത തളംകെട്ടി... എന്നാൽ അത് നീണ്ടുനിന്നില്ല.",
       "prompt": "wide merged worlds battlefield dawn after battle, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -119,10 +119,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 6.",
-      "voiceover_ml": "[നറേറ്റർ]: Year avasanichu — puthiya saga thudangunnu. Namaskaram.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളത്തെ പ്രഭാതം എല്ലാം മാറ്റിമറിക്കും... ആറാം ദിനം കാണാതെ പോകരുത്.",
       "prompt": "All Heroes walks toward camera epic finale, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
-      "title_overlay_ml": "തുടരുന്നു"
+      "title_overlay_ml": "ആറാം ദിനം: കാത്തിരിക്കുന്നു"
     }
   ]
 }
