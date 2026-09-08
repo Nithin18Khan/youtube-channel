@@ -2,9 +2,9 @@
   "day": 11,
   "season": 12,
   "title_en": "VALORANT AGENT",
-  "title_ml": "valorant agent",
+  "title_ml": "ധീരനായ ഏജന്റ്",
   "hook_en": "CLUTCH KING!",
-  "hook_ml": "clutch king!",
+  "hook_ml": "വിധി മാറ്റുന്ന പതിനൊന്നാം ദിനം.",
   "bgm_volume": 0.22,
   "scenes": [
     {
@@ -13,10 +13,10 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: In merged worlds battlefield, chapter 11 opens with thunder.",
-      "voiceover_ml": "[നറേറ്റർ]: Portal thurannu — Kratos, Karna, Rama, Riyas — ellam onnu.",
+      "voiceover_ml": "[നറേറ്റർ]: ഒന്നുചേർന്ന ലോകയുദ്ധക്കളത്തിൽ, പതിനൊന്നാം അധ്യായം കൊടുങ്കാറ്റുപോലെ തുടങ്ങുന്നു.",
       "prompt": "All Heroes heroic low angle in merged worlds battlefield, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "title_overlay_en": "CLUTCH KING!",
-      "title_overlay_ml": "clutch king!"
+      "title_overlay_ml": "വിധി മാറ്റുന്ന പതിനൊന്നാം ദിനം."
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: merged worlds battlefield breathes smoke and fate — All Heroes will not retreat.",
-      "voiceover_ml": "[നറേറ്റർ]: Merged worlds — Kerala hrudayam — final war.",
+      "voiceover_ml": "[നറേറ്റർ]: ഈ ലോകയുദ്ധക്കളം പുകയും വിധിയുടെ ആരവങ്ങളും ശ്വാസമെടുക്കുന്നു; ഒരു നായകനും പിന്മാറാനാവില്ല.",
       "prompt": "wide establishing shot of merged worlds battlefield storm sky day 11, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -33,7 +33,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[ALL HEROES]: I did not come this far to kneel on day 11.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Nammal onnu — Dark King veezhoo!",
+      "voiceover_ml": "[എല്ലാ നായകരും]: ഇവിടെ വന്നിട്ട് ഈ പതിനൊന്നാം ദിനം വെറുതെ വിട്ടുകൊടുക്കാൻ ഞങ്ങൾക്കാവില്ല!",
       "prompt": "All Heroes mid battle against shadows in merged worlds battlefield, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -43,7 +43,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[DARK KING]: Then bleed again, hero — merged worlds battlefield remembers every coward.",
-      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: Ningal ellam story — njan end.",
+      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: എങ്കിൽ, വീരാ, ഇനിയും ചോരയൊഴുക്കിക്കൊള്ളൂ! ഈ യുദ്ധക്കളം ഓരോ ഭീരുവിനെയും എന്നും ഓർമ്മിക്കും.",
       "prompt": "Dark King villain reveal fire backlight, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -53,7 +53,7 @@
       "pace": "establishing",
       "motion": "zoom_out",
       "voiceover_en": "[KERALA]: Stand up. We finish day 11 together.",
-      "voiceover_ml": "[കerala]: Nammude mannu — nammude swapnam — nammal rakshikkum.",
+      "voiceover_ml": "[കേരള]: ഉണർന്നെഴുന്നേൽക്കൂ! പതിനൊന്നാം ദിനം നമ്മളൊരുമിച്ച് പോരാടി നേടാം.",
       "prompt": "Kerala and All Heroes stand back to back, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -62,7 +62,7 @@
       "pace": "action",
       "motion": "pan_right",
       "voiceover_en": "[NARRATOR]: Steel clashes; the ground remembers every footstep on day 11.",
-      "voiceover_ml": "[നറേറ്റർ]: Ultimate combo — every season, every hero.",
+      "voiceover_ml": "[നറേറ്റർ]: വാളുകൾ ഏറ്റുമുട്ടുന്നു; ഈ മണ്ണ് പതിനൊന്നാം ദിനത്തിലെ ഓരോ ചുവടും മായാതെ ഓർമ്മിക്കും.",
       "prompt": "All Heroes running through burning ruins, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -72,7 +72,7 @@
       "pace": "action",
       "motion": "tracking_shot",
       "voiceover_en": "[ALL HEROES]: My pain is my weapon now — watch me on day 11.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Sacrifice — hope — ellarum fight cheyyum.",
+      "voiceover_ml": "[എല്ലാ നായകരും]: ഈ നോവാണ് എന്റെ കൂർത്ത ആയുധം; പതിനൊന്നാം ദിനത്തിലെ എന്റെ പോരാട്ടം ലോകം കാണട്ടെ!",
       "prompt": "close up All Heroes face rage and tears, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -81,7 +81,7 @@
       "pace": "establishing",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Memory returns — sweet, cruel, necessary — day 11 demands truth.",
-      "voiceover_ml": "[നറേറ്റർ]: Dark King veenu — portals close — sunrise.",
+      "voiceover_ml": "[നറേറ്റർ]: ഓർമ്മകൾ ഒരു പ്രവാഹം പോലെ തിരികെയെത്തുന്നു... പതിനൊന്നാം ദിനം ആഴത്തിലുള്ള സത്യം തുറന്നുകാട്ടും.",
       "prompt": "vision of past memory ghostly overlay, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -90,7 +90,7 @@
       "pace": "action",
       "motion": "whip_pan",
       "voiceover_en": "[ALL HEROES]: For Kerala. For every soul who believed — day 11 is ours.",
-      "voiceover_ml": "[എല്ലാ നായകരും]: Thank you — viewer — nammal ellam onnu.",
+      "voiceover_ml": "[എല്ലാ നായകരും]: കേരളത്തിന് വേണ്ടി... നമ്മളിൽ കരുതലോടെ വിശ്വസിച്ച ഓരോ ആത്മാവിനും വേണ്ടി... ഈ പതിനൊന്നാം ദിനം നമ്മൾക്ക് സ്വന്തം!",
       "prompt": "All Heroes final strike slow motion day 11, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -100,7 +100,7 @@
       "pace": "action",
       "motion": "pan_left",
       "voiceover_en": "[DARK KING]: You win today... but day 12 takes everything.",
-      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: Njan veenu — pakshe saga thudarunnu.",
+      "voiceover_ml": "[ഇരുണ്ട രാജൻ]: ഇന്നത്തെ ഈ ജയം നിങ്ങൾ നേടിക്കോളൂ... എന്നാൽ പന്ത്രണ്ടാം ദിനം നിങ്ങളുടെയെല്ലാം നിശേഷം ഇല്ലാതാക്കും.",
       "prompt": "Dark King falls or escapes cliffhanger, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "complex_action": true
     },
@@ -110,7 +110,7 @@
       "pace": "establishing",
       "motion": "tracking_shot",
       "voiceover_en": "[NARRATOR]: Silence falls over merged worlds battlefield — but not for long.",
-      "voiceover_ml": "[നറേറ്റർ]: Year recap — every story you loved.",
+      "voiceover_ml": "[നറേറ്റർ]: ഒന്നുചേർന്ന ലോകയുദ്ധക്കളത്തിൽ ഒരു നേരിയ മൗനം തളംകെട്ടി... എന്നാൽ ഈ ശാന്തതയ്ക്ക് അധികം ആയുസ്സുണ്ടാവില്ല.",
       "prompt": "wide merged worlds battlefield dawn after battle, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution"
     },
     {
@@ -119,7 +119,7 @@
       "pace": "hook",
       "motion": "zoom_in",
       "voiceover_en": "[NARRATOR]: Tomorrow changes everything. Do not miss day 12.",
-      "voiceover_ml": "[നറേറ്റർ]: Year avasanichu — puthiya saga thudangunnu. Namaskaram.",
+      "voiceover_ml": "[നറേറ്റർ]: നാളെ ഒരുപാട് മാറ്റങ്ങൾ കൊണ്ടുവരും! പന്ത്രണ്ടാം ദിനം നിങ്ങൾ തീർച്ചയായും കാണണം.",
       "prompt": "All Heroes walks toward camera epic finale, epic crossover all gaming legends united cinematic battle, Unreal Engine 5 render, merged worlds portal storm, Kerala coastline horizon, every hero silhouette, 8k resolution",
       "title_overlay_en": "TO BE CONTINUED",
       "title_overlay_ml": "തുടരുന്നു"
