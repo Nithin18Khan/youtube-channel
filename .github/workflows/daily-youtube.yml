@@ -80,9 +80,9 @@ jobs:
 
       - name: Upload to YouTube (EN + ML videos)
         run: |
-          DAY=$(python -c "import json; print(max(int(json.load(open('data/state.json'))['current_day']) - 1, 1))")
-          echo "Uploading rendered episode: Day $DAY"
-          python upload_day.py --day "$DAY" --privacy public
+          # Detect day from rendered MP4s — after Day 30, state.json is already Day 1
+          # of the next season, so current_day-1 would wrongly upload Day 1.
+          python upload_day.py --privacy public
 
       - name: Commit pipeline state
         run: |

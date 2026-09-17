@@ -48,11 +48,30 @@ def _pipeline_state_path() -> Path:
 
 
 
+def _day_from_output_videos() -> int | None:
+    """Use rendered MP4s so season wrap (Day 30 -> Day 1) still uploads Day 30."""
+    import re
+
+    output = BASE_DIR / "output"
+    if not output.exists():
+        return None
+    days: list[int] = []
+    for path in output.glob("Day_*_*.mp4"):
+        match = re.match(r"Day_(\d+)_(English|Malayalam)\.mp4$", path.name)
+        if match:
+            days.append(int(match.group(1)))
+    return max(days) if days else None
+
+
 def completed_day(explicit: int | None) -> int:
 
     if explicit is not None:
 
         return explicit
+
+    from_files = _day_from_output_videos()
+    if from_files is not None:
+        return from_files
 
     path = _pipeline_state_path()
 
@@ -64,7 +83,10 @@ def completed_day(explicit: int | None) -> int:
 
         current = int(json.load(fh).get("current_day", 1))
 
-    return max(current - 1, 1)
+    # After a season finale, state is already rolled to Day 1 of the next season.
+    if current <= 1:
+        return 30
+    return current - 1
 
 
 
